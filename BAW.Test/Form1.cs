@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using System.Collections;
 
 namespace BAW.Test
 {
@@ -15,7 +16,28 @@ namespace BAW.Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Console.WriteLine();
 
+            //GenReport(2015, 1);
+            //GenReport(2015, 2);
+            //GenReport(2015, 3);
+            //GenReport(2015, 4);
+            //GenReport(2015, 5);
+            //GenReport(2015, 6);
+            //GenReport(2015, 7);
+            //GenReport(2015, 8);
+            //GenReport(2015, 9);
+            //GenReport(2015, 10);
+            GenReport(2015, 11);
+            //GenReport(2015, 12);
+
+
+        }
+
+        public void GenReport(int year,int month)
+        {
+            Console.WriteLine("#SUMMRY REPORT OF {0}/{1}", month, year);
+            int _day = DateTime.DaysInMonth(year, month);
             List<Rpt01> listRpt = new List<Rpt01>();
             //Open connection
             using (MySqlConnection connection = new MySqlConnection("SERVER=localhost;DATABASE=itech;UID=root;PASSWORD=P@ssw0rd;"))
@@ -25,11 +47,11 @@ namespace BAW.Test
                             " left join request_borrow_equipment_type rbet on b.id = rbet.request_borrow_id" +
                             " left join equipment e on e.equipment_type_list_id = rbet.equipment_type_list_id" +
                             " where b.status_code in ('R_B_NEW_RETURNED')" +
-                            " and date(b.from_date)between '2015-11-01' and '2015-11-30'" +
-                            //" and e.barcode = '404000008711'" +
-                            " and e.equipment_type_list_id in (1134, 1135, 1107, 1108, 1089, 1132, 1128, 1129, 1153, 1125)" +
+                            " and date(b.from_date)between '" + year + "-" + month + "-01' and '" + year + "-" + month + "-" + _day + "'" +
+                            " and e.barcode in( '404000008709','404000008710','404000008711')" +
+                            //" and e.equipment_type_list_id in (1134, 1135, 1107, 1108, 1089, 1132, 1128, 1129, 1153, 1125)" +
                             " and e.name is not null" +
-                            " order by b.from_date,e.name asc";
+                            " order by e.name,e.barcode,b.from_date asc";
 
                 connection.Open();
                 //Create Command
@@ -37,8 +59,7 @@ namespace BAW.Test
                 //Create a data reader and Execute the command
                 MySqlDataReader dr = cmd.ExecuteReader();
 
-                int year = 2015;
-                int month = 11;
+
 
                 //String _barcode = String.Empty;
                 //Read the data and store them in the list
@@ -59,13 +80,17 @@ namespace BAW.Test
                 foreach (var item in groupItem)
                 {
                     List<DateTime> days = new List<DateTime>();
+                    Hashtable dataGroup = new Hashtable();
                     List<Rpt01> lstRpt01 = listRpt.Where(x => x.Barcode == item.Key).ToList();
                     foreach (Rpt01 rpt in lstRpt01)
                     {
                         int day = rpt.EndDate.Subtract(rpt.FromDate).Days;
                         for (int i = 0; i <= day; i++)
                         {
-                            days.Add(rpt.FromDate.AddDays(i));
+                            //dataGroup[rpt.Barcode] = rpt.FromDate.AddDays(i);
+                            if(!days.Contains(rpt.FromDate.AddDays(i))){
+                                days.Add(rpt.FromDate.AddDays(i));
+                            }
                         }
                     }
                     Console.Write(String.Format("{0},{1},", lstRpt01[0].Name, lstRpt01[0].Barcode));
@@ -73,6 +98,7 @@ namespace BAW.Test
                     int dayInMonth = DateTime.DaysInMonth(year, month);
                     for (int i = 1; i <= dayInMonth; i++)
                     {
+                        /*dataGroup[item.Key]*/;
                         DateTime dt = days.Where(x => x.Day == i && x.Year == year && x.Month == month).FirstOrDefault();
                         if (DateTime.MinValue == dt)
                         {
@@ -88,7 +114,7 @@ namespace BAW.Test
                 //close Data Reader
                 dr.Close();
             }
-            Console.WriteLine();
+            Console.WriteLine("-------------------END-OF-REPORT--------------------");
         }
     }
 }
