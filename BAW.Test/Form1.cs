@@ -18,18 +18,14 @@ namespace BAW.Test
         {
             Console.WriteLine();
 
-            //GenReport(2015, 1);
-            //GenReport(2015, 2);
-            //GenReport(2015, 3);
-            //GenReport(2015, 4);
-            //GenReport(2015, 5);
-            //GenReport(2015, 6);
-            //GenReport(2015, 7);
-            //GenReport(2015, 8);
-            //GenReport(2015, 9);
-            //GenReport(2015, 10);
-            GenReport(2015, 11);
-            //GenReport(2015, 12);
+            for(int year = 2015; year <= 2016; year++)
+            {
+                for(int m = 1; m <= 12; m++)
+                {
+                    GenReport(year, m);
+                }
+            }
+            
 
 
         }
@@ -48,8 +44,8 @@ namespace BAW.Test
                             " left join equipment e on e.equipment_type_list_id = rbet.equipment_type_list_id" +
                             " where b.status_code in ('R_B_NEW_RETURNED')" +
                             " and date(b.from_date)between '" + year + "-" + month + "-01' and '" + year + "-" + month + "-" + _day + "'" +
-                            " and e.barcode in( '404000008709','404000008710','404000008711')" +
-                            //" and e.equipment_type_list_id in (1134, 1135, 1107, 1108, 1089, 1132, 1128, 1129, 1153, 1125)" +
+                            //" and e.barcode in( '404000008709','404000008710','404000008711')" +
+                            " and e.equipment_type_list_id in (1134, 1135, 1107, 1108, 1089, 1132, 1128, 1129, 1153, 1125)" +
                             " and e.name is not null" +
                             " order by e.name,e.barcode,b.from_date asc";
 
@@ -108,6 +104,8 @@ namespace BAW.Test
                         {
                             Console.Write("1");
                         }
+                        Console.Write(",");
+
                     }
                     Console.WriteLine();
                 }
