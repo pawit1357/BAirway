@@ -107,12 +107,6 @@
   <ItemGroup>
     <Content Include="Binaries\log4net.dll" />
     <Content Include="Binaries\MySql.Data.dll" />
-    <Content Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

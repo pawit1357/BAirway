@@ -91,29 +91,21 @@
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BAW.Biz\BAW.Biz.csproj">
-      <Project>{6D8FC140-2A1B-4A6C-8360-B60DC8DD71EC}</Project>
-      <Name>BAW.Biz</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAW.Dao\BAW.Dao.csproj">
-      <Project>{669A86FA-E2A7-4EFB-AA1E-453B1E5E6ACA}</Project>
-      <Name>BAW.Dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAW.Model\BAW.Model.csproj">
-      <Project>{018E828C-20DF-4C37-98D4-C63ACECCFE67}</Project>
-      <Name>BAW.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAW.Utils\BAW.Utils.csproj">
-      <Project>{99F44E62-155C-4772-918D-243C844D4C21}</Project>
-      <Name>BAW.Utils</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Binaries\log4net.dll" />
     <Content Include="Binaries\MySql.Data.dll" />
     <Content Include="images\CF.png" />
     <Content Include="images\CT.png" />
     <Content Include="images\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAW.Biz\BAW.Biz.csproj">
+      <Project>{6d8fc140-2a1b-4a6c-8360-b60dc8dd71ec}</Project>
+      <Name>BAW.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Utils\BAW.Utils.csproj">
+      <Project>{99f44e62-155c-4772-918d-243c844d4c21}</Project>
+      <Name>BAW.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

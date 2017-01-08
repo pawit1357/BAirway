@@ -20,6 +20,12 @@ namespace BAW.Biz
             //get { return ConfigurationManager.AppSettings["MysqlStr"]; }
             get { return deCode(getValueFromRegistry(Configurations.AppRegName, "CON")); }
         }
+        public static String MysqlStrRad
+        {
+
+            //get { return ConfigurationManager.AppSettings["MysqlStr"]; }
+            get { return deCode(getValueFromRegistry(Configurations.AppRegName, "CON1")); }
+        }
         public static String SqLiteStr
         {
             get { return ConfigurationManager.AppSettings["SqLiteStr"]; }

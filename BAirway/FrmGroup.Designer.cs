@@ -320,10 +320,10 @@
         private System.Windows.Forms.TextBox txtCode;
         //private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         //private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupdescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn groupcodeDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn groupdescriptionDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtOrder;
         private System.Windows.Forms.BindingSource modelGroupBindingSource;

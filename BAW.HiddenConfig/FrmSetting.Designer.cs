@@ -47,8 +47,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DBN1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.PASS1 = new System.Windows.Forms.TextBox();
+            this.UN1 = new System.Windows.Forms.TextBox();
+            this.SIP1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.LTIME = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DBN = new System.Windows.Forms.TextBox();
@@ -59,21 +68,16 @@
             this.UN = new System.Windows.Forms.TextBox();
             this.SIP = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.CMD_OK = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PORT1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,9 +87,9 @@
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.lounge_site);
-            this.panel2.Location = new System.Drawing.Point(102, 10);
+            this.panel2.Location = new System.Drawing.Point(478, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(377, 276);
+            this.panel2.Size = new System.Drawing.Size(377, 267);
             this.panel2.TabIndex = 15;
             // 
             // groupBox3
@@ -244,17 +248,17 @@
             // 
             // CMD_CREATEDB
             // 
-            this.CMD_CREATEDB.Location = new System.Drawing.Point(307, 281);
+            this.CMD_CREATEDB.Location = new System.Drawing.Point(699, 282);
             this.CMD_CREATEDB.Name = "CMD_CREATEDB";
             this.CMD_CREATEDB.Size = new System.Drawing.Size(75, 30);
             this.CMD_CREATEDB.TabIndex = 16;
-            this.CMD_CREATEDB.Text = "Start";
+            this.CMD_CREATEDB.Text = "Save";
             this.CMD_CREATEDB.UseVisualStyleBackColor = true;
             this.CMD_CREATEDB.Click += new System.EventHandler(this.CMD_CREATEDB_Click);
             // 
             // CMD_CLOSE
             // 
-            this.CMD_CLOSE.Location = new System.Drawing.Point(388, 281);
+            this.CMD_CLOSE.Location = new System.Drawing.Point(780, 282);
             this.CMD_CLOSE.Name = "CMD_CLOSE";
             this.CMD_CLOSE.Size = new System.Drawing.Size(75, 30);
             this.CMD_CLOSE.TabIndex = 17;
@@ -266,7 +270,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Location = new System.Drawing.Point(-4, -10);
             this.groupBox1.Name = "groupBox1";
@@ -279,25 +282,135 @@
             this.pictureBox3.Image = global::BAW.HiddenConfig.Properties.Resources.logo;
             this.pictureBox3.Location = new System.Drawing.Point(4, 10);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(95, 276);
+            this.pictureBox3.Size = new System.Drawing.Size(43, 276);
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.LTIME);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Location = new System.Drawing.Point(104, 15);
+            this.panel1.Location = new System.Drawing.Point(54, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(365, 267);
+            this.panel1.Size = new System.Drawing.Size(422, 267);
             this.panel1.TabIndex = 4;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.PORT1);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.DBN1);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.PASS1);
+            this.groupBox4.Controls.Add(this.UN1);
+            this.groupBox4.Controls.Add(this.SIP1);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.groupBox4.Location = new System.Drawing.Point(6, 117);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(410, 129);
+            this.groupBox4.TabIndex = 26;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "ตั้งค่าการเชื่อมต่อ (Rad DB)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label6.Location = new System.Drawing.Point(6, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Schema";
+            // 
+            // DBN1
+            // 
+            this.DBN1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.DBN1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.DBN1.Location = new System.Drawing.Point(50, 48);
+            this.DBN1.MaxLength = 100;
+            this.DBN1.Name = "DBN1";
+            this.DBN1.Size = new System.Drawing.Size(135, 22);
+            this.DBN1.TabIndex = 7;
+            this.DBN1.Text = "radius";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(50, 100);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(135, 22);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Test Connection";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label12.Location = new System.Drawing.Point(191, 52);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Pass";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label13.Location = new System.Drawing.Point(191, 24);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "User";
+            // 
+            // PASS1
+            // 
+            this.PASS1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.PASS1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.PASS1.Location = new System.Drawing.Point(222, 49);
+            this.PASS1.MaxLength = 100;
+            this.PASS1.Name = "PASS1";
+            this.PASS1.PasswordChar = '#';
+            this.PASS1.Size = new System.Drawing.Size(135, 22);
+            this.PASS1.TabIndex = 9;
+            this.PASS1.Text = "password";
+            // 
+            // UN1
+            // 
+            this.UN1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.UN1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.UN1.Location = new System.Drawing.Point(222, 21);
+            this.UN1.MaxLength = 100;
+            this.UN1.Name = "UN1";
+            this.UN1.Size = new System.Drawing.Size(135, 22);
+            this.UN1.TabIndex = 8;
+            this.UN1.Text = "wifi";
+            // 
+            // SIP1
+            // 
+            this.SIP1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.SIP1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SIP1.Location = new System.Drawing.Point(50, 20);
+            this.SIP1.MaxLength = 100;
+            this.SIP1.Name = "SIP1";
+            this.SIP1.Size = new System.Drawing.Size(135, 22);
+            this.SIP1.TabIndex = 6;
+            this.SIP1.Text = "202.47.250.203";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label14.Location = new System.Drawing.Point(6, 23);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "Host";
             // 
             // LTIME
             // 
@@ -309,17 +422,6 @@
             this.LTIME.Size = new System.Drawing.Size(15, 13);
             this.LTIME.TabIndex = 3;
             this.LTIME.Text = "#";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "- กรอก serial key เพื่อลงทะเบียนใช้งานระบบ";
             // 
             // groupBox2
             // 
@@ -333,28 +435,28 @@
             this.groupBox2.Controls.Add(this.SIP);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 95);
+            this.groupBox2.Location = new System.Drawing.Point(3, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 151);
+            this.groupBox2.Size = new System.Drawing.Size(410, 104);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ตั้งค่าการเชื่อมต่อ";
+            this.groupBox2.Text = "ตั้งค่าการเชื่อมต่อ (App DB)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(25, 51);
+            this.label3.Location = new System.Drawing.Point(6, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 25;
-            this.label3.Text = "DB Name";
+            this.label3.Text = "Schema";
             // 
             // DBN
             // 
             this.DBN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.DBN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.DBN.Location = new System.Drawing.Point(88, 48);
+            this.DBN.Location = new System.Drawing.Point(50, 48);
             this.DBN.MaxLength = 100;
             this.DBN.Name = "DBN";
             this.DBN.Size = new System.Drawing.Size(135, 22);
@@ -363,9 +465,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(250, 96);
+            this.button1.Location = new System.Drawing.Point(50, 76);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 30);
+            this.button1.Size = new System.Drawing.Size(135, 22);
             this.button1.TabIndex = 10;
             this.button1.Text = "Test Connection";
             this.button1.UseVisualStyleBackColor = true;
@@ -375,27 +477,27 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.Location = new System.Drawing.Point(25, 107);
+            this.label5.Location = new System.Drawing.Point(191, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Password";
+            this.label5.Text = "Pass";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.Location = new System.Drawing.Point(25, 79);
+            this.label4.Location = new System.Drawing.Point(191, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 22;
-            this.label4.Text = "UserName";
+            this.label4.Text = "User";
             // 
             // PASS
             // 
             this.PASS.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.PASS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.PASS.Location = new System.Drawing.Point(88, 104);
+            this.PASS.Location = new System.Drawing.Point(222, 49);
             this.PASS.MaxLength = 100;
             this.PASS.Name = "PASS";
             this.PASS.PasswordChar = '#';
@@ -407,7 +509,7 @@
             // 
             this.UN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.UN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.UN.Location = new System.Drawing.Point(88, 76);
+            this.UN.Location = new System.Drawing.Point(222, 21);
             this.UN.MaxLength = 100;
             this.UN.Name = "UN";
             this.UN.Size = new System.Drawing.Size(135, 22);
@@ -418,94 +520,22 @@
             // 
             this.SIP.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.SIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.SIP.Location = new System.Drawing.Point(88, 20);
+            this.SIP.Location = new System.Drawing.Point(50, 20);
             this.SIP.MaxLength = 100;
             this.SIP.Name = "SIP";
             this.SIP.Size = new System.Drawing.Size(135, 22);
             this.SIP.TabIndex = 6;
-            this.SIP.Text = "202.47.242.165";
+            this.SIP.Text = "202.47.250.203";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(25, 23);
+            this.label8.Location = new System.Drawing.Point(6, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.Size = new System.Drawing.Size(29, 13);
             this.label8.TabIndex = 18;
-            this.label8.Text = "Server IP";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(266, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 30);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Check";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox4.Location = new System.Drawing.Point(201, 36);
-            this.textBox4.MaxLength = 4;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(59, 22);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "3923";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox1.Location = new System.Drawing.Point(6, 36);
-            this.textBox1.MaxLength = 4;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "7750";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox3.Location = new System.Drawing.Point(136, 36);
-            this.textBox3.MaxLength = 4;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(59, 22);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "6148";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(326, 31);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 27);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox2.Location = new System.Drawing.Point(71, 36);
-            this.textBox2.MaxLength = 4;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(59, 22);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "2564";
-            // 
-            // CMD_OK
-            // 
-            this.CMD_OK.Location = new System.Drawing.Point(307, 282);
-            this.CMD_OK.Name = "CMD_OK";
-            this.CMD_OK.Size = new System.Drawing.Size(75, 30);
-            this.CMD_OK.TabIndex = 19;
-            this.CMD_OK.Text = "NEXT";
-            this.CMD_OK.UseVisualStyleBackColor = true;
-            this.CMD_OK.Click += new System.EventHandler(this.CMD_OK_Click);
+            this.label8.Text = "Host";
             // 
             // pictureBox1
             // 
@@ -515,14 +545,35 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(6, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Port";
+            // 
+            // PORT1
+            // 
+            this.PORT1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.PORT1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.PORT1.Location = new System.Drawing.Point(50, 72);
+            this.PORT1.MaxLength = 100;
+            this.PORT1.Name = "PORT1";
+            this.PORT1.Size = new System.Drawing.Size(135, 22);
+            this.PORT1.TabIndex = 26;
+            this.PORT1.Text = "7000";
+            // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(471, 313);
+            this.ClientSize = new System.Drawing.Size(860, 313);
             this.ControlBox = false;
-            this.Controls.Add(this.CMD_OK);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CMD_CREATEDB);
             this.Controls.Add(this.CMD_CLOSE);
@@ -542,9 +593,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -559,7 +611,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LTIME;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox DBN;
@@ -570,14 +621,7 @@
         private System.Windows.Forms.TextBox UN;
         private System.Windows.Forms.TextBox SIP;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button CMD_OK;
         internal System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox lounge_site;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -591,5 +635,17 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtInterval;
         private System.Windows.Forms.CheckBox cbPrintAuto;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox DBN1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox PASS1;
+        private System.Windows.Forms.TextBox UN1;
+        private System.Windows.Forms.TextBox SIP1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox PORT1;
     }
 }

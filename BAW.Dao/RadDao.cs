@@ -16,7 +16,8 @@ namespace BAW.Dao
 
             //Create a list to store the result
 
-            using (MySqlConnection connection = new MySqlConnection("SERVER=202.47.250.203;port=7000;DATABASE=radius;UID=wifi;PASSWORD=password;"))//Configurations.MysqlStr))
+            //using (MySqlConnection connection = new MySqlConnection("SERVER=202.47.250.203;port=7000;DATABASE=radius;UID=wifi;PASSWORD=password;"))//Configurations.MysqlStr))
+            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStrRad))
             {
                 connection.Open();
                 //Create Command
