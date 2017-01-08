@@ -30,6 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelTransactionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -74,28 +96,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.passenger_name = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelTransactionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -146,11 +146,165 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1284, 263);
+            this.dataGridView1.Size = new System.Drawing.Size(1276, 263);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "ROW NO";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "type";
+            this.Column1.HeaderText = "TYPE";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "create_date_custom";
+            this.Column2.HeaderText = "GENDATE";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "group_idName";
+            this.Column3.HeaderText = "GROUPNAME";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "LoungeName";
+            this.Column4.HeaderText = "LOUNGE";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "LoungeAreaName";
+            this.Column20.HeaderText = "AREA";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "passenger_name";
+            this.Column5.HeaderText = "PASSENGERNAME";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "from_city";
+            this.Column6.HeaderText = "FROMCITY";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "to_city";
+            this.Column7.HeaderText = "TOCITY";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "airline_code";
+            this.Column8.HeaderText = "AIRLINECODE";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "flight_no";
+            this.Column9.HeaderText = "FLIGHTNO";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "date_of_flight_custom";
+            this.Column10.HeaderText = "DATEOFFLIGHT";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "seat_no";
+            this.Column11.HeaderText = "SEATNO";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "create_byName";
+            this.Column12.HeaderText = "OWNER";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "begin_date_custom";
+            this.Column13.HeaderText = "BEGIN DATE";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "status";
+            this.Column14.HeaderText = "STATUS";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "remark";
+            this.Column15.HeaderText = "REMARK";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "ath_id";
+            this.Column16.HeaderText = "ACCESSCODE";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "remakr2";
+            this.Column17.HeaderText = "REMAKR2";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "update_date_custom";
+            this.Column18.HeaderText = "LASTUPDATE";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "update_byName";
+            this.Column19.HeaderText = "UPDATE BY";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
             // 
             // splitContainer1
             // 
@@ -172,7 +326,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1284, 578);
+            this.splitContainer1.Size = new System.Drawing.Size(1276, 578);
             this.splitContainer1.SplitterDistance = 80;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -207,7 +361,7 @@
             this.lSupport.BackColor = System.Drawing.Color.White;
             this.lSupport.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lSupport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lSupport.Location = new System.Drawing.Point(1094, 50);
+            this.lSupport.Location = new System.Drawing.Point(1086, 50);
             this.lSupport.Name = "lSupport";
             this.lSupport.Size = new System.Drawing.Size(147, 18);
             this.lSupport.TabIndex = 126;
@@ -255,7 +409,7 @@
             this.pictureBox2.Image = global::BAirway.Properties.Resources.BoardingPass;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1284, 80);
+            this.pictureBox2.Size = new System.Drawing.Size(1276, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 120;
             this.pictureBox2.TabStop = false;
@@ -274,7 +428,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(1284, 494);
+            this.splitContainer2.Size = new System.Drawing.Size(1276, 494);
             this.splitContainer2.SplitterDistance = 227;
             this.splitContainer2.TabIndex = 180;
             // 
@@ -317,7 +471,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1284, 227);
+            this.groupBox1.Size = new System.Drawing.Size(1276, 227);
             this.groupBox1.TabIndex = 179;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Report";
@@ -697,165 +851,11 @@
             this.label13.TabIndex = 149;
             this.label13.Text = "Passenger Name:";
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // Column21
-            // 
-            this.Column21.HeaderText = "ROW NO";
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "type";
-            this.Column1.HeaderText = "TYPE";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "create_date_custom";
-            this.Column2.HeaderText = "GENDATE";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "group_idName";
-            this.Column3.HeaderText = "GROUPNAME";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "LoungeName";
-            this.Column4.HeaderText = "LOUNGE";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column20
-            // 
-            this.Column20.DataPropertyName = "LoungeAreaName";
-            this.Column20.HeaderText = "AREA";
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "passenger_name";
-            this.Column5.HeaderText = "PASSENGERNAME";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "from_city";
-            this.Column6.HeaderText = "FROMCITY";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "to_city";
-            this.Column7.HeaderText = "TOCITY";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "airline_code";
-            this.Column8.HeaderText = "AIRLINECODE";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "flight_no";
-            this.Column9.HeaderText = "FLIGHTNO";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "date_of_flight_custom";
-            this.Column10.HeaderText = "DATEOFFLIGHT";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "seat_no";
-            this.Column11.HeaderText = "SEATNO";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "create_byName";
-            this.Column12.HeaderText = "OWNER";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "begin_date_custom";
-            this.Column13.HeaderText = "BEGIN DATE";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "status";
-            this.Column14.HeaderText = "STATUS";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "remark";
-            this.Column15.HeaderText = "REMARK";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "ath_id";
-            this.Column16.HeaderText = "ACCESSCODE";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "remakr2";
-            this.Column17.HeaderText = "REMAKR2";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            // 
-            // Column18
-            // 
-            this.Column18.DataPropertyName = "update_date_custom";
-            this.Column18.HeaderText = "LASTUPDATE";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            // 
-            // Column19
-            // 
-            this.Column19.DataPropertyName = "update_byName";
-            this.Column19.HeaderText = "UPDATE BY";
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 578);
+            this.ClientSize = new System.Drawing.Size(1276, 578);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FrmMain";
             this.Text = "Report";

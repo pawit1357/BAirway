@@ -43,6 +43,7 @@
             this.area = new System.Windows.Forms.ComboBox();
             this.lounge = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lSupport = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LUPDATE_DATE
@@ -50,7 +51,7 @@
             this.LUPDATE_DATE.BackColor = System.Drawing.Color.Transparent;
             this.LUPDATE_DATE.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.LUPDATE_DATE.ForeColor = System.Drawing.Color.Teal;
-            this.LUPDATE_DATE.Location = new System.Drawing.Point(300, 249);
+            this.LUPDATE_DATE.Location = new System.Drawing.Point(300, 237);
             this.LUPDATE_DATE.Name = "LUPDATE_DATE";
             this.LUPDATE_DATE.Size = new System.Drawing.Size(147, 16);
             this.LUPDATE_DATE.TabIndex = 24;
@@ -63,7 +64,7 @@
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.Font = new System.Drawing.Font("BrowalliaUPC", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(378, 215);
+            this.Cancel.Location = new System.Drawing.Point(378, 203);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(69, 31);
             this.Cancel.TabIndex = 21;
@@ -77,7 +78,7 @@
             this.UsernameLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.DarkBlue;
             this.UsernameLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UsernameLabel.Location = new System.Drawing.Point(175, 157);
+            this.UsernameLabel.Location = new System.Drawing.Point(175, 145);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.UsernameLabel.Size = new System.Drawing.Size(107, 31);
@@ -90,7 +91,7 @@
             this.OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.OK.Font = new System.Drawing.Font("BrowalliaUPC", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.OK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.OK.Location = new System.Drawing.Point(300, 215);
+            this.OK.Location = new System.Drawing.Point(300, 203);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(72, 31);
             this.OK.TabIndex = 20;
@@ -114,7 +115,7 @@
             // 
             this.PasswordTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.PasswordTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.PasswordTextBox.Location = new System.Drawing.Point(288, 188);
+            this.PasswordTextBox.Location = new System.Drawing.Point(288, 176);
             this.PasswordTextBox.MaxLength = 20;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
@@ -138,7 +139,7 @@
             // 
             this.UsernameTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.UsernameTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.UsernameTextBox.Location = new System.Drawing.Point(288, 161);
+            this.UsernameTextBox.Location = new System.Drawing.Point(288, 149);
             this.UsernameTextBox.MaxLength = 20;
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(159, 21);
@@ -150,7 +151,7 @@
             this.PasswordLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.PasswordLabel.ForeColor = System.Drawing.Color.DarkBlue;
             this.PasswordLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PasswordLabel.Location = new System.Drawing.Point(164, 182);
+            this.PasswordLabel.Location = new System.Drawing.Point(164, 170);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PasswordLabel.Size = new System.Drawing.Size(118, 23);
@@ -233,6 +234,20 @@
             this.label4.TabIndex = 161;
             this.label4.Text = "Lounge:";
             // 
+            // lSupport
+            // 
+            this.lSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lSupport.AutoSize = true;
+            this.lSupport.BackColor = System.Drawing.Color.White;
+            this.lSupport.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lSupport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lSupport.Location = new System.Drawing.Point(257, 253);
+            this.lSupport.Name = "lSupport";
+            this.lSupport.Size = new System.Drawing.Size(147, 18);
+            this.lSupport.TabIndex = 164;
+            this.lSupport.Text = "Support Tel : {0} {1}";
+            this.lSupport.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +257,7 @@
             this.BackgroundImage = global::BAirway.Properties.Resources.login;
             this.ClientSize = new System.Drawing.Size(478, 276);
             this.ControlBox = false;
+            this.Controls.Add(this.lSupport);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.area);
             this.Controls.Add(this.lounge);
@@ -287,5 +303,6 @@
         private System.Windows.Forms.ComboBox area;
         private System.Windows.Forms.ComboBox lounge;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lSupport;
     }
 }

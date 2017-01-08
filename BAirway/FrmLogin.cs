@@ -163,6 +163,7 @@ namespace BAirway
                 UsernameTextBox.Text = username;
                 PasswordTextBox.Text = password;
             }
+            lSupport.Text = String.Format(lSupport.Text, ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SupportCATInternet"), "");
 
         }
 

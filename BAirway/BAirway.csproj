@@ -21,7 +21,7 @@
     <SccProvider>SubversionScc</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <PublishUrl>ftp://bkaserv.dyndns.biz/</PublishUrl>
+    <PublishUrl>ftp://ftp.17100532-20161115132017.webstarterz.com/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -31,13 +31,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://bkaserv.dyndns.biz/wms/</InstallUrl>
+    <InstallUrl>http://myapps1357.com/wms/</InstallUrl>
     <ProductName>WiFi Management</ProductName>
     <PublisherName>Bangkok Airways</PublisherName>
     <SuiteName>prdapp</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>157</ApplicationRevision>
+    <ApplicationRevision>159</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -73,10 +73,10 @@
     <ManifestKeyFile>BAirway_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
@@ -276,7 +276,6 @@
     <Content Include="Document\bair-team-pass.txt" />
     <Content Include="Document\code.png" />
     <Content Include="images\background_01.jpg" />
-    <None Include="BAirway_TemporaryKey.pfx" />
     <None Include="Document\BangkokAirwaysWiFiManagement_Manual.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -478,12 +477,12 @@
   <ItemGroup>
     <PublishFile Include="images\bangkokairwayslogo.jpg">
       <Visible>False</Visible>
-      <PublishState>DataFile</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
