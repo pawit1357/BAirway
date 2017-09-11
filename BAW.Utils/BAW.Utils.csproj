@@ -66,7 +66,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
     <Compile Include="CsvReader.cs" />
     <Compile Include="ManageLOG.cs" />
     <Compile Include="MyFunction.cs" />
@@ -91,6 +90,9 @@
   <ItemGroup>
     <Content Include="Binaries\log4net.dll" />
     <Content Include="Binaries\MySql.Data.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

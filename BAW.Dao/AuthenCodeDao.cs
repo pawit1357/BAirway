@@ -68,6 +68,42 @@ namespace BAW.Dao
             }
             return lists;
         }
+        public List<ModelAuthenCode> SelectAllUnUse( int station_id)
+        {
+
+            string query = "SELECT * FROM tb_authen_code Where station_id=" + station_id +" and ath_use='0'";
+
+            //Create a list to store the result
+            List<ModelAuthenCode> lists = new List<ModelAuthenCode>();
+
+            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+            {
+                connection.Open();
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dr.Read())
+                {
+                    ModelAuthenCode model = new ModelAuthenCode();
+                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt32(dr["id"]);
+                    model.ath_code = (DBNull.Value == dr["ath_code"]) ? "" : Convert.ToString(dr["ath_code"]);
+                    model.ath_user = (DBNull.Value == dr["ath_user"]) ? "" : Convert.ToString(dr["ath_user"]);
+                    model.ath_pass = (DBNull.Value == dr["ath_pass"]) ? "" : Convert.ToString(dr["ath_pass"]);
+                    model.ath_use = (DBNull.Value == dr["ath_use"]) ? "" : Convert.ToString(dr["ath_use"]);
+                    model.station_id = (DBNull.Value == dr["station_id"]) ? -1 : Convert.ToInt32(dr["station_id"]);
+                    model.createDate = (DBNull.Value == dr["createDate"]) ? DateTime.Now : Convert.ToDateTime(dr["createDate"]);
+                    lists.Add(model);
+                }
+
+                //close Data Reader
+                dr.Close();
+            }
+
+            return lists;
+        }
         public List<ModelAuthenCode> SelectAutehnPage(String cri, int station_id)
         {
 
@@ -167,6 +203,44 @@ namespace BAW.Dao
             }
             return lists;
         }
+
+        public List<ModelAuthenCode> SelectOffineUsedCode(int station_id)
+        {
+            string query = "SELECT * FROM tb_authen_code Where station_id = " + station_id +" and ath_use=1";
+
+            //Create a list to store the result
+            List<ModelAuthenCode> lists = new List<ModelAuthenCode>();
+
+
+            using (SQLiteConnection conn = new SQLiteConnection(Configurations.SqLiteStr))
+            {
+                conn.Open();
+                //Create Command
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                //Create a data reader and Execute the command
+                SQLiteDataReader dr = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dr.Read())
+                {
+                    ModelAuthenCode model = new ModelAuthenCode();
+                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
+                    model.ath_code = (DBNull.Value == dr["ath_code"]) ? "" : Convert.ToString(dr["ath_code"]);
+                    model.ath_user = (DBNull.Value == dr["ath_user"]) ? "" : Convert.ToString(dr["ath_user"]);
+                    model.ath_pass = (DBNull.Value == dr["ath_pass"]) ? "" : Convert.ToString(dr["ath_pass"]);
+                    model.ath_use = (DBNull.Value == dr["ath_use"]) ? "" : Convert.ToString(dr["ath_use"]);
+                    model.station_id = (DBNull.Value == dr["station_id"]) ? -1 : Convert.ToInt32(dr["station_id"]);
+                    //model.createDate = (DBNull.Value == dr["createDate"]) ? DateTime.Now : Convert.ToDateTime(dr["createDate"]);
+                    lists.Add(model);
+                }
+
+                //close Data Reader
+                dr.Close();
+            }
+            //validate out of accesscode
+            return lists;
+        }
+
         //Insert statement
         public Boolean Insert(ModelAuthenCode model)
         {
@@ -232,6 +306,33 @@ namespace BAW.Dao
                 }
                 //Also update used access code to offince
                 UpdateOffine(model);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.InnerException);
+                //System.Windows.Forms.MessageBox.Show(ex.Message);
+                return false;
+            }
+            return true;
+        }
+        public Boolean UpdateByListId(String listAuthIds,int stationId)
+        {
+            try
+            {
+                string query = "UPDATE tb_authen_code SET ath_use='1' where ath_code in  ("+ listAuthIds + ")";
+                using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+                {
+                    connection.Open();
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+                }
+                //Also update used access code to offince
             }
             catch (Exception ex)
             {
@@ -386,5 +487,7 @@ namespace BAW.Dao
             }
             return true;
         }
+
+
     }
 }

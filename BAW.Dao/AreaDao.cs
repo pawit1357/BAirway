@@ -12,9 +12,11 @@ namespace BAW.Dao
     public class AreaDao 
     {
         private static log4net.ILog logger = log4net.LogManager.GetLogger(typeof(AreaDao));
+        //private Boolean isDbAlive = false;
+
         public AreaDao()
         {
-
+            //this.isDbAlive = Connection.IsServerConnected();
         }
 
         //Select statement

@@ -8,6 +8,7 @@ using BAW.Utils;
 using BAW.Dao;
 using BAW.Biz;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BAirway
 {
@@ -336,6 +337,7 @@ namespace BAirway
 
             dataGridView1.AutoGenerateColumns = false;
 
+
         }
 
         public void searchData(String cri)
@@ -433,5 +435,8 @@ namespace BAirway
                     break;
             }
         }
+
+
+
     }
 }

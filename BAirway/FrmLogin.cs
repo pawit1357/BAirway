@@ -205,7 +205,7 @@ namespace BAirway
             string msg = "n";
             try
             {
-
+                
                 UserDao staffDao = staffDao = new UserDao();
                 List<ModelUser> lists = (status) ? staffDao.Select(" Where u.user_name='" + user + "' and u.user_pass='" + pass + "'" + ((!user.Equals("cat@support")) ? " and u.station_id =" + StationID : "")) : staffDao.SelectOffine(" Where u.user_name='" + user + "' and u.user_pass='" + pass + "'" + ((!user.Equals("cat@support")) ? " and u.station_id =" + StationID : ""));
                 if (lists.Count > 0)

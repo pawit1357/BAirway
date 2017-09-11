@@ -12,9 +12,11 @@ namespace BAW.Dao
     public class LoungeDao
     {
         private static log4net.ILog logger = log4net.LogManager.GetLogger(typeof(LoungeDao));
+        //private Boolean isDbAlive = false;
+
         public LoungeDao()
         {
-
+            //this.isDbAlive = Connection.IsServerConnected();
         }
 
         //Select statement
@@ -25,30 +27,33 @@ namespace BAW.Dao
             //Create a list to store the result
             List<ModelLounge> lists = new List<ModelLounge>();
 
-            //Open connection
-            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
-            {
-                connection.Open();
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dr = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-                while (dr.Read())
+       
+                //Open connection
+                using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
                 {
-                    ModelLounge model = new ModelLounge();
-                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
-                    model.lounge_station = (DBNull.Value == dr["lounge_station"]) ? -1 : Convert.ToInt16(dr["lounge_station"]);
-                    model.site_name = (DBNull.Value == dr["site_name"]) ? "" : Convert.ToString(dr["site_name"]);
-                    model.lounge_name = (DBNull.Value == dr["lounge_name"]) ? "" : Convert.ToString(dr["lounge_name"]);
+                    connection.Open();
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dr = cmd.ExecuteReader();
 
-                    lists.Add(model);
+                    //Read the data and store them in the list
+                    while (dr.Read())
+                    {
+                        ModelLounge model = new ModelLounge();
+                        model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
+                        model.lounge_station = (DBNull.Value == dr["lounge_station"]) ? -1 : Convert.ToInt16(dr["lounge_station"]);
+                        model.site_name = (DBNull.Value == dr["site_name"]) ? "" : Convert.ToString(dr["site_name"]);
+                        model.lounge_name = (DBNull.Value == dr["lounge_name"]) ? "" : Convert.ToString(dr["lounge_name"]);
+
+                        lists.Add(model);
+                    }
+
+                    //close Data Reader
+                    dr.Close();
                 }
+    
 
-                //close Data Reader
-                dr.Close();
-            }
             return lists;
         }
         public List<ModelLounge> SelectOffline(String cri)

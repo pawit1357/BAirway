@@ -12,9 +12,11 @@ namespace BAW.Dao
     public class RoleDao
     {
         private static log4net.ILog logger = log4net.LogManager.GetLogger(typeof(RoleDao));
+        //private Boolean isDbAlive = false;
+
         public RoleDao()
         {
-
+            //this.isDbAlive = Connection.IsServerConnected();
         }
 
         //Select statement

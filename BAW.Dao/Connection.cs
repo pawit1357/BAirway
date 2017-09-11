@@ -2,7 +2,10 @@
 using BAW.Biz;
 using MySql.Data.MySqlClient;
 using System.Net.NetworkInformation;
-namespace BAW.Utils
+using System;
+using System.Data;
+
+namespace BAW.Dao
 {
     public class Connection
     {
@@ -28,7 +31,7 @@ namespace BAW.Utils
         }
 
         #region "MYSQL CONNECTON
-        
+
         //open connection to database
         //public bool OpenConnection()
         //{
@@ -69,7 +72,7 @@ namespace BAW.Utils
         //        return false;
         //    }
         //}
-        
+
         #endregion
 
         #region "SQLITE CONNECTION"
@@ -116,38 +119,59 @@ namespace BAW.Utils
         public static bool IsServerConnected()
         {
 
+            Boolean result = false;
+            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+            {
+
+                connection.Open();
+
+                if (connection.State == ConnectionState.Open)
+                {
+
+                    result = true;
+                }
+                //connection.Close();
+                //if (connection.State == ConnectionState.Closed)
+                //{
+                //    result = false;
+                //}
+            }
+            return true;
+
+
+
             //string serverDbIP = Configurations.MysqlStr.Split(';')[0].Split('=')[1];
             //PingReply pingReply;
             //using (var ping = new Ping())
             //    pingReply = ping.Send(serverDbIP);
             //var available = pingReply.Status == IPStatus.Success;
 
-            string conStr = ManageLOG.deCode(ManageLOG.getValueFromRegistry("WiFi Management", "CON"));
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(conStr))
-                {
-                    conn.Open();
-                    return true;
-                }
-            }
-            catch (MySqlException ex)
-            {
-                switch (ex.Number)
-                {
-                    case 0:
-                        //MessageBox.Show("Cannot connect to server.  Contact administrator");
+            //string conStr = ManageLOG.deCode(ManageLOG.getValueFromRegistry("WiFi Management", "CON"));
+            //try
+            //{
+            //    using (MySqlConnection conn = new MySqlConnection(conStr))
+            //    {
+            //        conn.Open();
+            //        return true;
+            //    }
+            //}
+            //catch (MySqlException ex)
+            //{
+            //    switch (ex.Number)
+            //    {
+            //        case 0:
+            //            //MessageBox.Show("Cannot connect to server.  Contact administrator");
 
-                        break;
-                    case 1042:
-                        //MessageBox.Show("Cannot connect to server.  The System will work on offine mode");
-                        break;
-                    case 1045:
-                        //MessageBox.Show("Invalid username/password, please try again");
-                        break;
-                }
-                return false;
-            }
+            //            break;
+            //        case 1042:
+            //            //MessageBox.Show("Cannot connect to server.  The System will work on offine mode");
+            //            break;
+            //        case 1045:
+            //            //MessageBox.Show("Invalid username/password, please try again");
+            //            break;
+            //    }
+            //    return false;
+            //}
             //return available;
         }
 

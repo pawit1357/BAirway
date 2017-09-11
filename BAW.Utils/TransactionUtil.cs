@@ -20,7 +20,7 @@ namespace BAW.Utils
             TransactionDao dao = new TransactionDao();
             int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
             String cri = " Where t.LoungePlace=" + StationID;
-            List<ModelTransaction> lists = dao.SelectOffine(cri + " order by t.update_date desc",StationID);
+            List<ModelTransaction> lists = dao.SelectOffine(cri + " order by t.update_date desc", StationID);
             if (lists != null)
             {
                 total = lists.Count;
@@ -31,17 +31,16 @@ namespace BAW.Utils
                     StringBuilder sb = new StringBuilder();
                     foreach (ModelTransaction model in lists)
                     {
-                        bool result = dao.Insert(model,StationID);
+                        bool result = dao.Insert(model, StationID);
                         if (result)
                         {
                             logger.Debug("Local transaction have " + lists.Count + " records.");
                             //Delete local data when transfer to ser success.
-                            if (dao.DeleteOffline(model,StationID))
+                            if (dao.DeleteOffline(model, StationID))
                             {
                                 success++;
                             }
                         }
-
                     }
                 }
                 logger.Debug("# Summary=> Total transfer total: " + total + " success: " + success + " fail: " + (total - success));
@@ -50,36 +49,43 @@ namespace BAW.Utils
         }
         public static void downloadAuthenCode()
         {
-            int total = 0;
+            //int total = 0;
             int success = 0;
+
             AuthenCodeDao dao = new AuthenCodeDao();
             int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
-            List<ModelAuthenCode> listAccessCode = dao.Select("", StationID);
-            if (listAccessCode != null)
-            {
-                total = listAccessCode.Count;
-                logger.Debug("# Start Download [AUTHENCODE] from server.");
 
-                foreach (ModelAuthenCode model in listAccessCode)
+            //STEP 1: Update used code to online authencode
+            StringBuilder sbSql = new StringBuilder();
+            List<ModelAuthenCode> listAccessCode = dao.SelectOffineUsedCode(StationID);
+            if (listAccessCode != null && listAccessCode.Count > 0)
+            {
+                foreach (ModelAuthenCode authCode in listAccessCode)
                 {
-                    List<ModelAuthenCode> tmp = dao.SelectOffine(" Where ath_code='" + model.ath_code + "'", StationID);
-                    if (tmp != null)
+                    sbSql.Append(authCode.ath_code);
+                    sbSql.Append(",");
+                }
+                String useIds = sbSql.ToString().Substring(0, sbSql.ToString().Length - 1);
+                dao.UpdateByListId(useIds, StationID);
+                //STEP 2: Delete Offine Authen Code
+                dao.deleteLocalDB();
+            }
+            //STEP 3: Download authencode to store on offine
+            List<ModelAuthenCode> listOfUnUsedList = dao.SelectAllUnUse(StationID);
+            if (listOfUnUsedList != null && listOfUnUsedList.Count > 0)
+            {
+                foreach (ModelAuthenCode model in listOfUnUsedList)
+                {
+                    if (dao.InsertOffline(model))
                     {
-                        if (tmp.Count > 0)
-                        {
-                        }
-                        else
-                        {
-                            if (dao.InsertOffline(model))
-                            {
-                                success++;
-                            }
-                        }
+                        success++;
                     }
                 }
-                logger.Debug("# Summary=> Total Download total: " + total + " success: " + success + " fail: " + (total - success));
-                logger.Debug("# End Download data from server.");
             }
+
+            //logger.Debug("# Summary=> Total Download total: " + total + " success: " + success + " fail: " + (total - success));
+            logger.Debug("# End Download data from server.");
+
         }
         public static void downloadUsers()
         {

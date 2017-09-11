@@ -52,11 +52,7 @@ namespace BAirway
                         if (Connection.IsServerConnected())
                         {
                             Cursor = Cursors.WaitCursor;
-                            //upload data from localdb-->online db
-                            #region "Syncronize Data"
-                            Thread thread = new Thread(new ThreadStart(WorkThreadFunction));
-                            thread.Start();
-                            #endregion
+
 
                             tsOnlineStatus.ForeColor = Color.Green;
                             tsOnlineStatus.Text = "Online";
@@ -127,16 +123,16 @@ namespace BAirway
                         TSB_01.Visible = true;//Manual
                         TSB_03.Visible = true;//Auto Gen
                         /* ================================ */
-                        TSM_02.Visible = true;//ข้อมูลหลัก
+                        TSM_02.Visible = this.onlineStatus && true;//ข้อมูลหลัก
                         toolStripSeparator4.Visible = false;// เส้นแบ่ง
                         TSM_02_01.Visible = false; 	//acccode
                         TSM_02_02.Visible = false; 	//site
                         TSM_02_05.Visible = false;	//role
                         /* ================================ */
-                        TSM_03.Visible = true;//Report
+                        TSM_03.Visible = this.onlineStatus && true;//Report
                         /* ================================ */
-                        TSM_04.Visible = true;//ตัวเลือก
-                        TSM_04_01.Visible = true;	//Configuration
+                        TSM_04.Visible = this.onlineStatus && true;//ตัวเลือก
+                        TSM_04_01.Visible = this.onlineStatus && true;	//Configuration
                         TSM_04_02.Visible = false;	//Import Authen Code
                         TSM_04_03.Visible = false;	//Ftp setting
                         TSM_04_04.Visible = false;	//จัดการข้อมูล Access Code
@@ -167,21 +163,21 @@ namespace BAirway
                         break;
                     case 9://SPECIAL (Cat support)
                         TSB_01.Visible = true;//Manual
-                        TSB_03.Visible = true;//Auto Gen
+                        TSB_03.Visible = this.onlineStatus && true;//Auto Gen
                         /* ================================ */
-                        TSM_02.Visible = true;//ข้อมูลหลัก
-                        toolStripSeparator4.Visible = true;// เส้นแบ่ง
-                        TSM_02_01.Visible = true; 	//acccode
-                        TSM_02_02.Visible = true; 	//site
-                        TSM_02_05.Visible = true;	//role
+                        TSM_02.Visible = this.onlineStatus && true;//ข้อมูลหลัก
+                        toolStripSeparator4.Visible = this.onlineStatus && true;// เส้นแบ่ง
+                        TSM_02_01.Visible = this.onlineStatus && true; 	//acccode
+                        TSM_02_02.Visible = this.onlineStatus && true; 	//site
+                        TSM_02_05.Visible = this.onlineStatus && true;	//role
                         /* ================================ */
-                        TSM_03.Visible = true;//Report
+                        TSM_03.Visible = this.onlineStatus && true;//Report
                         /* ================================ */
-                        TSM_04.Visible = true;//ตัวเลือก
-                        TSM_04_01.Visible = true;	//Configuration
-                        TSM_04_02.Visible = true;	//Import Authen Code
-                        TSM_04_03.Visible = true;	//Ftp setting
-                        TSM_04_04.Visible = true;	//จัดการข้อมูล Access Code
+                        TSM_04.Visible = this.onlineStatus && true;//ตัวเลือก
+                        TSM_04_01.Visible = this.onlineStatus && true;	//Configuration
+                        TSM_04_02.Visible = this.onlineStatus && true;	//Import Authen Code
+                        TSM_04_03.Visible = this.onlineStatus && true;	//Ftp setting
+                        TSM_04_04.Visible = this.onlineStatus && true;	//จัดการข้อมูล Access Code
                         /* ================================ */
                         break;
                 }
@@ -451,7 +447,7 @@ namespace BAirway
                         }
                     }
                     break;
-                #endregion
+                    #endregion
             }
             Cursor = Cursors.Default;
         }
@@ -462,25 +458,8 @@ namespace BAirway
         }
 
 
-        public void WorkThreadFunction()
-        {
-            try
-            {
-                TransactionUtil.transfer2Server();
-                TransactionUtil.downloadStation();
-                TransactionUtil.downloadAuthenCode();
-                TransactionUtil.downloadUsers();
-                TransactionUtil.downloadLounge();
-                TransactionUtil.downloadArea();
-                TransactionUtil.downloadGroup();
-                TransactionUtil.downloadRole();
-                // do any background work
-            }
-            catch (Exception ex)
-            {
-                // log errors
-                logger.Equals(ex.Message);
-            }
-        }
+
+
+
     }
 }

@@ -13,9 +13,11 @@ namespace BAW.Dao
     public class StationDao
     {
         private static log4net.ILog logger = log4net.LogManager.GetLogger(typeof(StationDao));
+        //private Boolean isDbAlive = false;
+
         public StationDao()
         {
-
+            //this.isDbAlive = Connection.IsServerConnected();
         }
 
         //Select statement

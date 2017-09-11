@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using MySql.Data.MySqlClient;
 using BAW.Model;
 using BAW.Biz;
@@ -13,9 +12,11 @@ namespace BAW.Dao
     public class UserDao
     {
         private static log4net.ILog logger = log4net.LogManager.GetLogger(typeof(UserDao));
+        private Boolean isDbAlive = false;
+
         public UserDao()
         {
-
+            this.isDbAlive = Connection.IsServerConnected();
         }
 
         //Select statement

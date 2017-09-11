@@ -214,7 +214,7 @@ namespace BAirway
                                                 if (!ManageLOG.getValueFromRegistry(Configurations.AppRegName, "AutoGenAutoPrint").Equals(""))
                                                 {
                                                     Boolean bPrint = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "AutoGenAutoPrint").Equals("False") ? false : true;
-                                                    if (bPrint)
+                                                    if (bPrint && this.onlineStatus)
                                                     {
                                                         if (!lbAccessCode.Text.Equals(""))
                                                         {

@@ -37,6 +37,7 @@ namespace BAirway
             {
 
             }
+
             #region Initial variable
             StationID = Convert.ToInt32(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
             if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo") != null)
@@ -53,6 +54,13 @@ namespace BAirway
             timer1.Interval = inv*1000;
 
 
+            TXT_BARCODE_DATA.Enabled = this.onlineStatus;
+            TXT_ACCESS_CODE.Enabled = this.onlineStatus;
+            CMD_PRINT.Enabled = this.onlineStatus;
+
+
+            TXT_BARCODE_DATA.Text = (this.onlineStatus)? "": "SYSTEM IS OFFINE!";
+            TXT_ACCESS_CODE.Text = (this.onlineStatus) ? "" : "SYSTEM IS OFFINE!";
         }
 
         private void CMD_PRINT_Click(object sender, EventArgs e)
