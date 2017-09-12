@@ -175,7 +175,7 @@ namespace BAW.Dao
                 while (dr.Read())
                 {
                     ModelAuthenCode model = new ModelAuthenCode();
-                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
+                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt32(dr["id"]);
                     model.ath_code = (DBNull.Value == dr["ath_code"]) ? "" : Convert.ToString(dr["ath_code"]);
                     model.ath_user = (DBNull.Value == dr["ath_user"]) ? "" : Convert.ToString(dr["ath_user"]);
                     model.ath_pass = (DBNull.Value == dr["ath_pass"]) ? "" : Convert.ToString(dr["ath_pass"]);
@@ -224,7 +224,7 @@ namespace BAW.Dao
                 while (dr.Read())
                 {
                     ModelAuthenCode model = new ModelAuthenCode();
-                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
+                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt32(dr["id"]);
                     model.ath_code = (DBNull.Value == dr["ath_code"]) ? "" : Convert.ToString(dr["ath_code"]);
                     model.ath_user = (DBNull.Value == dr["ath_user"]) ? "" : Convert.ToString(dr["ath_user"]);
                     model.ath_pass = (DBNull.Value == dr["ath_pass"]) ? "" : Convert.ToString(dr["ath_pass"]);

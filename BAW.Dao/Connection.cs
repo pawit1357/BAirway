@@ -120,31 +120,45 @@ namespace BAW.Dao
         {
 
             Boolean result = false;
-            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+            try
             {
 
-                connection.Open();
 
-                if (connection.State == ConnectionState.Open)
+                string serverDbIP = Configurations.MysqlStr.Split(';')[0].Split('=')[1];
+                PingReply pingReply;
+                using (var ping = new Ping())
                 {
+                    pingReply = ping.Send(serverDbIP);
+                    if (pingReply.Status == IPStatus.Success)
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+                        {
 
-                    result = true;
+                            connection.Open();
+
+                            if (connection.State == ConnectionState.Open)
+                            {
+
+                                result = true;
+                            }
+                        }
+                    }
                 }
-                //connection.Close();
-                //if (connection.State == ConnectionState.Closed)
-                //{
-                //    result = false;
-                //}
+            }catch(Exception ex)
+            {
+                return false;
             }
-            return true;
+            return result;
 
 
 
             //string serverDbIP = Configurations.MysqlStr.Split(';')[0].Split('=')[1];
             //PingReply pingReply;
             //using (var ping = new Ping())
+            //{
             //    pingReply = ping.Send(serverDbIP);
-            //var available = pingReply.Status == IPStatus.Success;
+            //    result = pingReply.Status == IPStatus.Success;
+            //}
 
             //string conStr = ManageLOG.deCode(ManageLOG.getValueFromRegistry("WiFi Management", "CON"));
             //try
@@ -172,7 +186,7 @@ namespace BAW.Dao
             //    }
             //    return false;
             //}
-            //return available;
+            //return result;
         }
 
         //Backup

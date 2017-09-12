@@ -80,6 +80,13 @@ namespace BAirway
         {
             if (e.KeyValue == (char)Keys.Return)
             {
+                //if (!Connection.IsServerConnected() && onlineStatus)
+                //{
+                //    MessageBox.Show("การเชื่อมต่อกับอินเตอร์มีปัญหา\nโปรดเข้าระบบอีกครั้งเพื่อทำงานในโหมดออฟไลน์");
+                //    Application.Exit();
+                //    return;
+                //}
+
                 if (group_id.Text.Equals(""))
                 {
                     MessageBox.Show("ยังไม่ได้เลือกข้อมูล Group");

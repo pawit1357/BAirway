@@ -30,6 +30,11 @@ namespace BAirway
         private void FrmMenu_Load(object sender, EventArgs e)
         {
 
+            if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus") != null)
+            {
+                onlineStatus = (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus").Equals("1")) ? true : false;
+            }
+
             if (ManageLOG.Formula(ManageLOG.deCode(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SK"))) &&
            !ManageLOG.deCode(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "CON")).Equals("")
             && File.Exists(String.Format(@"C:\{0}\{1}\{2}", Configurations.AppFolder, Configurations.LocalDbFolder, Configurations.DbFile))
@@ -49,30 +54,17 @@ namespace BAirway
                     }
                     else
                     {
-                        if (Connection.IsServerConnected())
+                        if (onlineStatus)
                         {
                             Cursor = Cursors.WaitCursor;
 
 
                             tsOnlineStatus.ForeColor = Color.Green;
                             tsOnlineStatus.Text = "Online";
-                            ManageLOG.writeRegistry(Configurations.AppRegName, "OnlineStatus", "1");
+                            //ManageLOG.writeRegistry(Configurations.AppRegName, "OnlineStatus", "1");
                             onlineStatus = true;
 
-                            #region "Check has pos logo"
 
-                            if (!Directory.Exists(String.Format(@"C:\{0}\\{1}\\", Configurations.AppFolder, Configurations.ImagePath)))
-                            {
-                                Directory.CreateDirectory(String.Format(@"C:\{0}\\{1}\\", Configurations.AppFolder, Configurations.ImagePath));
-                            }
-                            //Check file exist
-                            if (!File.Exists(Configurations.PosLogoPath))
-                            {
-                                WebClient client1 = new WebClient();
-                                client1.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
-                                client1.DownloadFileAsync(new Uri(Configurations.DownloadPosLogoURL), Configurations.PosLogoPath);
-                            }
-                            #endregion
                         }
                         else
                         {
@@ -80,7 +72,7 @@ namespace BAirway
                             tsOnlineStatus.ForeColor = Color.Red;
                             tsOnlineStatus.Text = "Offline";
 
-                            ManageLOG.writeRegistry(Configurations.AppRegName, "OnlineStatus", "0");
+                            //ManageLOG.writeRegistry(Configurations.AppRegName, "OnlineStatus", "0");
                             onlineStatus = false;
 
                             TSM_02.Visible = false;
@@ -452,14 +444,13 @@ namespace BAirway
             Cursor = Cursors.Default;
         }
 
-        void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+
+
+
+        private static void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             logger.Debug("Download document success.");
         }
-
-
-
-
 
     }
 }

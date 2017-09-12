@@ -5,6 +5,10 @@ using BAW.Dao;
 using BAW.Utils;
 using BAW.Model;
 using BAW.Biz;
+using System.Threading;
+using System.ComponentModel;
+using System.IO;
+using System.Net;
 
 namespace BAirway
 {
@@ -42,6 +46,10 @@ namespace BAirway
             StationID = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID");
             String[] userInfo = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo").Split(',');
             //14,1,26,สนามบินสุวรรณภูมิ Inter,Lounge Inter,Area 1,1,Admin,admin1,admin1
+            if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus") != null)
+            {
+                status = (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus").Equals("1")) ? true : false;
+            }
 
             if (userInfo.Length >= 1)
             {
@@ -83,8 +91,7 @@ namespace BAirway
             roleDao = new RoleDao();
 
             //Check server is alive
-            status = Connection.IsServerConnected();
-            //station.DataSource = (status) ? siteDao.Select(" Where id=" + StationID) : siteDao.SelectOffine(" Where id=" + StationID);
+
 
             List<ModelLounge> lounges = (status) ? loungeDao.Select(" where l.lounge_station=" + StationID) : loungeDao.SelectOffline(" where l.lounge_station=" + StationID);
             lounge.DataSource = lounges;
@@ -259,5 +266,9 @@ namespace BAirway
             }
 
         }
+
+
+
+   
     }
 }

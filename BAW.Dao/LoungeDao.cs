@@ -27,32 +27,32 @@ namespace BAW.Dao
             //Create a list to store the result
             List<ModelLounge> lists = new List<ModelLounge>();
 
-       
-                //Open connection
-                using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+
+            //Open connection
+            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+            {
+                connection.Open();
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dr.Read())
                 {
-                    connection.Open();
-                    //Create Command
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    //Create a data reader and Execute the command
-                    MySqlDataReader dr = cmd.ExecuteReader();
+                    ModelLounge model = new ModelLounge();
+                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
+                    model.lounge_station = (DBNull.Value == dr["lounge_station"]) ? -1 : Convert.ToInt16(dr["lounge_station"]);
+                    model.site_name = (DBNull.Value == dr["site_name"]) ? "" : Convert.ToString(dr["site_name"]);
+                    model.lounge_name = (DBNull.Value == dr["lounge_name"]) ? "" : Convert.ToString(dr["lounge_name"]);
 
-                    //Read the data and store them in the list
-                    while (dr.Read())
-                    {
-                        ModelLounge model = new ModelLounge();
-                        model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
-                        model.lounge_station = (DBNull.Value == dr["lounge_station"]) ? -1 : Convert.ToInt16(dr["lounge_station"]);
-                        model.site_name = (DBNull.Value == dr["site_name"]) ? "" : Convert.ToString(dr["site_name"]);
-                        model.lounge_name = (DBNull.Value == dr["lounge_name"]) ? "" : Convert.ToString(dr["lounge_name"]);
-
-                        lists.Add(model);
-                    }
-
-                    //close Data Reader
-                    dr.Close();
+                    lists.Add(model);
                 }
-    
+
+                //close Data Reader
+                dr.Close();
+            }
+
 
             return lists;
         }
@@ -71,7 +71,7 @@ namespace BAW.Dao
                     SQLiteCommand cmd = new SQLiteCommand(query, conn);
                     //Create a data reader and Execute the command
                     SQLiteDataReader dr = cmd.ExecuteReader();
-
+                    logger.Error("LoungeDao:Connected\n");
                     //Read the data and store them in the list
                     while (dr.Read())
                     {
@@ -80,7 +80,7 @@ namespace BAW.Dao
                         model.lounge_station = (DBNull.Value == dr["lounge_station"]) ? -1 : Convert.ToInt16(dr["lounge_station"]);
                         model.site_name = (DBNull.Value == dr["site_name"]) ? "" : Convert.ToString(dr["site_name"]);
                         model.lounge_name = (DBNull.Value == dr["lounge_name"]) ? "" : Convert.ToString(dr["lounge_name"]);
-
+                        logger.Error("LoungeDao:Add List(" + model.id + ")\n");
                         lists.Add(model);
                     }
 
@@ -90,9 +90,10 @@ namespace BAW.Dao
             }
             catch (Exception ex)
             {
-                logger.Error(ex.InnerException);
+                logger.Error("LoungeDao:" + ex.StackTrace + "\n" + query + "\n" + Configurations.SqLiteStr);
                 Console.WriteLine("");
             }
+            logger.Error("LoungeDao:" + lists.Count);
             return lists;
         }
         //Insert statement
@@ -123,7 +124,7 @@ namespace BAW.Dao
         {
             try
             {
-                string query = "INSERT INTO tb_lounge(id,lounge_station,lounge_name) VALUES("+model.id+"," + model.lounge_station + ",'" + model.lounge_name + "')";
+                string query = "INSERT INTO tb_lounge(id,lounge_station,lounge_name) VALUES(" + model.id + "," + model.lounge_station + ",'" + model.lounge_name + "')";
                 //open connection
                 using (SQLiteConnection connection = new SQLiteConnection(Configurations.SqLiteStr))
                 {

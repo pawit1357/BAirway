@@ -73,6 +73,12 @@ namespace BAirway
 
         private void B_SAVE_Click(object sender, EventArgs e)
         {
+            //if (!Connection.IsServerConnected() && onlineStatus)
+            //{
+            //    MessageBox.Show("การเชื่อมต่อกับอินเตอร์มีปัญหา\nโปรดเข้าระบบอีกครั้งเพื่อทำงานในโหมดออฟไลน์");
+            //    Application.Exit();
+            //    return;
+            //}
             //Validate
             if (passenger_name.Text.Equals(""))
             {
