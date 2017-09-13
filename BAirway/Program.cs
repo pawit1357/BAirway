@@ -28,9 +28,19 @@ namespace BAirway
                 #region "Syncronize Data"
 
                 //upload data from localdb-->online db
+                TransactionUtil.transfer2Server();
+                TransactionUtil.synCodeToOnline();
+                //new thred to download authen code
+                String currentDate = DateTime.Now.ToString("yyyyMMdd");
 
-                Thread thread = new Thread(new ThreadStart(WorkThreadFunction));
-                thread.Start();
+                String LastedUpdateAthCode = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "LastedUpdateAthCode");
+                if (String.IsNullOrEmpty(LastedUpdateAthCode) || !currentDate.Equals(LastedUpdateAthCode))
+                {
+                    Thread thread = new Thread(new ThreadStart(WorkThreadFunction));
+                    thread.Start();
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "LastedUpdateAthCode", currentDate);
+                }
+
 
                 #endregion
                 #region "Check has pos logo"
@@ -72,6 +82,7 @@ namespace BAirway
             }
 
 
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMenu());
@@ -82,11 +93,21 @@ namespace BAirway
         {
             try
             {
-                TransactionUtil.transfer2Server();
+
+                //String currentDate = DateTime.Now.ToString("yyyyMMdd");
+
+                //String LastedUpdateAthCode = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "LastedUpdateAthCode");
+                //if (String.IsNullOrEmpty(LastedUpdateAthCode) || !currentDate.Equals(LastedUpdateAthCode))
+                //{
                 TransactionUtil.downloadAuthenCode();
+                //ManageLOG.writeRegistry(Configurations.AppRegName, "LastedUpdateAthCode", currentDate);
+                //}
+
+
+
 
                 //TransactionUtil.downloadStation();
-                TransactionUtil.downloadUsers();
+                //TransactionUtil.downloadUsers();
                 //TransactionUtil.downloadLounge();
                 //TransactionUtil.downloadArea();
                 //TransactionUtil.downloadGroup();

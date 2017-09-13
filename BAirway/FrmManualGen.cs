@@ -161,7 +161,7 @@ namespace BAirway
                 tran.LoungeArea = area;
 
                 tran.begin_date = DateTime.Now;
-                tran.ath_id = accessCode.ath_code;
+                tran.ath_id = (onlineStatus)? accessCode.ath_code:"";
                 tran.create_by = staffId;
                 tran.create_date = DateTime.Now;
 
@@ -198,38 +198,46 @@ namespace BAirway
                 //auto save
                 if ((onlineStatus) ? tranDao.Insert(tran, StationID) : tranDao.InsertOffine(tran, StationID))
                 {
-                    accessCode.ath_use = "1";
-                    result = (onlineStatus) ? authenDao.Update(accessCode) : authenDao.UpdateOffine(accessCode);
-                    if (result)
+                    if (onlineStatus)//
                     {
-
-                        lbMessage.Text = "บันทึกข้อมูลเรียบร้อยแล้ว";
-                        CMD_PRINT.Enabled = true;
-                        lbAccessCode.Text = String.Format("{0}", accessCode.ath_code);
-                        lbAccessCode.ForeColor = Color.Green;
-                        //Auto print
-                        if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "ManualGenAutoPrint") != null)
+                        accessCode.ath_use = "1";
+                        result = (onlineStatus) ? authenDao.Update(accessCode) : authenDao.UpdateOffine(accessCode);
+                        if (result)
                         {
-                            if (!ManageLOG.getValueFromRegistry(Configurations.AppRegName, "ManualGenAutoPrint").Equals(""))
+
+                            lbMessage.Text = "บันทึกข้อมูลเรียบร้อยแล้ว";
+                            CMD_PRINT.Enabled = true;
+                            lbAccessCode.Text = String.Format("{0}", accessCode.ath_code);
+                            lbAccessCode.ForeColor = Color.Green;
+                            //Auto print
+                            if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "ManualGenAutoPrint") != null)
                             {
-                                Boolean bPrint = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "ManualGenAutoPrint").Equals("False") ? false : true;
-                                if (bPrint && this.onlineStatus)
+                                if (!ManageLOG.getValueFromRegistry(Configurations.AppRegName, "ManualGenAutoPrint").Equals(""))
                                 {
-                                    if (!lbAccessCode.Text.Equals(""))
+                                    Boolean bPrint = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "ManualGenAutoPrint").Equals("False") ? false : true;
+                                    if (bPrint && this.onlineStatus)
                                     {
-                                        printDocument1.Print();
+                                        if (!lbAccessCode.Text.Equals(""))
+                                        {
+                                            printDocument1.Print();
+                                        }
                                     }
                                 }
                             }
                         }
-
-
+                        else
+                        {
+                            lbMessage.Text = "เกิดข้อผิดพลาดในการปรับปรุงค่า Access Code";
+                        }
                     }
                     else
                     {
-                        lbMessage.Text = "";
-                        lbMessage.Text = "เกิดข้อผิดพลาดในการปรับปรุงค่า Access Code";
+                        lbMessage.Text = "บันทึกข้อมูลเรียบร้อยแล้ว";
+                        CMD_PRINT.Enabled = true;
+                        lbAccessCode.Text = String.Format("{0}", tran.ath_id);
+                        lbAccessCode.ForeColor = Color.Green;
                     }
+
                 }
             }
             else

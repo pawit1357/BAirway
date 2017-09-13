@@ -49,6 +49,31 @@ namespace BAW.Utils
         }
         public static void downloadAuthenCode()
         {
+            int success = 0;
+
+            AuthenCodeDao dao = new AuthenCodeDao();
+            int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
+            dao.deleteLocalDB();
+            //STEP 1: Update used code to online authencode
+            List<ModelAuthenCode> listOfUnUsedList = dao.SelectAllUnUse(StationID);
+            if (listOfUnUsedList != null && listOfUnUsedList.Count > 0)
+            {
+                foreach (ModelAuthenCode model in listOfUnUsedList)
+                {
+                    if (dao.InsertOffline(model))
+                    {
+                        success++;
+                    }
+                }
+            }
+
+            //logger.Debug("# Summary=> Total Download total: " + total + " success: " + success + " fail: " + (total - success));
+            logger.Debug("# End Download data from server.");
+
+        }
+
+        public static void synCodeToOnline()
+        {
             //int total = 0;
             int success = 0;
 
@@ -67,21 +92,21 @@ namespace BAW.Utils
                 }
                 String useIds = sbSql.ToString().Substring(0, sbSql.ToString().Length - 1);
                 dao.UpdateByListId(useIds, StationID);
-                //STEP 2: Delete Offine Authen Code
-                dao.deleteLocalDB();
+
             }
+
             //STEP 3: Download authencode to store on offine
-            List<ModelAuthenCode> listOfUnUsedList = dao.SelectAllUnUse(StationID);
-            if (listOfUnUsedList != null && listOfUnUsedList.Count > 0)
-            {
-                foreach (ModelAuthenCode model in listOfUnUsedList)
-                {
-                    if (dao.InsertOffline(model))
-                    {
-                        success++;
-                    }
-                }
-            }
+            //List<ModelAuthenCode> listOfUnUsedList = dao.SelectAllUnUse(StationID);
+            //if (listOfUnUsedList != null && listOfUnUsedList.Count > 0)
+            //{
+            //    foreach (ModelAuthenCode model in listOfUnUsedList)
+            //    {
+            //        if (dao.InsertOffline(model))
+            //        {
+            //            success++;
+            //        }
+            //    }
+            //}
 
             //logger.Debug("# Summary=> Total Download total: " + total + " success: " + success + " fail: " + (total - success));
             logger.Debug("# End Download data from server.");

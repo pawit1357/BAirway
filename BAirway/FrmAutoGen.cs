@@ -190,19 +190,22 @@ namespace BAirway
                         else
                         {
                             */
-                            String cri = "where ath_use = 0";
-                            List<ModelAuthenCode> lists = (onlineStatus) ? authenDao.Select(cri, StationID) : authenDao.SelectOffine(cri, StationID);
-                            if (lists != null)
+                        String cri = "where ath_use = 0";
+                        List<ModelAuthenCode> lists = (onlineStatus) ? authenDao.Select(cri, StationID) : authenDao.SelectOffine(cri, StationID);
+                        if (lists != null)
+                        {
+                            if (lists.Count > 0)
                             {
-                                if (lists.Count > 0)
-                                {
-                                    //
-                                    ModelAuthenCode accessCode = lists[0];
-                                    //
-                                    tran.ath_id = lists[0].ath_code;
+                                //
+                                ModelAuthenCode accessCode = lists[0];
+                                //
+                                tran.ath_id = tran.ath_id = (onlineStatus) ? lists[0].ath_code : "";
+                                
 
-                                    //auto save
-                                    if ((onlineStatus) ? tranDao.Insert(tran, StationID) : tranDao.InsertOffine(tran, StationID))
+                                //auto save
+                                if ((onlineStatus) ? tranDao.Insert(tran, StationID) : tranDao.InsertOffine(tran, StationID))
+                                {
+                                    if (onlineStatus)
                                     {
                                         accessCode.ath_use = "1";
                                         Boolean result = (onlineStatus) ? authenDao.Update(accessCode) : authenDao.UpdateOffine(accessCode);
@@ -237,20 +240,30 @@ namespace BAirway
                                             lbMessage.Text = "เกิดข้อผิดพลาดในการปรับปรุงค่า Access Code";
                                         }
                                     }
-                                }
-                                else
-                                {
-                                    logger.Error("Out of access code!");
-                                    lbMessage.Text = "";
-                                    lbAccessCode.Text = String.Format("Access Code is not enought!");
-                                    lbAccessCode.ForeColor = Color.Red;
-                                    txt_barcode.Select();
+                                    else
+                                    {
+
+                                        lbMessage.Text = "บันทึกข้อมูลเรียบร้อยแล้ว";
+                                        CMD_PRINT.Enabled = true;
+                                        lbAccessCode.Text = String.Format("{0}", tran.ath_id);
+                                        lbAccessCode.ForeColor = Color.Green;
+
+                                    }
                                 }
                             }
                             else
                             {
                                 logger.Error("Out of access code!");
+                                lbMessage.Text = "";
+                                lbAccessCode.Text = String.Format("Access Code is not enought!");
+                                lbAccessCode.ForeColor = Color.Red;
+                                txt_barcode.Select();
                             }
+                        }
+                        else
+                        {
+                            logger.Error("Out of access code!");
+                        }
                         //}
                     }
                     else

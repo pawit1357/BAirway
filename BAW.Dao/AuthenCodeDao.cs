@@ -364,7 +364,28 @@ namespace BAW.Dao
             }
             return true;
         }
+        public Boolean UpdateOffineByAthCode(ModelAuthenCode model)
+        {
+            try
+            {
+                string query = "UPDATE tb_authen_code SET ath_user ='" + model.ath_user + "' ,ath_pass ='" + model.ath_pass + "',ath_use ='" + model.ath_use + "',ath_code='" + model.ath_code + "' WHERE ath_code ='" + model.ath_code + "' And station_id=" + model.station_id;
 
+                using (SQLiteConnection conn = new SQLiteConnection(Configurations.SqLiteStr))
+                {
+                    conn.Open();
+                    //Create Command
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    //Create a data reader and Execute the command
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.InnerException);
+                return false;
+            }
+            return true;
+        }
         private Boolean resetAuthenCode(int station_id)
         {
             try
