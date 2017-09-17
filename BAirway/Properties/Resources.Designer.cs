@@ -193,6 +193,16 @@ namespace BAirway.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bangkokairways_1600x900_2 {
+            get {
+                object obj = ResourceManager.GetObject("bangkokairways_1600x900_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bangkokairways_1900x900 {
             get {
                 object obj = ResourceManager.GetObject("bangkokairways_1900x900", resourceCulture);

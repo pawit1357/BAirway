@@ -289,6 +289,7 @@
     <None Include="Document\SG20T.docx" />
     <None Include="Document\user_wifi_management.xlsx" />
     <None Include="images\bangkokairways_1900x900.png" />
+    <None Include="images\bangkokairways_1600x900_2.png" />
     <Content Include="images\baw_background.jpg" />
     <Content Include="Document\ReadMe.txt" />
     <EmbeddedResource Include="AboutBox.resx">
