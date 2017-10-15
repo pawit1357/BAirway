@@ -45,7 +45,7 @@ namespace BAirway
 
             StationID = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID");
             String[] userInfo = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo").Split(',');
-            //14,1,26,สนามบินสุวรรณภูมิ Inter,Lounge Inter,Area 1,1,Admin,admin1,admin1
+            //1 4,1,26,สนามบินสุวรรณภูมิ Inter,Lounge Inter,Area 1,1,Admin,admin1,admin1
             if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus") != null)
             {
                 status = (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus").Equals("1")) ? true : false;
