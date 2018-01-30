@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using BAW.Utils;
-using BAW.Biz;
-using System.IO;
+﻿using BAW.Biz;
 using BAW.Dao;
 using BAW.Model;
+using BAW.Utils;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Tamir.SharpSsh;
-using RadiusService;
 
 namespace BAW.TransferDailyTransaction
 {
@@ -16,18 +15,10 @@ namespace BAW.TransferDailyTransaction
 
         public static void Main(string[] args)
         {
-           
-            //Boolean closeFtp = false;
-            //String xx = Configurations.deCode("U0VSVkVSPTIwMi40Ny4yNTAuMjAzO0RBVEFCQVNFPWF1dGhlbmNvZGVkYjtVSUQ9YzExO1BBU1NXT1JEPVBAc3N3MHJkOw==");
-            //Console.WriteLine();
-            //
-            //String xxx = ManageLOG.deCode("U0VSVkVSPTIwMi40Ny4yNTAuMjAzO0RBVEFCQVNFPWF1dGhlbmNvZGVkYjtVSUQ9Y2F0MDE7UEFTU1dPUkQ9UEBzc3cwcmQ7");
-            //Console.WriteLine("");
+
             try
             {
                 RadDao radDao = new RadDao();
-               // radDao.getAthCodeInfo("628821");
-                //Console.WriteLine();
                 /*
                  0 = Run all station.
                  * format : ????.exe {station} {yyyyMMdd}
@@ -35,11 +26,7 @@ namespace BAW.TransferDailyTransaction
                 String _station = args.Length > 0 ? (args[0].Equals("0") ? "" : String.IsNullOrEmpty(args[0]) ? "" : " Where id=" + args[0]) : "";
                 Sftp sftp = new Sftp("sftp.bangkokair.net", "cat2gos", "C@t2g0s");
                 Console.WriteLine("sftp.bangkokair.net Connected. " + DateTime.Now);
-                //if (!closeFtp)
-                //{
-                    sftp.Connect(22);
-                //}
-
+                sftp.Connect(22);
 
                 DateTime runDate = args.Length > 0 ? (String.IsNullOrEmpty(args[1]) ? DateTime.Now.AddDays(-1) : new DateTime(Convert.ToInt16(args[1].Substring(0, 4)), Convert.ToInt16(args[1].Substring(4, 2)), Convert.ToInt16(args[1].Substring(6, 2)), 0, 0, 0)) : DateTime.Now.AddDays(-1);//Run pevios day
                 TransactionDao tranDao = new TransactionDao();
@@ -56,12 +43,13 @@ namespace BAW.TransferDailyTransaction
                         if (station.id != 99)
                         {
                             List<ModelLounge> lounges = loungeDao.Select(" Where lounge_station=" + station.id);
-                            if (lounges.Count > 0)
+
+                            if (null != lounges && lounges.Count > 0)
                             {
                                 foreach (ModelLounge lounge in lounges)
                                 {
                                     List<ModelArea> areas = areaDao.Select(" Where area_station=" + station.id + " and area_lounge=" + lounge.id);
-                                    if (areas.Count > 0)
+                                    if (null != areas && areas.Count > 0)
                                     {
                                         foreach (ModelArea area in areas)
                                         {
@@ -69,19 +57,16 @@ namespace BAW.TransferDailyTransaction
                                             String PATH_LOCAL = String.Format(@"{0}{1}\Gen log\Log {2} {3}", Configurations.DailyTransactionLogsPath, station.site_code, lounge.lounge_name, area.area_name);
                                             String PATH_FTP = String.Format("{0}/Gen log/Log {1} {2}", station.site_code, lounge.lounge_name, area.area_name);
                                             DirectoryInfo di = new DirectoryInfo(@"" + PATH_LOCAL);
-                                            //if (!closeFtp)
-                                            //{
-                                                if (!di.Exists) { di.Create(); }
-                                                //Create path on server
-                                                sftp.Mkdir(PATH_FTP);
-                                            //}
 
-                                            //ignore group_id=32 ==> cat test group.
+                                            if (!di.Exists) { di.Create(); }
+                                            //Create path on server
+                                            sftp.Mkdir(PATH_FTP);
+
                                             String cri = "where date(create_date) = date('" + runDate.ToString("yyyy-MM-dd") + "') and LoungePlace=" + station.id + " and LoungeType=" + lounge.id + " and LoungeArea=" + area.id + " and group_id <> 32  order by LoungePlace asc,LoungeType asc,LoungeArea asc,update_date desc";
                                             List<ModelTransaction> lists = tranDao.Select(cri, station.id);
 
                                             ManageLOG mangeLog = new ManageLOG();
-                                            if (lists.Count > 0)
+                                            if (null != lists && lists.Count > 0)
                                             {
 
                                                 mangeLog.fileName = String.Format(@"{0}\export_{1}.csv", PATH_LOCAL, runDate.ToString("yyyy-MM-dd"));
@@ -92,7 +77,7 @@ namespace BAW.TransferDailyTransaction
                                                 foreach (ModelTransaction transaction in lists)
                                                 {
 
-                                                    String athCodeBeginUse = transaction.begin_date.ToString("yyyy-MM-dd HH:mm:ss");
+                                                    String athCodeBeginUse = (transaction.begin_date == null) ? String.Empty : transaction.begin_date.ToString("yyyy-MM-dd HH:mm:ss");
                                                     try
                                                     {
                                                         athCodeBeginUse = radDao.getAthCodeInfo(transaction.ath_id);
@@ -147,7 +132,7 @@ namespace BAW.TransferDailyTransaction
                                              */
                                             //if (!closeFtp)
                                             //{
-                                                sftp.Put(mangeLog.fileName, PATH_FTP);
+                                            sftp.Put(mangeLog.fileName, PATH_FTP);
                                             //}
                                         }
                                     }
@@ -163,6 +148,7 @@ namespace BAW.TransferDailyTransaction
                             }
                         }
                     }
+
                 }
                 else
                 {
