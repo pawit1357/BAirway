@@ -6,11 +6,16 @@ using BAW.Model;
 using BAW.Utils;
 using BAW.Biz;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace BAirway
 {
     public partial class FrmAuthenCode : Form
     {
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
+
         private AuthenCodeDao authenCodeDao = null;
         private int id = -1;
         public FrmAuthenCode()
@@ -21,10 +26,42 @@ namespace BAirway
 
         private void FrmAuthenCode_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox1.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+            //    }
+            //}
+            //Console.WriteLine();
+
             StationDao siteDao = new StationDao();
             lounge_site.DataSource = siteDao.Select("");
             //initial
             refresh();
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void B_ADD_Click(object sender, EventArgs e)

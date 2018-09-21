@@ -6,6 +6,7 @@ using BAW.Dao;
 using BAW.Model;
 using BAW.Biz;
 using BAW.Utils;
+using System.Collections;
 //using BAirway.Report;
 
 namespace BAirway
@@ -17,6 +18,9 @@ namespace BAirway
         private AuthenCodeDao authenDao = new AuthenCodeDao();
         private ModelTransaction model = null;
         private FrmMain main;
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
 
         private Boolean onlineStatus = false;
         private int StationID = -1;
@@ -72,6 +76,38 @@ namespace BAirway
             else
             {
                 label3.Text = String.Format(label3.Text, staffId);
+            }
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox1.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+            //    }
+            //}
+            //Console.WriteLine();
+
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
             }
         }
 

@@ -5,12 +5,18 @@ using System.Windows.Forms;
 using BAW.Model;
 using BAW.Dao;
 using BAW.Utils;
+using System.Collections;
+using BAW.Biz;
 
 namespace BAirway
 {
     public partial class FrmGroup : Form
     {
         private GroupDao groupDao = null;
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
+
         private int id = -1;
 
         public FrmGroup()
@@ -21,9 +27,39 @@ namespace BAirway
 
         private void FrmArea_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox1.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
 
+            //    }
+            //}
+            //Console.WriteLine();
             //initial
             refresh();
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void B_ADD_Click(object sender, EventArgs e)
@@ -40,23 +76,23 @@ namespace BAirway
                 switch (B_ADD.Text)
                 {
                     case "บันทึก":
-                                                //Check Exist
+                        //Check Exist
                         List<ModelGroup> stationLists = groupDao.Select(" Where group_code='" + model.group_code + "'");
-                      if (stationLists.Count > 0)
-                      {
-                          MessageBox.Show("มีข้อมูล " + model.group_code + " ในระบบแล้ว");
-                          txtCode.SelectAll();
-                          txtCode.Focus();
-                          //txtDesc.Text = "";
-                      }
-                      else
-                      {
-                          result = groupDao.Insert(model);
-                          if (result)
-                          {
-                              MessageBox.Show("บันทึกข้อมูลเรียบร้อยแล้ว");
-                          }
-                      }
+                        if (stationLists.Count > 0)
+                        {
+                            MessageBox.Show("มีข้อมูล " + model.group_code + " ในระบบแล้ว");
+                            txtCode.SelectAll();
+                            txtCode.Focus();
+                            //txtDesc.Text = "";
+                        }
+                        else
+                        {
+                            result = groupDao.Insert(model);
+                            if (result)
+                            {
+                                MessageBox.Show("บันทึกข้อมูลเรียบร้อยแล้ว");
+                            }
+                        }
                         break;
                     case "แก้ไข":
                         result = groupDao.Update(model);
@@ -138,7 +174,7 @@ namespace BAirway
         private void refresh()
         {
             String StationID = ManageLOG.getValueFromRegistry("WiFi Management", "StationID");
-            
+
             B_DELETE.Visible = false;
             B_ADD.Enabled = true;
             B_CANCEL.Enabled = true;

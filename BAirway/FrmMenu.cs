@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BAW.Biz;
+using BAW.Dao;
+using BAW.Model;
+using BAW.Utils;
+using System;
+using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.IO;
 using System.Net;
-using BAW.Biz;
-using BAW.Utils;
-using BAW.Model;
-using BAW.Dao;
-using System.Drawing;
-using System.Threading;
+using System.Windows.Forms;
 
 namespace BAirway
 {
@@ -20,7 +20,8 @@ namespace BAirway
         private FrmMain frmMain = null;
         private FrmAutoGen frmAutoGen = null;
         private FrmManualGen frmManualGen = null;
-
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
         private Boolean onlineStatus = false;
 
         public FrmMenu()
@@ -29,6 +30,7 @@ namespace BAirway
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
 
             if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "OnlineStatus") != null)
             {
@@ -83,6 +85,7 @@ namespace BAirway
                         }
 
                         initial();
+                        chnageLabel();
                         Cursor = Cursors.Default;
                     }
                 }
@@ -92,6 +95,27 @@ namespace BAirway
                 FrmSetting setting = new FrmSetting();
                 setting.ShowDialog();
             }
+
+            //
+            //foreach (ToolStripMenuItem mainMenu in menuStrip1.Items)
+            //{
+            //    Console.WriteLine(String.Format("{0},{1},{2}", this.Name, mainMenu.Name, mainMenu.Text));
+            //    Console.WriteLine();
+            //    if (mainMenu.Visible)
+            //    {
+            //        foreach (object obj in mainMenu.DropDownItems)
+            //        {
+            //            if (obj.GetType().Equals(typeof(ToolStripMenuItem)))
+            //            {
+            //                ToolStripMenuItem subMenu = (ToolStripMenuItem)obj;
+
+            //                Console.WriteLine(String.Format("{0},{1},{2}", this.Name, subMenu.Name, subMenu.Text));
+            //            }
+            //        }
+            //    }
+            //}
+
+            //Console.WriteLine();
         }
 
         private void initial()
@@ -232,7 +256,15 @@ namespace BAirway
                     userModel = null;
                     frmMain.Close();
 
-                    FrmLogin frmLogin = new FrmLogin();
+
+                        FrmLogin frmLogin = new FrmLogin();
+                    frmLogin.isInit = true;
+                    //String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+                    //if (defaultLang != null)
+                    //{
+                    //    defaultLang = defaultLang.Split('|')[1];
+                    //    frmLogin.chnageLabel(defaultLang);
+                    //}
                     frmLogin.ShowDialog();
                     if (frmLogin.click.Equals("OK"))
                     {
@@ -246,6 +278,8 @@ namespace BAirway
                         else
                         {
                             initial();
+                            chnageLabel();
+
                         }
                     }
                     break;
@@ -452,5 +486,57 @@ namespace BAirway
             logger.Debug("Download document success.");
         }
 
+        private void chnageLabel()
+        {
+            String defaultLang =  ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                string key = "";
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (ToolStripMenuItem mainMenu in menuStrip1.Items)
+                {
+                    key = String.Format("{0}|{1}|{2}", this.Name, mainMenu.Name, defaultLang);
+                    if (listMenuLangLabel[key] != null)
+                    {
+                        mainMenu.Text = listMenuLangLabel[key].ToString().Trim();
+                    }
+
+                    if (mainMenu.Visible)
+                    {
+                        foreach (object obj in mainMenu.DropDownItems)
+                        {
+                            if (obj.GetType().Equals(typeof(ToolStripMenuItem)))
+                            {
+                                ToolStripMenuItem subMenu = (ToolStripMenuItem)obj;
+                                key = String.Format("{0}|{1}|{2}", this.Name, subMenu.Name, defaultLang);
+                                if (listMenuLangLabel[key] != null)
+                                {
+                                    subMenu.Text = listMenuLangLabel[key].ToString().Trim();
+                                }
+
+                            }
+                        }
+                    }
+                }
+                //menu button
+                key = String.Format("{0}|{1}|{2}", this.Name, "TSB_00", defaultLang);
+                if (listMenuLangLabel[key] != null)
+                {
+                    TSB_00.Text = listMenuLangLabel[key].ToString().Trim();
+                }
+                key = String.Format("{0}|{1}|{2}", this.Name, "TSB_01", defaultLang);
+                if (listMenuLangLabel[key] != null)
+                {
+                    TSB_01.Text = listMenuLangLabel[key].ToString().Trim();
+                }
+                key = String.Format("{0}|{1}|{2}", this.Name, "TSB_03", defaultLang);
+                if (listMenuLangLabel[key] != null)
+                {
+                    TSB_03.Text = listMenuLangLabel[key].ToString().Trim();
+                }
+
+
+            }
+        }
     }
 }

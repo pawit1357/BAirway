@@ -6,6 +6,7 @@ using BAW.Model;
 using BAW.Dao;
 using BAW.Utils;
 using BAW.Biz;
+using System.Collections;
 
 namespace BAirway
 {
@@ -19,6 +20,8 @@ namespace BAirway
         private TransactionDao tranDao = new TransactionDao();
         private AuthenCodeDao authenDao = new AuthenCodeDao();
         private GroupDao groupDao = new GroupDao();
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
 
         private Boolean onlineStatus = false;
         private int StationID = -1;
@@ -65,7 +68,43 @@ namespace BAirway
             date_of_flight.DataSource = MyFunction.getYearDDL(1);
             group_id.DataSource = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
 
+
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox2.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+            //    }
+            //}
+            //Console.WriteLine();
+
+
             refreshData();
+            chnageLabel();
+            cboRemark1.Visible = false;
+
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox2.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
         private void B_SAVE_Click(object sender, EventArgs e)
         {
@@ -115,7 +154,7 @@ namespace BAirway
                         tran.flight_no = strCode.Substring(39, 4);
                         tran.date_of_flight = new DateTime(Convert.ToInt32(date_of_flight.SelectedValue), DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                         tran.seat_no = strCode.Substring(48, 4);
-                        tran.remark = remark.Text;
+                        tran.remark = cboRemark1.Visible? cboRemark1.Text : remark.Text;
                         tran.remakr2 = remark2.Text;
 
                         tran.LoungePlace = StationID;
@@ -134,7 +173,7 @@ namespace BAirway
                     tran.passenger_name + "" + tran.flight_no + "" + tran.seat_no + "," +
                     tran.type + "," +                 //Type
                     tran.create_date.ToString("yyyy-MM-dd HH:MM:ss") + "," +
-                    tran.group_idName + "," +         //GroupName
+                    tran.group_id + "," +         //GroupName
                     tran.duration + "," +             //Duration
                     tran.passenger_name + "," +       //PassengerName
                     tran.from_city + "," +            //FromCity
@@ -200,7 +239,7 @@ namespace BAirway
                                 ModelAuthenCode accessCode = lists[0];
                                 //
                                 tran.ath_id = tran.ath_id = (onlineStatus) ? lists[0].ath_code : "";
-                                
+
 
                                 //auto save
                                 if ((onlineStatus) ? tranDao.Insert(tran, StationID) : tranDao.InsertOffine(tran, StationID))
@@ -291,6 +330,21 @@ namespace BAirway
         private void group_id_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_barcode.Select();
+            if (!String.IsNullOrEmpty(group_id.SelectedValue.ToString())){
+                if (group_id.SelectedValue.ToString().Equals("10"))
+                {
+                    //10=FAVPAX
+                    List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+                    cboRemark1.DataSource = lounges;
+                    remark.Visible = false;
+                    cboRemark1.Visible = true;
+                }
+                else
+                {
+                    remark.Visible = true;
+                    cboRemark1.Visible = false;
+                }
+            }
         }
 
         #region "Method"
@@ -368,11 +422,32 @@ namespace BAirway
             {
                 gr.DrawImage(logo, new Rectangle(0, 0, 110, 60));
             }
+
+
+            int PT1Size = 8;
+            int PAcCode = 14;
+            int PT2Size = 8;
+            int PT3Size = 6;
+
+            if(!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size"))){
+                PT1Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode"))){
+                PAcCode = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PAcCode"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size"))){
+                PT2Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PT2Size"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size")))
+            {
+                PT3Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PT3Size"));
+            }
+
             e.Graphics.DrawImage(clone, -5, -12);
-            e.Graphics.DrawString(template_p1, new Font("Arial", 8), Brushes.Black, 0, 5);
-            e.Graphics.DrawString(accessCode, new Font("Arial", 14), Brushes.Black, 80, 55);
-            e.Graphics.DrawString(template_p2, new Font("Arial", 8), Brushes.Black, 0, 75);
-            e.Graphics.DrawString(template_p3, new Font("Arial", 6), Brushes.Black, 0, 95);
+            e.Graphics.DrawString(template_p1, new Font("Arial", PT1Size), Brushes.Black, 0, 5);
+            e.Graphics.DrawString(accessCode, new Font("Arial", PAcCode), Brushes.Black, 80, 55);
+            e.Graphics.DrawString(template_p2, new Font("Arial", PT2Size), Brushes.Black, 0, 75);
+            e.Graphics.DrawString(template_p3, new Font("Arial", PT3Size), Brushes.Black, 0, 95);
             e.Graphics.DrawString("-", new Font("Arial", 6), Brushes.Black, 0, 225);
         }
 

@@ -32,8 +32,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAW.TransferAllTransaction"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAW.Test", "BAW.Test\BAW.Test.csproj", "{C6951A5C-3A2C-4A3A-8195-1EDEE39AFF98}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MMSSetup", "MMSSetup\MMSSetup.vdproj", "{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,14 +203,6 @@ Global
 		{C6951A5C-3A2C-4A3A-8195-1EDEE39AFF98}.Release|x64.Build.0 = Release|Any CPU
 		{C6951A5C-3A2C-4A3A-8195-1EDEE39AFF98}.Release|x86.ActiveCfg = Release|Any CPU
 		{C6951A5C-3A2C-4A3A-8195-1EDEE39AFF98}.Release|x86.Build.0 = Release|Any CPU
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Debug|Any CPU.ActiveCfg = Debug
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Debug|x64.ActiveCfg = Debug
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Debug|x86.ActiveCfg = Debug
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Release|Any CPU.ActiveCfg = Release
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Release|Mixed Platforms.ActiveCfg = Release
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Release|x64.ActiveCfg = Release
-		{3AD1B98A-CC26-4D1E-82F5-C5C6C265BF44}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

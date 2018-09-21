@@ -4,12 +4,19 @@ using System.Windows.Forms;
 using BAW.Dao;
 using BAW.Model;
 using System.Collections.Generic;
+using System.Collections;
+using BAW.Biz;
+using BAW.Utils;
 
 namespace BAirway
 {
     public partial class FrmSite : Form
     {
         private StationDao siteDao = null;
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
+
         private int id = -1;
         public FrmSite()
         {
@@ -19,8 +26,39 @@ namespace BAirway
 
         private void FrmSite_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
+            foreach (Control control in groupBox1.Controls)
+            {
+                if (control is Label)
+                {
+                    Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+                }
+            }
+            Console.WriteLine();
             //initial
             refresh();
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void B_ADD_Click(object sender, EventArgs e)

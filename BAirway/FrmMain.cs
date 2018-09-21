@@ -1,21 +1,23 @@
-﻿using System;
+﻿using BAW.Biz;
+using BAW.Dao;
+using BAW.Model;
+using BAW.Utils;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using BAW.Model;
-using BAW.Utils;
-using BAW.Dao;
-using BAW.Biz;
-using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace BAirway
 {
     public partial class FrmMain : Form
     {
-        private StationDao siteDao = new StationDao();
+        private static log4net.ILog logger = log4net.LogManager.GetLogger(typeof(FrmMain));
 
+        private StationDao siteDao = new StationDao();
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
         #region "DECLARE"
         public int rowIndex = -1;
         private AreaDao areaDao = new AreaDao();
@@ -53,6 +55,8 @@ namespace BAirway
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
+
             //check offine mode
             #region Initial variable
             StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
@@ -99,30 +103,7 @@ namespace BAirway
                 comboArea.SelectedValue = area;
             }
 
-            //List<ModelLounge> listLounge = (onlineStatus) ? loungeDao.Select(" Where area_station ='" + StationID + "' and area_lounge='" + lounge + "'") : loungeDao.SelectOffine(" Where area_station ='" + StationID + "' and area_lounge='" + lounge + "'");
-            //if (listLounge.Count > 0)
-            //{
-            //    ModelLounge model1 = new ModelLounge();
-            //    model1.id = -1;
-            //    //model1.id = "";
-            //    model1.lounge_name = "";
-            //    listLounge.Insert(0, model1);
-            //}
-            //comboLounge.DataSource = listLounge;
-            //List<ModelArea> listArea = (onlineStatus) ? areaDao.Select(" Where area_station ='" + StationID + "' and area_lounge='" + lounge + "'") : areaDao.SelectOffine(" Where area_station ='" + StationID + "' and area_lounge='" + lounge + "'");
-            //if (listArea.Count > 0)
-            //{
-            //    ModelArea model1 = new ModelArea();
-            //    model1.id = -1;
-            //    model1.area_code = "";
-            //    model1.area_name = "";
-            //    listArea.Insert(0, model1);
-            //}
-            //comboArea.DataSource = listArea;
-
-
-
-
+            chnageLabel();//init form language
             refreshData();
         }
         private void B_SEARCH_Click(object sender, EventArgs e)
@@ -270,7 +251,8 @@ namespace BAirway
             //{
             switch (e.ColumnIndex)
             {
-                case 1: e.Value = e.RowIndex + 1;
+                case 1:
+                    e.Value = e.RowIndex + 1;
                     break;
             }
             //}
@@ -404,7 +386,8 @@ namespace BAirway
                 List<ModelArea> listArea = (onlineStatus) ? areaDao.Select("where a.area_station=" + lounge_site.SelectedValue + " and a.area_lounge=" + comboLounge.SelectedValue) : areaDao.SelectOffine("where a.area_station=" + lounge_site.SelectedValue + " and a.area_lounge=" + comboLounge.SelectedValue);
                 comboArea.DataSource = listArea;
             }
-            else {
+            else
+            {
                 comboArea.Text = "";
             }
 
@@ -436,7 +419,26 @@ namespace BAirway
             }
         }
 
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString().Trim();
+                        }
 
+                    }
+                }
+            }
+        }
 
     }
 }

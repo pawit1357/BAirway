@@ -6,6 +6,7 @@ using BAW.Model;
 using BAW.Dao;
 using BAW.Biz;
 using BAW.Utils;
+using System.Collections;
 
 namespace BAirway
 {
@@ -18,6 +19,9 @@ namespace BAirway
         private TransactionDao tranDao = new TransactionDao();
         private AuthenCodeDao authenDao = new AuthenCodeDao();
         private GroupDao groupDao = new GroupDao();
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
 
         private Boolean onlineStatus = false;
         private int StationID = -1;
@@ -62,8 +66,40 @@ namespace BAirway
             L_SITE_DESC.Text = loungeName + "-" + areaName;
 
             group_id.DataSource = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox2.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
 
+            //    }
+            //}
+            //Console.WriteLine();
             refreshData();
+            chnageLabel();
+            cboRemark1.Visible = false;
+
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox2.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void FrmManualGen_FormClosed(object sender, FormClosedEventArgs e)
@@ -153,7 +189,7 @@ namespace BAirway
                 tran.flight_no = flight_no.Text;
                 tran.date_of_flight = date_of_flight.Value;
                 tran.seat_no = ((seat_no.Text.Length > 4) ? seat_no.Text.Substring(0, 4) : seat_no.Text);
-                tran.remark = remark.Text;
+                tran.remark = cboRemark1.Visible ? cboRemark1.Text : remark.Text;
                 tran.remakr2 = remark2.Text;
 
                 tran.LoungePlace = StationID;
@@ -308,11 +344,37 @@ namespace BAirway
             }
             e.Graphics.DrawImage(clone, -5, -12);
             String printerSize = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PRINTER");
+            int PT1Size = 8;
+            int PAcCode = 14;
+            int PT2Size = 8;
+            int PT3Size = 6;
 
-            e.Graphics.DrawString(template_p1, new Font("Arial", 8), Brushes.Black, 0, 5);
-            e.Graphics.DrawString(accessCode, new Font("Arial", 14), Brushes.Black, 80, 55);
-            e.Graphics.DrawString(template_p2, new Font("Arial", 8), Brushes.Black, 0, 75);
-            e.Graphics.DrawString(template_p3, new Font("Arial", 6), Brushes.Black, 0, 95);
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size")))
+            {
+                PT1Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode")))
+            {
+                PAcCode = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PAcCode"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size")))
+            {
+                PT2Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PT2Size"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size")))
+            {
+                PT3Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PT3Size"));
+            }
+
+            e.Graphics.DrawString(template_p1, new Font("Arial", PT1Size), Brushes.Black, 0, 5);
+            e.Graphics.DrawString(accessCode, new Font("Arial", PAcCode), Brushes.Black, 80, 55);
+            e.Graphics.DrawString(template_p2, new Font("Arial", PT2Size), Brushes.Black, 0, 75);
+            e.Graphics.DrawString(template_p3, new Font("Arial", PT3Size), Brushes.Black, 0, 95);
+
+            //e.Graphics.DrawString(template_p1, new Font("Arial", 8), Brushes.Black, 0, 5);
+            //e.Graphics.DrawString(accessCode, new Font("Arial", 14), Brushes.Black, 80, 55);
+            //e.Graphics.DrawString(template_p2, new Font("Arial", 8), Brushes.Black, 0, 75);
+            //e.Graphics.DrawString(template_p3, new Font("Arial", 6), Brushes.Black, 0, 95);
             e.Graphics.DrawString("-", new Font("Arial", 6), Brushes.Black, 0, 225);
         }
 
@@ -347,5 +409,24 @@ namespace BAirway
             e.Handled = true;
         }
 
+        private void group_id_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(group_id.SelectedValue.ToString()))
+            {
+                if (group_id.SelectedValue.ToString().Equals("10"))
+                {
+                    //10=FAVPAX
+                    List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+                    cboRemark1.DataSource = lounges;
+                    remark.Visible = false;
+                    cboRemark1.Visible = true;
+                }
+                else
+                {
+                    remark.Visible = true;
+                    cboRemark1.Visible = false;
+                }
+            }
+        }
     }
 }

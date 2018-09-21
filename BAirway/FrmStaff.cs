@@ -6,6 +6,7 @@ using BAW.Dao;
 using BAW.Utils;
 using BAW.Model;
 using BAW.Biz;
+using System.Collections;
 
 namespace BAirway
 {
@@ -17,6 +18,10 @@ namespace BAirway
         private UserDao userDao = null;
         private AreaDao areaDao = null;
         private StaffDao staffDao = null;
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
+
         private int userId = -1;
         private String StationID;
 
@@ -54,8 +59,41 @@ namespace BAirway
             }
             user_role.DataSource = roleDao.Select(" Where role_code <> 'SPECIAL'");
             user_role.SelectedIndex = 0;
+
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox2.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+            //    }
+            //}
+            //Console.WriteLine();
+
             //initial
             refresh();
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox2.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void B_ADD_Click(object sender, EventArgs e)

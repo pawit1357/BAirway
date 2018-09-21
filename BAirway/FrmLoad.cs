@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using BAW.Biz;
 using BAW.Dao;
 using BAW.Model;
 using BAW.Utils;
@@ -12,6 +13,8 @@ namespace BAirway
     {
         private AuthenCodeDao authenCodeDao = null;
         private List<ModelAuthenCode> authenCodes = null;
+
+
         public FrmLoad()
         {
             InitializeComponent();
@@ -24,7 +27,28 @@ namespace BAirway
             StationDao siteDao = new StationDao();
             lounge_site.DataSource = siteDao.Select("");
             refresh();
+            //chnageLabel();
         }
+        //private void chnageLabel()
+        //{
+        //    String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+        //    if (defaultLang != null)
+        //    {
+        //        defaultLang = defaultLang.Split('|')[1];
+        //        foreach (Control control in groupBox2.Controls)
+        //        {
+        //            if (control is Label)
+        //            {
+        //                String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+        //                if (listMenuLangLabel[key] != null)
+        //                {
+        //                    control.Text = listMenuLangLabel[key].ToString();
+        //                }
+
+        //            }
+        //        }
+        //    }
+        //}
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {

@@ -30,20 +30,22 @@
         {
             this.LUPDATE_DATE = new System.Windows.Forms.Label();
             this.Cancel = new System.Windows.Forms.Button();
-            this.UsernameLabel = new System.Windows.Forms.Label();
+            this.lbStaffID = new System.Windows.Forms.Label();
             this.OK = new System.Windows.Forms.Button();
             this.LAPPTITLE = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LAPPCOMPANY = new System.Windows.Forms.Label();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.station = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbStation = new System.Windows.Forms.Label();
+            this.lbArea = new System.Windows.Forms.Label();
             this.area = new System.Windows.Forms.ComboBox();
             this.lounge = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbLounge = new System.Windows.Forms.Label();
             this.lSupport = new System.Windows.Forms.Label();
+            this.cboLang = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LUPDATE_DATE
@@ -51,10 +53,9 @@
             this.LUPDATE_DATE.BackColor = System.Drawing.Color.Transparent;
             this.LUPDATE_DATE.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.LUPDATE_DATE.ForeColor = System.Drawing.Color.Teal;
-            this.LUPDATE_DATE.Location = new System.Drawing.Point(428, 284);
-            this.LUPDATE_DATE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LUPDATE_DATE.Location = new System.Drawing.Point(321, 231);
             this.LUPDATE_DATE.Name = "LUPDATE_DATE";
-            this.LUPDATE_DATE.Size = new System.Drawing.Size(196, 20);
+            this.LUPDATE_DATE.Size = new System.Drawing.Size(147, 16);
             this.LUPDATE_DATE.TabIndex = 24;
             this.LUPDATE_DATE.Text = "####";
             this.LUPDATE_DATE.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -65,39 +66,35 @@
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.Font = new System.Drawing.Font("BrowalliaUPC", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(532, 242);
-            this.Cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.Cancel.Location = new System.Drawing.Point(399, 197);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(92, 38);
+            this.Cancel.Size = new System.Drawing.Size(69, 31);
             this.Cancel.TabIndex = 21;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // UsernameLabel
+            // lbStaffID
             // 
-            this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.UsernameLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.UsernameLabel.ForeColor = System.Drawing.Color.DarkBlue;
-            this.UsernameLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UsernameLabel.Location = new System.Drawing.Point(261, 170);
-            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.UsernameLabel.Size = new System.Drawing.Size(143, 38);
-            this.UsernameLabel.TabIndex = 16;
-            this.UsernameLabel.Text = "Staff ID";
-            this.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStaffID.BackColor = System.Drawing.Color.Transparent;
+            this.lbStaffID.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbStaffID.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lbStaffID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbStaffID.Location = new System.Drawing.Point(196, 138);
+            this.lbStaffID.Name = "lbStaffID";
+            this.lbStaffID.Size = new System.Drawing.Size(107, 31);
+            this.lbStaffID.TabIndex = 16;
+            this.lbStaffID.Text = "Staff ID:";
+            this.lbStaffID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // OK
             // 
             this.OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.OK.Font = new System.Drawing.Font("BrowalliaUPC", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.OK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.OK.Location = new System.Drawing.Point(428, 242);
-            this.OK.Margin = new System.Windows.Forms.Padding(4);
+            this.OK.Location = new System.Drawing.Point(321, 197);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(96, 38);
+            this.OK.Size = new System.Drawing.Size(72, 31);
             this.OK.TabIndex = 20;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = false;
@@ -108,10 +105,9 @@
             this.LAPPTITLE.BackColor = System.Drawing.Color.Transparent;
             this.LAPPTITLE.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.LAPPTITLE.ForeColor = System.Drawing.Color.DarkBlue;
-            this.LAPPTITLE.Location = new System.Drawing.Point(206, 9);
-            this.LAPPTITLE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LAPPTITLE.Location = new System.Drawing.Point(154, 7);
             this.LAPPTITLE.Name = "LAPPTITLE";
-            this.LAPPTITLE.Size = new System.Drawing.Size(418, 34);
+            this.LAPPTITLE.Size = new System.Drawing.Size(314, 28);
             this.LAPPTITLE.TabIndex = 23;
             this.LAPPTITLE.Text = "####";
             this.LAPPTITLE.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -120,13 +116,13 @@
             // 
             this.PasswordTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.PasswordTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.PasswordTextBox.Location = new System.Drawing.Point(412, 209);
-            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PasswordTextBox.Location = new System.Drawing.Point(309, 170);
             this.PasswordTextBox.MaxLength = 20;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
-            this.PasswordTextBox.Size = new System.Drawing.Size(211, 23);
+            this.PasswordTextBox.Size = new System.Drawing.Size(159, 21);
             this.PasswordTextBox.TabIndex = 19;
+            this.PasswordTextBox.Text = "admin1x";
             this.PasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             // 
             // LAPPCOMPANY
@@ -134,10 +130,9 @@
             this.LAPPCOMPANY.BackColor = System.Drawing.Color.Transparent;
             this.LAPPCOMPANY.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.LAPPCOMPANY.ForeColor = System.Drawing.Color.DarkBlue;
-            this.LAPPCOMPANY.Location = new System.Drawing.Point(202, 43);
-            this.LAPPCOMPANY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LAPPCOMPANY.Location = new System.Drawing.Point(152, 35);
             this.LAPPCOMPANY.Name = "LAPPCOMPANY";
-            this.LAPPCOMPANY.Size = new System.Drawing.Size(422, 31);
+            this.LAPPCOMPANY.Size = new System.Drawing.Size(316, 25);
             this.LAPPCOMPANY.TabIndex = 22;
             this.LAPPCOMPANY.Text = "####";
             this.LAPPCOMPANY.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -146,27 +141,25 @@
             // 
             this.UsernameTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.UsernameTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.UsernameTextBox.Location = new System.Drawing.Point(412, 175);
-            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.UsernameTextBox.Location = new System.Drawing.Point(309, 142);
             this.UsernameTextBox.MaxLength = 20;
             this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.Size = new System.Drawing.Size(211, 23);
+            this.UsernameTextBox.Size = new System.Drawing.Size(159, 21);
             this.UsernameTextBox.TabIndex = 17;
+            this.UsernameTextBox.Text = "admin1";
             // 
-            // PasswordLabel
+            // lbPassword
             // 
-            this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PasswordLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.PasswordLabel.ForeColor = System.Drawing.Color.DarkBlue;
-            this.PasswordLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PasswordLabel.Location = new System.Drawing.Point(247, 201);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PasswordLabel.Size = new System.Drawing.Size(157, 28);
-            this.PasswordLabel.TabIndex = 18;
-            this.PasswordLabel.Text = "Password";
-            this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lbPassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbPassword.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbPassword.Location = new System.Drawing.Point(185, 163);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(118, 23);
+            this.lbPassword.TabIndex = 18;
+            this.lbPassword.Text = "Password:";
+            this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // station
             // 
@@ -175,51 +168,47 @@
             this.station.Enabled = false;
             this.station.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.station.FormattingEnabled = true;
-            this.station.Location = new System.Drawing.Point(345, 77);
-            this.station.Margin = new System.Windows.Forms.Padding(4);
+            this.station.Location = new System.Drawing.Point(259, 63);
             this.station.Name = "station";
-            this.station.Size = new System.Drawing.Size(277, 24);
+            this.station.Size = new System.Drawing.Size(209, 21);
             this.station.TabIndex = 151;
             this.station.ValueMember = "id";
             this.station.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.group_id_KeyPress);
             // 
-            // label1
+            // lbStation
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(202, 70);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(136, 38);
-            this.label1.TabIndex = 152;
-            this.label1.Text = "Station";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStation.BackColor = System.Drawing.Color.Transparent;
+            this.lbStation.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbStation.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lbStation.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbStation.Location = new System.Drawing.Point(152, 57);
+            this.lbStation.Name = "lbStation";
+            this.lbStation.Size = new System.Drawing.Size(102, 31);
+            this.lbStation.TabIndex = 152;
+            this.lbStation.Text = "Station:";
+            this.lbStation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label6
+            // lbArea
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label6.Location = new System.Drawing.Point(343, 147);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 17);
-            this.label6.TabIndex = 163;
-            this.label6.Text = "Area:";
+            this.lbArea.AutoSize = true;
+            this.lbArea.BackColor = System.Drawing.Color.Transparent;
+            this.lbArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArea.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lbArea.Location = new System.Drawing.Point(257, 119);
+            this.lbArea.Name = "lbArea";
+            this.lbArea.Size = new System.Drawing.Size(34, 13);
+            this.lbArea.TabIndex = 163;
+            this.lbArea.Text = "Area:";
+            this.lbArea.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // area
             // 
             this.area.DisplayMember = "area_name";
             this.area.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.area.FormattingEnabled = true;
-            this.area.Location = new System.Drawing.Point(396, 143);
-            this.area.Margin = new System.Windows.Forms.Padding(4);
+            this.area.Location = new System.Drawing.Point(297, 116);
             this.area.Name = "area";
-            this.area.Size = new System.Drawing.Size(227, 24);
+            this.area.Size = new System.Drawing.Size(171, 21);
             this.area.TabIndex = 162;
             this.area.ValueMember = "id";
             // 
@@ -228,71 +217,100 @@
             this.lounge.DisplayMember = "lounge_name";
             this.lounge.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lounge.FormattingEnabled = true;
-            this.lounge.Location = new System.Drawing.Point(396, 110);
-            this.lounge.Margin = new System.Windows.Forms.Padding(4);
+            this.lounge.Location = new System.Drawing.Point(297, 89);
             this.lounge.Name = "lounge";
-            this.lounge.Size = new System.Drawing.Size(227, 24);
+            this.lounge.Size = new System.Drawing.Size(171, 21);
             this.lounge.TabIndex = 160;
             this.lounge.ValueMember = "id";
             this.lounge.SelectedIndexChanged += new System.EventHandler(this.staff_lounge_SelectedIndexChanged);
             // 
-            // label4
+            // lbLounge
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label4.Location = new System.Drawing.Point(327, 114);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
-            this.label4.TabIndex = 161;
-            this.label4.Text = "Lounge:";
+            this.lbLounge.AutoSize = true;
+            this.lbLounge.BackColor = System.Drawing.Color.Transparent;
+            this.lbLounge.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLounge.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lbLounge.Location = new System.Drawing.Point(245, 93);
+            this.lbLounge.Name = "lbLounge";
+            this.lbLounge.Size = new System.Drawing.Size(46, 13);
+            this.lbLounge.TabIndex = 161;
+            this.lbLounge.Text = "Lounge:";
+            this.lbLounge.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lSupport
             // 
             this.lSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lSupport.AutoSize = true;
             this.lSupport.BackColor = System.Drawing.Color.White;
-            this.lSupport.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lSupport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lSupport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lSupport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lSupport.Location = new System.Drawing.Point(392, 304);
-            this.lSupport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lSupport.Location = new System.Drawing.Point(245, 247);
             this.lSupport.Name = "lSupport";
-            this.lSupport.Size = new System.Drawing.Size(182, 22);
+            this.lSupport.Size = new System.Drawing.Size(107, 13);
             this.lSupport.TabIndex = 164;
             this.lSupport.Text = "Support Tel : {0} {1}";
             this.lSupport.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // cboLang
+            // 
+            this.cboLang.DisplayMember = "name";
+            this.cboLang.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLang.FormattingEnabled = true;
+            this.cboLang.Items.AddRange(new object[] {
+            "TH",
+            "EN"});
+            this.cboLang.Location = new System.Drawing.Point(113, 251);
+            this.cboLang.Name = "cboLang";
+            this.cboLang.Size = new System.Drawing.Size(57, 21);
+            this.cboLang.TabIndex = 165;
+            this.cboLang.ValueMember = "id";
+            this.cboLang.SelectedIndexChanged += new System.EventHandler(this.cboLang_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(12, 247);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(95, 23);
+            this.label1.TabIndex = 166;
+            this.label1.Text = "Select Language :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.UseMnemonic = false;
+            // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::BAirway.Properties.Resources.login;
-            this.ClientSize = new System.Drawing.Size(637, 340);
+            this.ClientSize = new System.Drawing.Size(478, 279);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboLang);
             this.Controls.Add(this.lSupport);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbArea);
             this.Controls.Add(this.area);
             this.Controls.Add(this.lounge);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbLounge);
+            this.Controls.Add(this.lbStation);
             this.Controls.Add(this.station);
             this.Controls.Add(this.LUPDATE_DATE);
             this.Controls.Add(this.Cancel);
-            this.Controls.Add(this.UsernameLabel);
+            this.Controls.Add(this.lbStaffID);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.LAPPTITLE);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.LAPPCOMPANY);
             this.Controls.Add(this.UsernameTextBox);
-            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.lbPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
@@ -308,19 +326,21 @@
 
         internal System.Windows.Forms.Label LUPDATE_DATE;
         internal System.Windows.Forms.Button Cancel;
-        internal System.Windows.Forms.Label UsernameLabel;
+        internal System.Windows.Forms.Label lbStaffID;
         internal System.Windows.Forms.Button OK;
         internal System.Windows.Forms.Label LAPPTITLE;
         internal System.Windows.Forms.TextBox PasswordTextBox;
         internal System.Windows.Forms.Label LAPPCOMPANY;
         internal System.Windows.Forms.TextBox UsernameTextBox;
-        internal System.Windows.Forms.Label PasswordLabel;
+        internal System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.ComboBox station;
-        internal System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        internal System.Windows.Forms.Label lbStation;
+        private System.Windows.Forms.Label lbArea;
         private System.Windows.Forms.ComboBox area;
         private System.Windows.Forms.ComboBox lounge;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbLounge;
         private System.Windows.Forms.Label lSupport;
+        private System.Windows.Forms.ComboBox cboLang;
+        internal System.Windows.Forms.Label label1;
     }
 }

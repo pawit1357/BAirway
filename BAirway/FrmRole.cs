@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
+using BAW.Biz;
 using BAW.Dao;
 using BAW.Model;
+using BAW.Utils;
 
 namespace BAirway
 {
     public partial class FrmRole : Form
     {
         private RoleDao roleDao = null;
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
+
         private int id = -1;
         public FrmRole()
         {
@@ -18,8 +25,40 @@ namespace BAirway
 
         private void FrmRole_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox1.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+            //    }
+            //}
+            //Console.WriteLine();
+
             //initial
             refresh();
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void B_ADD_Click(object sender, EventArgs e)

@@ -65,7 +65,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(33, 76);
+            this.label5.Location = new System.Drawing.Point(6, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 157;
@@ -76,7 +76,7 @@
             this.user_role.DisplayMember = "role_name";
             this.user_role.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_role.FormattingEnabled = true;
-            this.user_role.Location = new System.Drawing.Point(71, 73);
+            this.user_role.Location = new System.Drawing.Point(99, 73);
             this.user_role.Name = "user_role";
             this.user_role.Size = new System.Drawing.Size(149, 21);
             this.user_role.TabIndex = 5;
@@ -87,7 +87,7 @@
             this.user_name.BackColor = System.Drawing.Color.White;
             this.user_name.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_name.ForeColor = System.Drawing.Color.ForestGreen;
-            this.user_name.Location = new System.Drawing.Point(71, 19);
+            this.user_name.Location = new System.Drawing.Point(99, 19);
             this.user_name.Name = "user_name";
             this.user_name.Size = new System.Drawing.Size(149, 21);
             this.user_name.TabIndex = 1;
@@ -97,7 +97,7 @@
             this.user_pass.BackColor = System.Drawing.Color.White;
             this.user_pass.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_pass.ForeColor = System.Drawing.Color.ForestGreen;
-            this.user_pass.Location = new System.Drawing.Point(71, 46);
+            this.user_pass.Location = new System.Drawing.Point(99, 46);
             this.user_pass.Name = "user_pass";
             this.user_pass.PasswordChar = '#';
             this.user_pass.Size = new System.Drawing.Size(149, 21);
@@ -127,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 102);
+            this.label1.Location = new System.Drawing.Point(6, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 155;
@@ -180,7 +180,7 @@
             this.staff_station.DisplayMember = "site_name";
             this.staff_station.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staff_station.FormattingEnabled = true;
-            this.staff_station.Location = new System.Drawing.Point(71, 100);
+            this.staff_station.Location = new System.Drawing.Point(99, 100);
             this.staff_station.Name = "staff_station";
             this.staff_station.Size = new System.Drawing.Size(171, 21);
             this.staff_station.TabIndex = 3;

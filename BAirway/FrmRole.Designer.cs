@@ -40,17 +40,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.modelRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.modelRoleBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -73,9 +73,9 @@
             this.role_code.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.role_code.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.role_code.ForeColor = System.Drawing.Color.ForestGreen;
-            this.role_code.Location = new System.Drawing.Point(62, 19);
+            this.role_code.Location = new System.Drawing.Point(86, 19);
             this.role_code.Name = "role_code";
-            this.role_code.Size = new System.Drawing.Size(287, 21);
+            this.role_code.Size = new System.Drawing.Size(263, 21);
             this.role_code.TabIndex = 1;
             // 
             // B_DELETE
@@ -125,9 +125,9 @@
             this.role_name.BackColor = System.Drawing.Color.White;
             this.role_name.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.role_name.ForeColor = System.Drawing.Color.ForestGreen;
-            this.role_name.Location = new System.Drawing.Point(62, 46);
+            this.role_name.Location = new System.Drawing.Point(86, 46);
             this.role_name.Name = "role_name";
-            this.role_name.Size = new System.Drawing.Size(287, 21);
+            this.role_name.Size = new System.Drawing.Size(263, 21);
             this.role_name.TabIndex = 2;
             // 
             // label2
@@ -192,29 +192,6 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(25, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(310, 29);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "จัดการข้อมูลสิทธิ์การใช้งาน";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(558, 52);
-            this.panel1.TabIndex = 177;
-            // 
-            // modelRoleBindingSource
-            // 
-            this.modelRoleBindingSource.DataSource = typeof(BAW.Model.ModelRole);
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "id";
@@ -241,6 +218,29 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Visible = false;
             // 
+            // modelRoleBindingSource
+            // 
+            this.modelRoleBindingSource.DataSource = typeof(BAW.Model.ModelRole);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(25, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(310, 29);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "จัดการข้อมูลสิทธิ์การใช้งาน";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(558, 52);
+            this.panel1.TabIndex = 177;
+            // 
             // FrmRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,9 +258,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelRoleBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.modelRoleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

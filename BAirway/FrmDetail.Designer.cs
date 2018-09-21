@@ -112,7 +112,7 @@
             this.CMD_REGEN.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.CMD_REGEN.Image = global::BAirway.Properties.Resources.redo;
             this.CMD_REGEN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CMD_REGEN.Location = new System.Drawing.Point(197, 89);
+            this.CMD_REGEN.Location = new System.Drawing.Point(236, 89);
             this.CMD_REGEN.Name = "CMD_REGEN";
             this.CMD_REGEN.Size = new System.Drawing.Size(81, 35);
             this.CMD_REGEN.TabIndex = 176;
@@ -126,7 +126,7 @@
             this.B_ACCESS_CODE.BackColor = System.Drawing.Color.White;
             this.B_ACCESS_CODE.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.B_ACCESS_CODE.ForeColor = System.Drawing.Color.ForestGreen;
-            this.B_ACCESS_CODE.Location = new System.Drawing.Point(97, 93);
+            this.B_ACCESS_CODE.Location = new System.Drawing.Point(136, 93);
             this.B_ACCESS_CODE.Name = "B_ACCESS_CODE";
             this.B_ACCESS_CODE.ReadOnly = true;
             this.B_ACCESS_CODE.Size = new System.Drawing.Size(94, 26);
@@ -136,9 +136,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label12.Location = new System.Drawing.Point(9, 99);
+            this.label12.Location = new System.Drawing.Point(36, 99);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 14);
+            this.label12.Size = new System.Drawing.Size(84, 14);
             this.label12.TabIndex = 168;
             this.label12.Text = "Access Code :";
             // 
@@ -147,7 +147,7 @@
             this.remakr2.BackColor = System.Drawing.Color.White;
             this.remakr2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.remakr2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.remakr2.Location = new System.Drawing.Point(97, 61);
+            this.remakr2.Location = new System.Drawing.Point(136, 61);
             this.remakr2.Name = "remakr2";
             this.remakr2.Size = new System.Drawing.Size(382, 26);
             this.remakr2.TabIndex = 10;
@@ -156,9 +156,9 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label11.Location = new System.Drawing.Point(25, 67);
+            this.label11.Location = new System.Drawing.Point(36, 67);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 14);
+            this.label11.Size = new System.Drawing.Size(62, 14);
             this.label11.TabIndex = 167;
             this.label11.Text = "Remark 2:";
             // 
@@ -167,7 +167,7 @@
             this.remark.BackColor = System.Drawing.Color.White;
             this.remark.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.remark.ForeColor = System.Drawing.Color.ForestGreen;
-            this.remark.Location = new System.Drawing.Point(97, 29);
+            this.remark.Location = new System.Drawing.Point(136, 29);
             this.remark.Name = "remark";
             this.remark.Size = new System.Drawing.Size(382, 26);
             this.remark.TabIndex = 9;
@@ -178,7 +178,7 @@
             this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label10.Location = new System.Drawing.Point(36, 35);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 14);
+            this.label10.Size = new System.Drawing.Size(51, 14);
             this.label10.TabIndex = 165;
             this.label10.Text = "Remark:";
             // 
@@ -199,7 +199,7 @@
             this.label13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label13.Location = new System.Drawing.Point(627, 177);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 14);
+            this.label13.Size = new System.Drawing.Size(101, 14);
             this.label13.TabIndex = 175;
             this.label13.Text = "Passenger Name:";
             this.label13.Visible = false;
@@ -245,7 +245,7 @@
             this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label9.Location = new System.Drawing.Point(670, 402);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 14);
+            this.label9.Size = new System.Drawing.Size(55, 14);
             this.label9.TabIndex = 163;
             this.label9.Text = "Seat No:";
             this.label9.Visible = false;
@@ -256,7 +256,7 @@
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label8.Location = new System.Drawing.Point(639, 369);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 14);
+            this.label8.Size = new System.Drawing.Size(87, 14);
             this.label8.TabIndex = 161;
             this.label8.Text = "Date Of Flight:";
             this.label8.Visible = false;
@@ -278,7 +278,7 @@
             this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label7.Location = new System.Drawing.Point(663, 337);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 14);
+            this.label7.Size = new System.Drawing.Size(59, 14);
             this.label7.TabIndex = 159;
             this.label7.Text = "Flight No:";
             this.label7.Visible = false;
@@ -300,7 +300,7 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label6.Location = new System.Drawing.Point(649, 305);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 14);
+            this.label6.Size = new System.Drawing.Size(75, 14);
             this.label6.TabIndex = 157;
             this.label6.Text = "Airline Code:";
             this.label6.Visible = false;
@@ -322,7 +322,7 @@
             this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.Location = new System.Drawing.Point(676, 273);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 14);
+            this.label5.Size = new System.Drawing.Size(50, 14);
             this.label5.TabIndex = 155;
             this.label5.Text = "To City:";
             this.label5.Visible = false;
@@ -355,7 +355,7 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.Location = new System.Drawing.Point(647, 209);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 14);
+            this.label2.Size = new System.Drawing.Size(79, 14);
             this.label2.TabIndex = 151;
             this.label2.Text = "Group Name:";
             this.label2.Visible = false;
@@ -373,7 +373,7 @@
             this.Barcode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Barcode.Location = new System.Drawing.Point(671, 145);
             this.Barcode.Name = "Barcode";
-            this.Barcode.Size = new System.Drawing.Size(54, 14);
+            this.Barcode.Size = new System.Drawing.Size(55, 14);
             this.Barcode.TabIndex = 149;
             this.Barcode.Text = "Barcode:";
             this.Barcode.Visible = false;

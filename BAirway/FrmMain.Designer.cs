@@ -54,7 +54,6 @@
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelTransactionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lounge_site = new System.Windows.Forms.ComboBox();
             this.lSupport = new System.Windows.Forms.Label();
             this.L_SITE_DESC = new System.Windows.Forms.Label();
@@ -84,7 +83,6 @@
             this.date_of_flight_start = new System.Windows.Forms.DateTimePicker();
             this.seat_no = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.flight_no = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.airline_code = new System.Windows.Forms.TextBox();
@@ -96,13 +94,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.passenger_name = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelTransactionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -143,11 +141,10 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1701, 324);
+            this.dataGridView1.Size = new System.Drawing.Size(1276, 264);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -311,13 +308,11 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.lounge_site);
             this.splitContainer1.Panel1.Controls.Add(this.lSupport);
             this.splitContainer1.Panel1.Controls.Add(this.L_SITE_DESC);
@@ -328,21 +323,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1701, 711);
-            this.splitContainer1.SplitterDistance = 98;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(1276, 578);
+            this.splitContainer1.SplitterDistance = 79;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BAirway.Properties.Resources.network_wireless;
-            this.pictureBox1.Location = new System.Drawing.Point(1491, 31);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 62);
-            this.pictureBox1.TabIndex = 192;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // lounge_site
             // 
@@ -351,10 +334,9 @@
             this.lounge_site.Enabled = false;
             this.lounge_site.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lounge_site.FormattingEnabled = true;
-            this.lounge_site.Location = new System.Drawing.Point(693, 27);
-            this.lounge_site.Margin = new System.Windows.Forms.Padding(4);
+            this.lounge_site.Location = new System.Drawing.Point(520, 22);
             this.lounge_site.Name = "lounge_site";
-            this.lounge_site.Size = new System.Drawing.Size(344, 36);
+            this.lounge_site.Size = new System.Drawing.Size(259, 31);
             this.lounge_site.TabIndex = 191;
             this.lounge_site.ValueMember = "id";
             this.lounge_site.SelectedIndexChanged += new System.EventHandler(this.lounge_site_SelectedIndexChanged);
@@ -366,10 +348,9 @@
             this.lSupport.BackColor = System.Drawing.Color.White;
             this.lSupport.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lSupport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lSupport.Location = new System.Drawing.Point(1448, 62);
-            this.lSupport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lSupport.Location = new System.Drawing.Point(520, 56);
             this.lSupport.Name = "lSupport";
-            this.lSupport.Size = new System.Drawing.Size(182, 22);
+            this.lSupport.Size = new System.Drawing.Size(147, 18);
             this.lSupport.TabIndex = 126;
             this.lSupport.Text = "Support Tel : {0} {1}";
             this.lSupport.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -380,10 +361,9 @@
             this.L_SITE_DESC.BackColor = System.Drawing.Color.White;
             this.L_SITE_DESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.L_SITE_DESC.ForeColor = System.Drawing.Color.ForestGreen;
-            this.L_SITE_DESC.Location = new System.Drawing.Point(1047, 31);
-            this.L_SITE_DESC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.L_SITE_DESC.Location = new System.Drawing.Point(785, 25);
             this.L_SITE_DESC.Name = "L_SITE_DESC";
-            this.L_SITE_DESC.Size = new System.Drawing.Size(65, 29);
+            this.L_SITE_DESC.Size = new System.Drawing.Size(50, 24);
             this.L_SITE_DESC.TabIndex = 125;
             this.L_SITE_DESC.Text = "####";
             // 
@@ -392,10 +372,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(593, 27);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(445, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 38);
+            this.label3.Size = new System.Drawing.Size(69, 31);
             this.label3.TabIndex = 124;
             this.label3.Text = "Site:";
             // 
@@ -405,10 +384,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(573, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(430, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 42);
+            this.label1.Size = new System.Drawing.Size(0, 35);
             this.label1.TabIndex = 122;
             // 
             // pictureBox2
@@ -417,9 +395,8 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::BAirway.Properties.Resources.BoardingPass;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1701, 98);
+            this.pictureBox2.Size = new System.Drawing.Size(1276, 79);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 120;
             this.pictureBox2.TabStop = false;
@@ -428,7 +405,6 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -439,9 +415,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(1701, 608);
-            this.splitContainer2.SplitterDistance = 279;
-            this.splitContainer2.SplitterWidth = 5;
+            this.splitContainer2.Size = new System.Drawing.Size(1276, 495);
+            this.splitContainer2.SplitterDistance = 227;
             this.splitContainer2.TabIndex = 180;
             // 
             // groupBox1
@@ -482,10 +457,8 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1701, 279);
+            this.groupBox1.Size = new System.Drawing.Size(1276, 227);
             this.groupBox1.TabIndex = 179;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Report";
@@ -495,10 +468,9 @@
             this.comboLounge.DisplayMember = "lounge_name";
             this.comboLounge.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.comboLounge.FormattingEnabled = true;
-            this.comboLounge.Location = new System.Drawing.Point(173, 210);
-            this.comboLounge.Margin = new System.Windows.Forms.Padding(4);
+            this.comboLounge.Location = new System.Drawing.Point(168, 171);
             this.comboLounge.Name = "comboLounge";
-            this.comboLounge.Size = new System.Drawing.Size(240, 25);
+            this.comboLounge.Size = new System.Drawing.Size(181, 22);
             this.comboLounge.TabIndex = 13;
             this.comboLounge.ValueMember = "id";
             this.comboLounge.SelectedIndexChanged += new System.EventHandler(this.comboLounge_SelectedIndexChanged);
@@ -509,31 +481,29 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(93, 214);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(50, 171);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 18);
+            this.label2.Size = new System.Drawing.Size(56, 14);
             this.label2.TabIndex = 191;
             this.label2.Text = "Lounge :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbRecords
             // 
             this.lbRecords.AutoSize = true;
             this.lbRecords.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbRecords.Location = new System.Drawing.Point(16, 254);
-            this.lbRecords.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRecords.Location = new System.Drawing.Point(12, 206);
             this.lbRecords.Name = "lbRecords";
-            this.lbRecords.Size = new System.Drawing.Size(0, 18);
+            this.lbRecords.Size = new System.Drawing.Size(0, 14);
             this.lbRecords.TabIndex = 190;
             // 
             // cbGenAll
             // 
             this.cbGenAll.AutoSize = true;
             this.cbGenAll.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cbGenAll.Location = new System.Drawing.Point(712, 145);
-            this.cbGenAll.Margin = new System.Windows.Forms.Padding(4);
+            this.cbGenAll.Location = new System.Drawing.Point(645, 118);
             this.cbGenAll.Name = "cbGenAll";
-            this.cbGenAll.Size = new System.Drawing.Size(47, 22);
+            this.cbGenAll.Size = new System.Drawing.Size(41, 18);
             this.cbGenAll.TabIndex = 189;
             this.cbGenAll.Text = "All";
             this.cbGenAll.UseVisualStyleBackColor = true;
@@ -542,10 +512,9 @@
             // 
             this.cbAllFlight.AutoSize = true;
             this.cbAllFlight.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cbAllFlight.Location = new System.Drawing.Point(712, 110);
-            this.cbAllFlight.Margin = new System.Windows.Forms.Padding(4);
+            this.cbAllFlight.Location = new System.Drawing.Point(645, 89);
             this.cbAllFlight.Name = "cbAllFlight";
-            this.cbAllFlight.Size = new System.Drawing.Size(47, 22);
+            this.cbAllFlight.Size = new System.Drawing.Size(41, 18);
             this.cbAllFlight.TabIndex = 188;
             this.cbAllFlight.Text = "All";
             this.cbAllFlight.UseVisualStyleBackColor = true;
@@ -555,10 +524,9 @@
             this.B_CLEAR.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.B_CLEAR.Image = global::BAirway.Properties.Resources.selection_recycle;
             this.B_CLEAR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.B_CLEAR.Location = new System.Drawing.Point(1129, 210);
-            this.B_CLEAR.Margin = new System.Windows.Forms.Padding(4);
+            this.B_CLEAR.Location = new System.Drawing.Point(924, 176);
             this.B_CLEAR.Name = "B_CLEAR";
-            this.B_CLEAR.Size = new System.Drawing.Size(128, 55);
+            this.B_CLEAR.Size = new System.Drawing.Size(96, 45);
             this.B_CLEAR.TabIndex = 16;
             this.B_CLEAR.Text = "Reset";
             this.B_CLEAR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -570,10 +538,9 @@
             this.B_SEARCH.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.B_SEARCH.Image = global::BAirway.Properties.Resources._1384009579_140;
             this.B_SEARCH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.B_SEARCH.Location = new System.Drawing.Point(993, 210);
-            this.B_SEARCH.Margin = new System.Windows.Forms.Padding(4);
+            this.B_SEARCH.Location = new System.Drawing.Point(822, 176);
             this.B_SEARCH.Name = "B_SEARCH";
-            this.B_SEARCH.Size = new System.Drawing.Size(128, 55);
+            this.B_SEARCH.Size = new System.Drawing.Size(96, 45);
             this.B_SEARCH.TabIndex = 15;
             this.B_SEARCH.Text = "Search";
             this.B_SEARCH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -585,10 +552,9 @@
             this.comboArea.DisplayMember = "area_name";
             this.comboArea.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.comboArea.FormattingEnabled = true;
-            this.comboArea.Location = new System.Drawing.Point(535, 210);
-            this.comboArea.Margin = new System.Windows.Forms.Padding(4);
+            this.comboArea.Location = new System.Drawing.Point(512, 171);
             this.comboArea.Name = "comboArea";
-            this.comboArea.Size = new System.Drawing.Size(240, 25);
+            this.comboArea.Size = new System.Drawing.Size(181, 22);
             this.comboArea.TabIndex = 14;
             this.comboArea.ValueMember = "id";
             this.comboArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
@@ -598,22 +564,21 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label16.Location = new System.Drawing.Point(475, 214);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(413, 174);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 18);
+            this.label16.Size = new System.Drawing.Size(40, 14);
             this.label16.TabIndex = 184;
             this.label16.Text = "Area :";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // accessCode
             // 
             this.accessCode.BackColor = System.Drawing.Color.White;
             this.accessCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.accessCode.ForeColor = System.Drawing.Color.ForestGreen;
-            this.accessCode.Location = new System.Drawing.Point(173, 176);
-            this.accessCode.Margin = new System.Windows.Forms.Padding(4);
+            this.accessCode.Location = new System.Drawing.Point(168, 143);
             this.accessCode.Name = "accessCode";
-            this.accessCode.Size = new System.Drawing.Size(240, 25);
+            this.accessCode.Size = new System.Drawing.Size(181, 22);
             this.accessCode.TabIndex = 11;
             this.accessCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.accessCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -622,22 +587,21 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label14.Location = new System.Drawing.Point(57, 180);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(50, 143);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(101, 18);
+            this.label14.Size = new System.Drawing.Size(84, 14);
             this.label14.TabIndex = 183;
             this.label14.Text = "Access Code :";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // date_of_flight_end
             // 
             this.date_of_flight_end.CustomFormat = "dd-MM-yyyy";
             this.date_of_flight_end.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.date_of_flight_end.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_of_flight_end.Location = new System.Drawing.Point(535, 106);
-            this.date_of_flight_end.Margin = new System.Windows.Forms.Padding(4);
+            this.date_of_flight_end.Location = new System.Drawing.Point(512, 86);
             this.date_of_flight_end.Name = "date_of_flight_end";
-            this.date_of_flight_end.Size = new System.Drawing.Size(168, 25);
+            this.date_of_flight_end.Size = new System.Drawing.Size(127, 22);
             this.date_of_flight_end.TabIndex = 8;
             this.date_of_flight_end.ValueChanged += new System.EventHandler(this.date_of_flight_end_ValueChanged);
             this.date_of_flight_end.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
@@ -647,22 +611,21 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label11.Location = new System.Drawing.Point(479, 117);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(413, 95);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 18);
+            this.label11.Size = new System.Drawing.Size(36, 14);
             this.label11.TabIndex = 179;
             this.label11.Text = "End :";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // create_date_stsart
             // 
             this.create_date_stsart.CustomFormat = "dd-MM-yyyy";
             this.create_date_stsart.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.create_date_stsart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.create_date_stsart.Location = new System.Drawing.Point(173, 142);
-            this.create_date_stsart.Margin = new System.Windows.Forms.Padding(4);
+            this.create_date_stsart.Location = new System.Drawing.Point(168, 115);
             this.create_date_stsart.Name = "create_date_stsart";
-            this.create_date_stsart.Size = new System.Drawing.Size(168, 25);
+            this.create_date_stsart.Size = new System.Drawing.Size(127, 22);
             this.create_date_stsart.TabIndex = 9;
             this.create_date_stsart.ValueChanged += new System.EventHandler(this.create_date_end_ValueChanged);
             this.create_date_stsart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
@@ -672,33 +635,32 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label15.Location = new System.Drawing.Point(43, 149);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(50, 118);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(116, 18);
+            this.label15.Size = new System.Drawing.Size(98, 14);
             this.label15.TabIndex = 177;
             this.label15.Text = "Gen Date Start :";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label10.Location = new System.Drawing.Point(479, 149);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(413, 121);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 18);
+            this.label10.Size = new System.Drawing.Size(36, 14);
             this.label10.TabIndex = 178;
             this.label10.Text = "End :";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // create_date_end
             // 
             this.create_date_end.CustomFormat = "dd-MM-yyyy";
             this.create_date_end.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.create_date_end.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.create_date_end.Location = new System.Drawing.Point(535, 143);
-            this.create_date_end.Margin = new System.Windows.Forms.Padding(4);
+            this.create_date_end.Location = new System.Drawing.Point(512, 116);
             this.create_date_end.Name = "create_date_end";
-            this.create_date_end.Size = new System.Drawing.Size(168, 25);
+            this.create_date_end.Size = new System.Drawing.Size(127, 22);
             this.create_date_end.TabIndex = 10;
             this.create_date_end.ValueChanged += new System.EventHandler(this.create_date_end_ValueChanged);
             this.create_date_end.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
@@ -709,10 +671,9 @@
             this.group_id.DisplayMember = "group_description";
             this.group_id.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.group_id.FormattingEnabled = true;
-            this.group_id.Location = new System.Drawing.Point(535, 176);
-            this.group_id.Margin = new System.Windows.Forms.Padding(4);
+            this.group_id.Location = new System.Drawing.Point(512, 143);
             this.group_id.Name = "group_id";
-            this.group_id.Size = new System.Drawing.Size(381, 25);
+            this.group_id.Size = new System.Drawing.Size(287, 22);
             this.group_id.TabIndex = 12;
             this.group_id.ValueMember = "id";
             this.group_id.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
@@ -723,10 +684,9 @@
             this.date_of_flight_start.CustomFormat = "dd-MM-yyyy";
             this.date_of_flight_start.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.date_of_flight_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_of_flight_start.Location = new System.Drawing.Point(173, 107);
-            this.date_of_flight_start.Margin = new System.Windows.Forms.Padding(4);
+            this.date_of_flight_start.Location = new System.Drawing.Point(168, 87);
             this.date_of_flight_start.Name = "date_of_flight_start";
-            this.date_of_flight_start.Size = new System.Drawing.Size(168, 25);
+            this.date_of_flight_start.Size = new System.Drawing.Size(127, 22);
             this.date_of_flight_start.TabIndex = 7;
             this.date_of_flight_start.ValueChanged += new System.EventHandler(this.date_of_flight_end_ValueChanged);
             this.date_of_flight_start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
@@ -737,10 +697,9 @@
             this.seat_no.BackColor = System.Drawing.Color.White;
             this.seat_no.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.seat_no.ForeColor = System.Drawing.Color.ForestGreen;
-            this.seat_no.Location = new System.Drawing.Point(173, 73);
-            this.seat_no.Margin = new System.Windows.Forms.Padding(4);
+            this.seat_no.Location = new System.Drawing.Point(168, 59);
             this.seat_no.Name = "seat_no";
-            this.seat_no.Size = new System.Drawing.Size(240, 25);
+            this.seat_no.Size = new System.Drawing.Size(181, 22);
             this.seat_no.TabIndex = 4;
             this.seat_no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.seat_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -749,33 +708,21 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(92, 80);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(50, 59);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 18);
+            this.label9.Size = new System.Drawing.Size(55, 14);
             this.label9.TabIndex = 163;
             this.label9.Text = "Seat No:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(29, 112);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 18);
-            this.label8.TabIndex = 161;
-            this.label8.Text = "Flight Date Start :";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // flight_no
             // 
             this.flight_no.BackColor = System.Drawing.Color.White;
             this.flight_no.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.flight_no.ForeColor = System.Drawing.Color.ForestGreen;
-            this.flight_no.Location = new System.Drawing.Point(764, 38);
-            this.flight_no.Margin = new System.Windows.Forms.Padding(4);
+            this.flight_no.Location = new System.Drawing.Point(742, 31);
             this.flight_no.Name = "flight_no";
-            this.flight_no.Size = new System.Drawing.Size(152, 25);
+            this.flight_no.Size = new System.Drawing.Size(115, 22);
             this.flight_no.TabIndex = 3;
             this.flight_no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.flight_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -784,22 +731,21 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label7.Location = new System.Drawing.Point(676, 46);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(671, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 18);
+            this.label7.Size = new System.Drawing.Size(59, 14);
             this.label7.TabIndex = 159;
             this.label7.Text = "Flight No:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // airline_code
             // 
             this.airline_code.BackColor = System.Drawing.Color.White;
             this.airline_code.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.airline_code.ForeColor = System.Drawing.Color.ForestGreen;
-            this.airline_code.Location = new System.Drawing.Point(535, 38);
-            this.airline_code.Margin = new System.Windows.Forms.Padding(4);
+            this.airline_code.Location = new System.Drawing.Point(512, 31);
             this.airline_code.Name = "airline_code";
-            this.airline_code.Size = new System.Drawing.Size(127, 25);
+            this.airline_code.Size = new System.Drawing.Size(96, 22);
             this.airline_code.TabIndex = 2;
             this.airline_code.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.airline_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -808,22 +754,21 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.Location = new System.Drawing.Point(428, 46);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(413, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 18);
+            this.label6.Size = new System.Drawing.Size(75, 14);
             this.label6.TabIndex = 157;
             this.label6.Text = "Airline Code:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // to_city
             // 
             this.to_city.BackColor = System.Drawing.Color.White;
             this.to_city.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.to_city.ForeColor = System.Drawing.Color.ForestGreen;
-            this.to_city.Location = new System.Drawing.Point(764, 73);
-            this.to_city.Margin = new System.Windows.Forms.Padding(4);
+            this.to_city.Location = new System.Drawing.Point(742, 59);
             this.to_city.Name = "to_city";
-            this.to_city.Size = new System.Drawing.Size(152, 25);
+            this.to_city.Size = new System.Drawing.Size(115, 22);
             this.to_city.TabIndex = 6;
             this.to_city.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.to_city.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -832,22 +777,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.Location = new System.Drawing.Point(681, 80);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(671, 62);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 18);
+            this.label5.Size = new System.Drawing.Size(50, 14);
             this.label5.TabIndex = 155;
             this.label5.Text = "To City:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // from_city
             // 
             this.from_city.BackColor = System.Drawing.Color.White;
             this.from_city.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.from_city.ForeColor = System.Drawing.Color.ForestGreen;
-            this.from_city.Location = new System.Drawing.Point(535, 73);
-            this.from_city.Margin = new System.Windows.Forms.Padding(4);
+            this.from_city.Location = new System.Drawing.Point(512, 59);
             this.from_city.Name = "from_city";
-            this.from_city.Size = new System.Drawing.Size(127, 25);
+            this.from_city.Size = new System.Drawing.Size(96, 22);
             this.from_city.TabIndex = 5;
             this.from_city.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.from_city.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -856,33 +800,32 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.Location = new System.Drawing.Point(447, 80);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(413, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 18);
+            this.label4.Size = new System.Drawing.Size(62, 14);
             this.label4.TabIndex = 153;
             this.label4.Text = "From City:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label12.Location = new System.Drawing.Point(463, 180);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(413, 146);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 18);
+            this.label12.Size = new System.Drawing.Size(48, 14);
             this.label12.TabIndex = 151;
             this.label12.Text = "Group :";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // passenger_name
             // 
             this.passenger_name.BackColor = System.Drawing.Color.White;
             this.passenger_name.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.passenger_name.ForeColor = System.Drawing.Color.ForestGreen;
-            this.passenger_name.Location = new System.Drawing.Point(173, 38);
-            this.passenger_name.Margin = new System.Windows.Forms.Padding(4);
+            this.passenger_name.Location = new System.Drawing.Point(168, 31);
             this.passenger_name.Name = "passenger_name";
-            this.passenger_name.Size = new System.Drawing.Size(240, 25);
+            this.passenger_name.Size = new System.Drawing.Size(181, 22);
             this.passenger_name.TabIndex = 1;
             this.passenger_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passenger_name_KeyDown);
             this.passenger_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -891,20 +834,30 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label13.Location = new System.Drawing.Point(35, 46);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(50, 34);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 18);
+            this.label13.Size = new System.Drawing.Size(101, 14);
             this.label13.TabIndex = 149;
             this.label13.Text = "Passenger Name:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label8.Location = new System.Drawing.Point(50, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 14);
+            this.label8.TabIndex = 161;
+            this.label8.Text = "Flight Date Start :";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1701, 711);
+            this.ClientSize = new System.Drawing.Size(1276, 578);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "Report";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
@@ -916,7 +869,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -950,7 +902,6 @@
         private System.Windows.Forms.DateTimePicker date_of_flight_start;
         private System.Windows.Forms.TextBox seat_no;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox flight_no;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox airline_code;
@@ -975,7 +926,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lbRecords;
         private System.Windows.Forms.ComboBox lounge_site;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboLounge;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
@@ -1000,6 +950,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.Label label8;
         //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         //private System.Windows.Forms.DataGridViewTextBoxColumn groupidDataGridViewTextBoxColumn;
         //private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;

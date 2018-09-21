@@ -40,9 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.modelStationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +47,13 @@
             this.sitehostuserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sitehostpassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelStationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.modelStationBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,9 +76,9 @@
             this.site_code.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.site_code.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.site_code.ForeColor = System.Drawing.Color.ForestGreen;
-            this.site_code.Location = new System.Drawing.Point(56, 19);
+            this.site_code.Location = new System.Drawing.Point(68, 19);
             this.site_code.Name = "site_code";
-            this.site_code.Size = new System.Drawing.Size(160, 21);
+            this.site_code.Size = new System.Drawing.Size(148, 21);
             this.site_code.TabIndex = 1;
             // 
             // B_DELETE
@@ -128,9 +128,9 @@
             this.site_name.BackColor = System.Drawing.Color.White;
             this.site_name.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.site_name.ForeColor = System.Drawing.Color.ForestGreen;
-            this.site_name.Location = new System.Drawing.Point(56, 46);
+            this.site_name.Location = new System.Drawing.Point(68, 46);
             this.site_name.Name = "site_name";
-            this.site_name.Size = new System.Drawing.Size(287, 21);
+            this.site_name.Size = new System.Drawing.Size(275, 21);
             this.site_name.TabIndex = 2;
             // 
             // label2
@@ -198,29 +198,6 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(25, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(203, 29);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "จัดการข้อมูล Site";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(-13, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 52);
-            this.panel1.TabIndex = 175;
-            // 
-            // modelStationBindingSource
-            // 
-            this.modelStationBindingSource.DataSource = typeof(BAW.Model.ModelStation);
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "id";
@@ -268,6 +245,29 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Visible = false;
             // 
+            // modelStationBindingSource
+            // 
+            this.modelStationBindingSource.DataSource = typeof(BAW.Model.ModelStation);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(25, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(203, 29);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "จัดการข้อมูล Site";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(-13, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(415, 52);
+            this.panel1.TabIndex = 175;
+            // 
             // FrmSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,9 +285,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelStationBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.modelStationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -62,6 +62,41 @@ namespace BAW.Dao
             return lists;
 
         }
+        public List<ModelGroupRemark> SelectGroupRemarkByGroupCode(String group_code)
+        {
+            string query = String.Format("SELECT * FROM tb_group_remark where group_code='{0}'",group_code);
+
+            //Create a list to store the result
+            List<ModelGroupRemark> lists = new List<ModelGroupRemark>();
+
+            //Open connection
+            using (MySqlConnection connection = new MySqlConnection(Configurations.MysqlStr))
+            {
+                connection.Open();
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dr.Read())
+                {
+                    ModelGroupRemark model = new ModelGroupRemark();
+                    model.id = (DBNull.Value == dr["id"]) ? -1 : Convert.ToInt16(dr["id"]);
+                    model.group_code = (DBNull.Value == dr["group_code"]) ? "" : Convert.ToString(dr["group_code"]);
+                    model.value = (DBNull.Value == dr["value"]) ? "" : Convert.ToString(dr["value"]);
+                    lists.Add(model);
+                }
+
+                //close Data Reader
+                dr.Close();
+            }
+
+            //return list to be displayed
+  
+            return lists;
+
+        }
         public List<ModelGroup> SelectOffine(String cri)
         {
             string query = "SELECT * FROM tb_group " + cri + " order by group_order asc";

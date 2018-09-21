@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="MasterModel.cs" />
     <Compile Include="ModelAccessCode.cs" />
+    <Compile Include="ModelGroupRemark.cs" />
+    <Compile Include="ModelMenuLang.cs" />
     <Compile Include="ModelArea.cs" />
     <Compile Include="ModelAuthenCode.cs" />
     <Compile Include="ModelBase.cs" />

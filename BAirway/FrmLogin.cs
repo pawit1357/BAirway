@@ -1,14 +1,11 @@
-﻿using System;
+﻿using BAW.Biz;
+using BAW.Dao;
+using BAW.Model;
+using BAW.Utils;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using BAW.Dao;
-using BAW.Utils;
-using BAW.Model;
-using BAW.Biz;
-using System.Threading;
-using System.ComponentModel;
-using System.IO;
-using System.Net;
 
 namespace BAirway
 {
@@ -22,7 +19,8 @@ namespace BAirway
         private String StationID = "";
 
         public ModelUser userModel = null;
-
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
         public string click = "";
         private int staffId = -1;
         private int loungeId = -1;
@@ -34,14 +32,16 @@ namespace BAirway
         private String stationName;
 
         private Boolean status = false;
-
+        public Boolean isInit = true;
         public FrmLogin()
         {
             InitializeComponent();
+           
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            this.listMenuLangLabel = menuLangDao.Select();
 
             StationID = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID");
             String[] userInfo = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo").Split(',');
@@ -91,8 +91,24 @@ namespace BAirway
             roleDao = new RoleDao();
 
             //Check server is alive
+            #region "MENU LANGE"
+            List<MasterModel> menuLangs = new List<MasterModel>();
+            String[] menuLang = { "TH", "EN" };
+            int index = 0;
+            foreach(String m in menuLang)
+            {
+                MasterModel mModel = new MasterModel
+                {
+                    id = index,
+                    name = m
+                };
+                menuLangs.Add(mModel);
+                index++;
+            }
+            cboLang.DataSource = menuLangs;
 
-
+            #endregion
+            #region "LOUNGES"
             List<ModelLounge> lounges = (status) ? loungeDao.Select(" where l.lounge_station=" + StationID) : loungeDao.SelectOffline(" where l.lounge_station=" + StationID);
             lounge.DataSource = lounges;
             try
@@ -126,9 +142,12 @@ namespace BAirway
                 logger.Error(ex.Message);
                 //lounge.SelectedIndex = 0;
             }
-
+            #endregion
+            #region "AREA"
             List<ModelArea> areas =(status) ? areaDao.Select(" where a.area_station=" + StationID + " and a.area_lounge=" + lounge.SelectedValue) : areaDao.SelectOffine(" where a.area_station=" + StationID + " and a.area_lounge=" + lounge.SelectedValue);
             area.DataSource = areas;
+            #endregion
+
             try
             {
                 bool bIsAreaChild = false;
@@ -160,6 +179,7 @@ namespace BAirway
                 logger.Error(ex.Message);
                 //area.SelectedIndex = 0;
             }
+
             LAPPTITLE.Text = Application.ProductName;
             LAPPCOMPANY.Text = Application.CompanyName;
             LUPDATE_DATE.Text = "Version " + Application.ProductVersion;
@@ -170,7 +190,9 @@ namespace BAirway
                 UsernameTextBox.Text = username;
                 PasswordTextBox.Text = password;
             }
-            lSupport.Text = String.Format(lSupport.Text, ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SupportCATInternet"), "");
+
+
+
 
         }
 
@@ -267,8 +289,45 @@ namespace BAirway
 
         }
 
+        private void cboLang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MasterModel m = (MasterModel)cboLang.SelectedItem;
+            if (isInit)
+            {
+                String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+                if (defaultLang != null)
+                {
+                    int selectedIndex = Convert.ToInt16(defaultLang.Split('|')[0]);
+                    cboLang.SelectedIndex = selectedIndex;
+                    isInit = false;
+                }
+            }
+            else
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "DefaultLang", String.Format("{0}|{1}", m.id, m.name));
+
+            }
 
 
-   
+            chnageLabel(m.name);
+        }
+
+        public void chnageLabel(String defaultLang)
+        {
+            foreach (Control control in base.Controls)
+            {
+                if (control is Label)
+                {
+                    String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                    if (listMenuLangLabel[key] != null)
+                    {
+                        control.Text = listMenuLangLabel[key].ToString();
+                    }
+
+                }
+            }
+            lSupport.Text = String.Format(lSupport.Text, ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SupportCATInternet"), "");
+
+        }
     }
 }

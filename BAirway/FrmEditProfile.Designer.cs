@@ -70,7 +70,7 @@
             this.oldpassword.BackColor = System.Drawing.Color.White;
             this.oldpassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.oldpassword.ForeColor = System.Drawing.Color.ForestGreen;
-            this.oldpassword.Location = new System.Drawing.Point(97, 46);
+            this.oldpassword.Location = new System.Drawing.Point(109, 46);
             this.oldpassword.Name = "oldpassword";
             this.oldpassword.PasswordChar = '#';
             this.oldpassword.Size = new System.Drawing.Size(149, 21);
@@ -80,7 +80,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.Location = new System.Drawing.Point(6, 79);
+            this.label6.Location = new System.Drawing.Point(6, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 159;
@@ -90,7 +90,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.Location = new System.Drawing.Point(57, 106);
+            this.label5.Location = new System.Drawing.Point(6, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 157;
@@ -100,7 +100,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(289, 23);
+            this.label1.Location = new System.Drawing.Point(279, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 155;
@@ -113,7 +113,7 @@
             this.user_role.Enabled = false;
             this.user_role.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.user_role.FormattingEnabled = true;
-            this.user_role.Location = new System.Drawing.Point(97, 100);
+            this.user_role.Location = new System.Drawing.Point(109, 100);
             this.user_role.Name = "user_role";
             this.user_role.Size = new System.Drawing.Size(149, 21);
             this.user_role.TabIndex = 6;
@@ -126,7 +126,7 @@
             this.user_name.Enabled = false;
             this.user_name.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.user_name.ForeColor = System.Drawing.Color.ForestGreen;
-            this.user_name.Location = new System.Drawing.Point(97, 19);
+            this.user_name.Location = new System.Drawing.Point(109, 19);
             this.user_name.Name = "user_name";
             this.user_name.Size = new System.Drawing.Size(149, 21);
             this.user_name.TabIndex = 1;
@@ -138,7 +138,7 @@
             this.staff_station.Enabled = false;
             this.staff_station.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.staff_station.FormattingEnabled = true;
-            this.staff_station.Location = new System.Drawing.Point(326, 17);
+            this.staff_station.Location = new System.Drawing.Point(314, 17);
             this.staff_station.Name = "staff_station";
             this.staff_station.Size = new System.Drawing.Size(171, 21);
             this.staff_station.TabIndex = 4;
@@ -150,7 +150,7 @@
             this.user_pass.BackColor = System.Drawing.Color.White;
             this.user_pass.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.user_pass.ForeColor = System.Drawing.Color.ForestGreen;
-            this.user_pass.Location = new System.Drawing.Point(97, 73);
+            this.user_pass.Location = new System.Drawing.Point(109, 73);
             this.user_pass.Name = "user_pass";
             this.user_pass.PasswordChar = '#';
             this.user_pass.Size = new System.Drawing.Size(149, 21);
@@ -160,7 +160,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(6, 52);
+            this.label2.Location = new System.Drawing.Point(6, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 151;
@@ -170,7 +170,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(28, 25);
+            this.label3.Location = new System.Drawing.Point(6, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 149;

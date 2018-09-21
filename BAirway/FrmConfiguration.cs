@@ -82,7 +82,23 @@ namespace BAirway
             ManageLOG.writeRegistry(Configurations.AppRegName, "SupportCATInternet", txtInternetSupport.Text);
             ManageLOG.writeRegistry(Configurations.AppRegName, "SupportCATApplication", txtAppSupport.Text);
             ManageLOG.writeRegistry(Configurations.AppRegName, "PRINTER", ddlPrinter.SelectedValue.ToString());
-            String[] userInfo = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo").Split(',');
+            //Selft Access Screen
+            ManageLOG.writeRegistry(Configurations.AppRegName, "SelfAccessFontSize", txtSelftAccessFontSize.Text);
+            //Print Stricker
+            ManageLOG.writeRegistry(Configurations.AppRegName, "txtPAcCode", txtPAcCode.Text);
+            ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT1Size", txtPT1Size.Text);
+            ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT2Size", txtPT2Size.Text);
+            ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT3Size", txtPT3Size.Text);
+
+
+
+
+
+
+            
+
+
+        String[] userInfo = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo").Split(',');
 
             String tmp = userInfo[0] + "," +
                 userInfo[1] + "," +

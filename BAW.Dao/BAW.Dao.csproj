@@ -100,6 +100,7 @@
     <Compile Include="StationDao.cs" />
     <Compile Include="TransactionDao.cs" />
     <Compile Include="UserDao.cs" />
+    <Compile Include="MenuLangDao.cs" />
     <Compile Include="UserLogsDao.cs" />
   </ItemGroup>
   <ItemGroup>

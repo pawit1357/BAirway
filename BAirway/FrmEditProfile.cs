@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using BAW.Biz;
 using BAW.Dao;
 using BAW.Model;
+using BAW.Utils;
 
 namespace BAirway
 {
@@ -14,6 +17,9 @@ namespace BAirway
         private UserDao userDao = null;
 
         private ModelUser user = null;
+        private MenuLangDao menuLangDao = new MenuLangDao();
+        private Hashtable listMenuLangLabel = new Hashtable();
+
 
 
         public Boolean isUpdate = false;
@@ -37,6 +43,39 @@ namespace BAirway
 
             staff_station.SelectedValue = user.stationId;
             user_role.SelectedValue = user.user_role;
+
+            this.listMenuLangLabel = menuLangDao.Select();
+            //foreach (Control control in groupBox1.Controls)
+            //{
+            //    if (control is Label)
+            //    {
+            //        Console.WriteLine(String.Format("{0},{1},{2}", this.Name, control.Name, control.Text));
+
+            //    }
+            //}
+            //Console.WriteLine();
+
+            chnageLabel();
+        }
+        private void chnageLabel()
+        {
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            if (defaultLang != null)
+            {
+                defaultLang = defaultLang.Split('|')[1];
+                foreach (Control control in groupBox1.Controls)
+                {
+                    if (control is Label)
+                    {
+                        String key = String.Format("{0}|{1}|{2}", this.Name, control.Name, defaultLang);
+                        if (listMenuLangLabel[key] != null)
+                        {
+                            control.Text = listMenuLangLabel[key].ToString();
+                        }
+
+                    }
+                }
+            }
         }
 
         private void B_ADD_Click(object sender, EventArgs e)
