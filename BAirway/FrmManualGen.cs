@@ -355,15 +355,15 @@ namespace BAirway
             }
             if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode")))
             {
-                PAcCode = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PAcCode"));
+                PAcCode = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode"));
             }
             if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size")))
             {
-                PT2Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PT2Size"));
+                PT2Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size"));
             }
             if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size")))
             {
-                PT3Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PT3Size"));
+                PT3Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size"));
             }
 
             e.Graphics.DrawString(template_p1, new Font("Arial", PT1Size), Brushes.Black, 0, 5);
