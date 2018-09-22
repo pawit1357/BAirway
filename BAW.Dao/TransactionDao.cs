@@ -504,7 +504,7 @@ namespace BAW.Dao
                     cmd.Parameters.AddWithValue("@to_city", model.to_city);
                     cmd.Parameters.AddWithValue("@airline_code", model.airline_code);
                     cmd.Parameters.AddWithValue("@flight_no", model.flight_no);
-                    cmd.Parameters.AddWithValue("@date_of_flight", model.date_of_flight);
+                    cmd.Parameters.AddWithValue("@date_of_flight", model.date_of_flight.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@seat_no", model.seat_no);
                     cmd.Parameters.AddWithValue("@remark", model.remark);
                     cmd.Parameters.AddWithValue("@remakr2", model.remakr2);
@@ -512,20 +512,79 @@ namespace BAW.Dao
 
 
                     cmd.Parameters.AddWithValue("@create_by", model.create_by);
-                    cmd.Parameters.AddWithValue("@create_date", model.create_date);
+                    cmd.Parameters.AddWithValue("@create_date", model.create_date.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@update_by", model.update_by);
-                    cmd.Parameters.AddWithValue("@update_date", model.update_date);
+                    cmd.Parameters.AddWithValue("@update_date", model.update_date.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@LoungePlace", model.LoungePlace);
                     cmd.Parameters.AddWithValue("@LoungeType", model.LoungeType);
                     cmd.Parameters.AddWithValue("@LoungeArea", model.LoungeArea);
                     cmd.Parameters.AddWithValue("@type", model.type);
                     cmd.Parameters.AddWithValue("@duration", model.duration);
-                    cmd.Parameters.AddWithValue("@begin_date", model.begin_date);
+                    cmd.Parameters.AddWithValue("@begin_date", model.begin_date.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@status", model.status);
 
 
                     //Execute command
                     int result = cmd.ExecuteNonQuery();
+
+                    string logSql =
+                                   "INSERT INTO tb_transaction_" + station_id + "" +
+                                   "(boardingpass," +
+                                   "group_id," +
+                                   "passenger_name," +
+                                   "from_city," +
+                                   "to_city," +
+                                   "airline_code," +
+                                   "flight_no," +
+                                   "date_of_flight," +
+                                   "seat_no," +
+                                   "remark," +
+                                   "remakr2," +
+                                   "ath_id," +
+
+                                   "create_by," +
+                                   "create_date," +
+                                   "update_by," +
+                                   "update_date," +
+                                   "LoungePlace," +
+                                   "LoungeType," +
+                                   "LoungeArea," +
+
+                                   "type," +
+                                   "duration," +
+                                   "begin_date," +
+                                   "status" +
+                                   ")" +
+                                   " VALUES" +
+                                   "(" +
+                                   "'{0}'," +
+                                   "'{1}'," +
+                                   "'{2}'," +
+                                   "'{3}'," +
+                                   "'{4}'," +
+                                   "'{5}'," +
+                                   "'{6}'," +
+                                   "'{7}'," +
+                                   "'{8}'," +
+                                   "'{9}'," +
+                                   "'{10}'," +
+                                   "'{11}'," +
+
+                                   "'{12}'," +
+                                   "'{13}'," +
+                                   "'{14}'," +
+                                   "'{15}'," +
+                                   "'{16}'," +
+                                   "'{17}'," +
+                                   "'{18}'," +
+
+                                   "'{19}'," +
+                                   "'{20}'," +
+                                   "'{21}'," +
+                                   "'{22}'" +
+                                                    ");";
+
+                    logger.Debug("SQL:" + String.Format(logSql, model.boardingpass, model.group_id, model.passenger_name, model.from_city, model.to_city, model.airline_code, model.flight_no, model.date_of_flight.ToString("yyyy-MM-dd HH:mm:ss"), model.seat_no, model.remark, model.remakr2, model.ath_id, model.create_by,model.create_date.ToString("yyyy-MM-dd HH:mm:ss"), model.update_by, model.update_date.ToString("yyyy-MM-dd HH:mm:ss"), model.LoungePlace, model.LoungeType, model.LoungeArea, model.type, model.duration, model.begin_date.ToString("yyyy-MM-dd HH:mm:ss"), model.status));
                 }
               
             }
@@ -612,7 +671,7 @@ namespace BAW.Dao
                     cmd.Parameters.AddWithValue("@to_city", model.to_city);
                     cmd.Parameters.AddWithValue("@airline_code", model.airline_code);
                     cmd.Parameters.AddWithValue("@flight_no", model.flight_no);
-                    cmd.Parameters.AddWithValue("@date_of_flight", model.date_of_flight);
+                    cmd.Parameters.AddWithValue("@date_of_flight", model.date_of_flight.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@seat_no", model.seat_no);
                     cmd.Parameters.AddWithValue("@remark", model.remark);
                     cmd.Parameters.AddWithValue("@remakr2", model.remakr2);
@@ -620,15 +679,15 @@ namespace BAW.Dao
 
 
                     cmd.Parameters.AddWithValue("@create_by", model.create_by);
-                    cmd.Parameters.AddWithValue("@create_date", model.create_date);
+                    cmd.Parameters.AddWithValue("@create_date", model.create_date.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@update_by", model.update_by);
-                    cmd.Parameters.AddWithValue("@update_date", model.update_date);
+                    cmd.Parameters.AddWithValue("@update_date", model.update_date.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@LoungePlace", model.LoungePlace);
                     cmd.Parameters.AddWithValue("@LoungeType", model.LoungeType);
                     cmd.Parameters.AddWithValue("@LoungeArea", model.LoungeArea);
                     cmd.Parameters.AddWithValue("@type", model.type);
                     cmd.Parameters.AddWithValue("@duration", model.duration);
-                    cmd.Parameters.AddWithValue("@begin_date", model.begin_date);
+                    cmd.Parameters.AddWithValue("@begin_date", model.begin_date.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@status", model.status);
 
 

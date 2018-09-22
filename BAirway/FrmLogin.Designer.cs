@@ -122,7 +122,6 @@
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(159, 21);
             this.PasswordTextBox.TabIndex = 19;
-            this.PasswordTextBox.Text = "admin1x";
             this.PasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             // 
             // LAPPCOMPANY
@@ -146,7 +145,6 @@
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(159, 21);
             this.UsernameTextBox.TabIndex = 17;
-            this.UsernameTextBox.Text = "admin1";
             // 
             // lbPassword
             // 

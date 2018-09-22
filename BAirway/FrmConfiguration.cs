@@ -67,10 +67,10 @@ namespace BAirway
         private void CMD_OK_Click(object sender, EventArgs e)
         {
 
-            string connectionString;
-            connectionString = "SERVER=" + SIP.Text + ";" + "DATABASE=" +
-            DBN.Text + ";" + "UID=" + UN.Text + ";" + "PASSWORD=" + PASS.Text + ";";
-            ManageLOG.writeRegistry(Configurations.AppRegName, "CON", ManageLOG.enCode(connectionString));
+            //string connectionString = "SERVER=" + SIP.Text + ";" + "DATABASE=" +DBN.Text + ";" + "UID=" + UN.Text + ";" + "PASSWORD=" + PASS.Text + ";";
+            String conStr = String.Format("SERVER={0};DATABASE={1};UID={2};PASSWORD={3};", SIP.Text, DBN.Text, UN.Text, PASS.Text);
+
+            ManageLOG.writeRegistry(Configurations.AppRegName, "CON", ManageLOG.enCode(conStr));
             ManageLOG.writeRegistry(Configurations.AppRegName, "AutoPrint", cbPrintAuto.Checked.ToString());
             ManageLOG.writeRegistry(Configurations.AppRegName, "AutoGenAutoPrint", cbAutoGenPrintAuto.Checked.ToString());
             ManageLOG.writeRegistry(Configurations.AppRegName, "ManualGenAutoPrint", cbManualGenPrintAuto.Checked.ToString());            
@@ -81,7 +81,11 @@ namespace BAirway
 
             ManageLOG.writeRegistry(Configurations.AppRegName, "SupportCATInternet", txtInternetSupport.Text);
             ManageLOG.writeRegistry(Configurations.AppRegName, "SupportCATApplication", txtAppSupport.Text);
-            ManageLOG.writeRegistry(Configurations.AppRegName, "PRINTER", ddlPrinter.SelectedValue.ToString());
+            if (ddlPrinter.SelectedValue != null)
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "PRINTER", ddlPrinter.SelectedValue.ToString());
+
+            }
             //Selft Access Screen
             ManageLOG.writeRegistry(Configurations.AppRegName, "SelfAccessFontSize", txtSelftAccessFontSize.Text);
             //Print Stricker
@@ -216,6 +220,57 @@ namespace BAirway
             {
                 groupBox2.Enabled = false;
             }
+            String PRINTER = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PRINTER");
+            if (PRINTER != null)
+            {
+                if (!PRINTER.Equals(""))
+                {
+                    ddlPrinter.SelectedValue = PRINTER;
+                }
+            }
+
+            String SelfAccessFontSize = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SelfAccessFontSize");
+            if (SelfAccessFontSize != null)
+            {
+                if (!SelfAccessFontSize.Equals(""))
+                {
+                    txtSelftAccessFontSize.Text = SelfAccessFontSize;
+                }
+            }
+            String PAcCode = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode");
+            if (PAcCode != null)
+            {
+                if (!PAcCode.Equals(""))
+                {
+                    txtPAcCode.Text = PAcCode;
+                }
+            }
+            String PT1Size = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size");
+            if (PT1Size != null)
+            {
+                if (!PT1Size.Equals(""))
+                {
+                    txtPT1Size.Text = PT1Size;
+                }
+            }
+            String PT2Size = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size");
+            if (PT2Size != null)
+            {
+                if (!PT2Size.Equals(""))
+                {
+                    txtPT2Size.Text = PT2Size;
+                }
+            }
+            String PT3Size = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size");
+            if (PT3Size != null)
+            {
+                if (!PT3Size.Equals(""))
+                {
+                    txtPT3Size.Text = PT3Size;
+                }
+            }
+
+
         }
 
         private void CheckIsNumber_KeyPress(object sender, KeyPressEventArgs e)

@@ -127,10 +127,19 @@ namespace BAirway
             }
             else
             {
+                String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+                if (!String.IsNullOrEmpty(defaultLang))
+                {
+                    defaultLang = defaultLang.Split('|')[1];
+                }
+                else
+                {
+                    defaultLang = MenuLangDao.LANG_TH;
+                }
                 //Set Status
-                toolStripStatusLabel1.Text = "ผู้ใช้งานปัจจุบัน: " + userModel.user_name;
+                toolStripStatusLabel1.Text = (defaultLang.Equals(MenuLangDao.LANG_TH) ? "ผู้ใช้งานปัจจุบัน: " : "User:") + userModel.user_name;
                 String[] userInfo = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "userInfo").Split(',');
-                toolStripStatusLabel2.Text = "สถานะ: " + userInfo[7];
+                toolStripStatusLabel2.Text = (defaultLang.Equals(MenuLangDao.LANG_TH) ? "สถานะ: " : "Status:") + userInfo[7];
 
                 //set role
                 switch (userModel.user_role)
@@ -257,7 +266,7 @@ namespace BAirway
                     frmMain.Close();
 
 
-                        FrmLogin frmLogin = new FrmLogin();
+                    FrmLogin frmLogin = new FrmLogin();
                     frmLogin.isInit = true;
                     //String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
                     //if (defaultLang != null)
@@ -480,7 +489,7 @@ namespace BAirway
 
 
 
-   
+
         private static void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             logger.Debug("Download document success.");
@@ -488,7 +497,7 @@ namespace BAirway
 
         private void chnageLabel()
         {
-            String defaultLang =  ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+            String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
             if (defaultLang != null)
             {
                 string key = "";

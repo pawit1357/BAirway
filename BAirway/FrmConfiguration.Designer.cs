@@ -72,22 +72,22 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtSelftAccessFontSize = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.txtPAcCode = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtPT1Size = new System.Windows.Forms.TextBox();
-            this.txtPT2Size = new System.Windows.Forms.TextBox();
             this.txtPT3Size = new System.Windows.Forms.TextBox();
+            this.txtPT2Size = new System.Windows.Forms.TextBox();
+            this.txtPT1Size = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPAcCode = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -589,12 +589,9 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Access Code (Size):";
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.txtPAcCode);
             this.tabPage4.Controls.Add(this.txtPT3Size);
             this.tabPage4.Controls.Add(this.txtPT2Size);
             this.tabPage4.Controls.Add(this.txtPT1Size);
@@ -604,11 +601,10 @@
             this.tabPage4.Controls.Add(this.label16);
             this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.label14);
-            this.tabPage4.Controls.Add(this.txtPAcCode);
-            this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Controls.Add(this.textBox3);
             this.tabPage4.Controls.Add(this.textBox2);
             this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -617,132 +613,16 @@
             this.tabPage4.Text = "Print Label";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtPT3Size
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 6);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 67);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "\\t\\tBangkok Airways\\n\r\n\\t\\tInternet Service\\n\r\n\\n--------------------------------" +
-    "----------------\r\n\\nAccess Code: \r\n";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(164, 79);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(350, 28);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Expire Time: {0}\\n";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(164, 113);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(350, 138);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = resources.GetString("textBox3.Text");
-            // 
-            // txtPAcCode
-            // 
-            this.txtPAcCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPAcCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtPAcCode.Location = new System.Drawing.Point(318, 257);
-            this.txtPAcCode.MaxLength = 100;
-            this.txtPAcCode.Name = "txtPAcCode";
-            this.txtPAcCode.Size = new System.Drawing.Size(50, 22);
-            this.txtPAcCode.TabIndex = 21;
-            this.txtPAcCode.Text = "8";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(204, 261);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 13);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "Access Code (Size):";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(47, 29);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 13);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "Part (1) template";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(47, 82);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 13);
-            this.label15.TabIndex = 24;
-            this.label15.Text = "Part (2) template";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(47, 173);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(89, 13);
-            this.label16.TabIndex = 25;
-            this.label16.Text = "Part (3) template";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label17.Location = new System.Drawing.Point(180, 285);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(126, 13);
-            this.label17.TabIndex = 26;
-            this.label17.Text = "Part (1) template (Size) :";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label18.Location = new System.Drawing.Point(180, 313);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(126, 13);
-            this.label18.TabIndex = 27;
-            this.label18.Text = "Part (2) template (Size) :";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label19.Location = new System.Drawing.Point(180, 343);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(126, 13);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "Part (3) template (Size) :";
-            // 
-            // txtPT1Size
-            // 
-            this.txtPT1Size.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPT1Size.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtPT1Size.Location = new System.Drawing.Point(318, 285);
-            this.txtPT1Size.MaxLength = 100;
-            this.txtPT1Size.Name = "txtPT1Size";
-            this.txtPT1Size.Size = new System.Drawing.Size(50, 22);
-            this.txtPT1Size.TabIndex = 29;
-            this.txtPT1Size.Text = "14";
+            this.txtPT3Size.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPT3Size.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.txtPT3Size.Location = new System.Drawing.Point(318, 343);
+            this.txtPT3Size.MaxLength = 100;
+            this.txtPT3Size.Name = "txtPT3Size";
+            this.txtPT3Size.Size = new System.Drawing.Size(50, 22);
+            this.txtPT3Size.TabIndex = 31;
+            this.txtPT3Size.Text = "6";
             // 
             // txtPT2Size
             // 
@@ -755,16 +635,136 @@
             this.txtPT2Size.TabIndex = 30;
             this.txtPT2Size.Text = "8";
             // 
-            // txtPT3Size
+            // txtPT1Size
             // 
-            this.txtPT3Size.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPT3Size.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtPT3Size.Location = new System.Drawing.Point(318, 343);
-            this.txtPT3Size.MaxLength = 100;
-            this.txtPT3Size.Name = "txtPT3Size";
-            this.txtPT3Size.Size = new System.Drawing.Size(50, 22);
-            this.txtPT3Size.TabIndex = 31;
-            this.txtPT3Size.Text = "6";
+            this.txtPT1Size.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPT1Size.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.txtPT1Size.Location = new System.Drawing.Point(318, 285);
+            this.txtPT1Size.MaxLength = 100;
+            this.txtPT1Size.Name = "txtPT1Size";
+            this.txtPT1Size.Size = new System.Drawing.Size(50, 22);
+            this.txtPT1Size.TabIndex = 29;
+            this.txtPT1Size.Text = "14";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label19.Location = new System.Drawing.Point(180, 343);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(126, 13);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "Part (3) template (Size) :";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label18.Location = new System.Drawing.Point(180, 313);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(126, 13);
+            this.label18.TabIndex = 27;
+            this.label18.Text = "Part (2) template (Size) :";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label17.Location = new System.Drawing.Point(180, 285);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(126, 13);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Part (1) template (Size) :";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label16.Location = new System.Drawing.Point(47, 173);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 13);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "Part (3) template";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label15.Location = new System.Drawing.Point(47, 82);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 13);
+            this.label15.TabIndex = 24;
+            this.label15.Text = "Part (2) template";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(47, 29);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 13);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Part (1) template";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(164, 113);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(350, 138);
+            this.textBox3.TabIndex = 2;
+            this.textBox3.Text = resources.GetString("textBox3.Text");
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(164, 79);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(350, 28);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "Expire Time: {0}\\n";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(164, 6);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(350, 67);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "\\t\\tBangkok Airways\\n\r\n\\t\\tInternet Service\\n\r\n\\n--------------------------------" +
+    "----------------\r\n\\nAccess Code: \r\n";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label13.Location = new System.Drawing.Point(204, 261);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Access Code (Size):";
+            // 
+            // txtPAcCode
+            // 
+            this.txtPAcCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPAcCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.txtPAcCode.Location = new System.Drawing.Point(318, 257);
+            this.txtPAcCode.MaxLength = 100;
+            this.txtPAcCode.Name = "txtPAcCode";
+            this.txtPAcCode.Size = new System.Drawing.Size(50, 22);
+            this.txtPAcCode.TabIndex = 32;
+            this.txtPAcCode.Text = "8";
             // 
             // FrmConfiguration
             // 
@@ -850,8 +850,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtPAcCode;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -861,5 +859,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtPAcCode;
+        private System.Windows.Forms.Label label13;
     }
 }

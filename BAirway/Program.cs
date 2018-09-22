@@ -79,8 +79,40 @@ namespace BAirway
             else
             {
                 ManageLOG.writeRegistry(Configurations.AppRegName, "OnlineStatus", "0");
+
+
             }
 
+            if (String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang")))
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "DefaultLang", "0|TH");
+            }
+            //Selft Access Screen
+            if (String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SelfAccessFontSize")))
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "SelfAccessFontSize", "20.25");
+            }
+            //Print Stricker
+            if (String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode")))
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "txtPAcCode", "8");
+
+            }
+            if (String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size")))
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT1Size", "14");
+
+            }
+            if (String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size")))
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT2Size", "8");
+
+            }
+            if (String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size")))
+            {
+                ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT3Size", "6");
+
+            }
 
 
             Application.EnableVisualStyles();

@@ -41,10 +41,9 @@
             // 
             this.CMD_PRINT.BackColor = System.Drawing.Color.Transparent;
             this.CMD_PRINT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CMD_PRINT.Location = new System.Drawing.Point(1939, 815);
-            this.CMD_PRINT.Margin = new System.Windows.Forms.Padding(4);
+            this.CMD_PRINT.Location = new System.Drawing.Point(1454, 662);
             this.CMD_PRINT.Name = "CMD_PRINT";
-            this.CMD_PRINT.Size = new System.Drawing.Size(127, 121);
+            this.CMD_PRINT.Size = new System.Drawing.Size(95, 98);
             this.CMD_PRINT.TabIndex = 3;
             this.CMD_PRINT.TabStop = false;
             this.CMD_PRINT.UseVisualStyleBackColor = false;
@@ -54,10 +53,9 @@
             // 
             this.TXT_BARCODE_DATA.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.TXT_BARCODE_DATA.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TXT_BARCODE_DATA.Location = new System.Drawing.Point(593, 249);
-            this.TXT_BARCODE_DATA.Margin = new System.Windows.Forms.Padding(4);
+            this.TXT_BARCODE_DATA.Location = new System.Drawing.Point(619, 252);
             this.TXT_BARCODE_DATA.Name = "TXT_BARCODE_DATA";
-            this.TXT_BARCODE_DATA.Size = new System.Drawing.Size(883, 47);
+            this.TXT_BARCODE_DATA.Size = new System.Drawing.Size(663, 40);
             this.TXT_BARCODE_DATA.TabIndex = 1;
             this.TXT_BARCODE_DATA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TXT_BARCODE_DATA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TXT_BARCODE_DATA_KeyUp);
@@ -66,10 +64,9 @@
             // 
             this.TXT_ACCESS_CODE.Enabled = false;
             this.TXT_ACCESS_CODE.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.TXT_ACCESS_CODE.Location = new System.Drawing.Point(593, 490);
-            this.TXT_ACCESS_CODE.Margin = new System.Windows.Forms.Padding(4);
+            this.TXT_ACCESS_CODE.Location = new System.Drawing.Point(619, 495);
             this.TXT_ACCESS_CODE.Name = "TXT_ACCESS_CODE";
-            this.TXT_ACCESS_CODE.Size = new System.Drawing.Size(883, 47);
+            this.TXT_ACCESS_CODE.Size = new System.Drawing.Size(663, 40);
             this.TXT_ACCESS_CODE.TabIndex = 2;
             this.TXT_ACCESS_CODE.TabStop = false;
             this.TXT_ACCESS_CODE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -90,18 +87,17 @@
             // 
             // FrmSelfRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = global::BAirway.Properties.Resources.bangkokairways_1900x900;
-            this.ClientSize = new System.Drawing.Size(1848, 892);
+            this.ClientSize = new System.Drawing.Size(1386, 725);
             this.ControlBox = false;
             this.Controls.Add(this.TXT_ACCESS_CODE);
             this.Controls.Add(this.TXT_BARCODE_DATA);
             this.Controls.Add(this.CMD_PRINT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSelfRegister";

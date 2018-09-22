@@ -294,22 +294,31 @@ namespace BAirway
             MasterModel m = (MasterModel)cboLang.SelectedItem;
             if (isInit)
             {
-                String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
-                if (defaultLang != null)
-                {
-                    int selectedIndex = Convert.ToInt16(defaultLang.Split('|')[0]);
-                    cboLang.SelectedIndex = selectedIndex;
-                    isInit = false;
+                //if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang")))
+                //{
+                    String defaultLang = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "DefaultLang");
+                    if (defaultLang != null)
+                    {
+                        int selectedIndex = Convert.ToInt16(defaultLang.Split('|')[0]);
+                        cboLang.SelectedIndex = selectedIndex;
+                        isInit = false;
+                    chnageLabel(defaultLang.Split('|')[1]);
                 }
+                //}
+                //else
+                //{
+                //    ManageLOG.writeRegistry(Configurations.AppRegName, "DefaultLang", String.Format("{0}|{1}", m.id, m.name));
+
+                //}
             }
             else
             {
-                ManageLOG.writeRegistry(Configurations.AppRegName, "DefaultLang", String.Format("{0}|{1}", m.id, m.name));
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "DefaultLang", String.Format("{0}|{1}", m.id, m.name));
+                chnageLabel(m.name);
 
             }
 
 
-            chnageLabel(m.name);
         }
 
         public void chnageLabel(String defaultLang)
