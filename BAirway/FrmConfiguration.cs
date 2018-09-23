@@ -1,15 +1,15 @@
-﻿using System;
+﻿using BAW.Biz;
+using BAW.Dao;
+using BAW.Model;
+using BAW.Utils;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.IO;
 using System.Net;
-using BAW.Utils;
-using BAW.Biz;
-using MySql.Data.MySqlClient;
-using BAW.Dao;
-using System.Drawing;
-using System.Collections.Generic;
-using BAW.Model;
+using System.Windows.Forms;
 
 namespace BAirway
 {
@@ -351,7 +351,7 @@ namespace BAirway
 
                     printDocument1.Print();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     e.Handled = false;
                     txt_barcode.Text = "";

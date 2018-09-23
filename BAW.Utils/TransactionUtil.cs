@@ -17,39 +17,51 @@ namespace BAW.Utils
             int total = 0;
             int success = 0;
 
-            TransactionDao dao = new TransactionDao();
-            int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
-            String cri = " Where t.LoungePlace=" + StationID;
-            List<ModelTransaction> lists = dao.SelectOffine(cri + " order by t.update_date desc", StationID);
-            if (lists != null)
+            try
             {
-                total = lists.Count;
-                logger.Debug("# Start Transfer data to server.");
-                logger.Debug("Local transaction have " + lists.Count + " records.");
-                if (lists.Count > 0)
+
+                TransactionDao dao = new TransactionDao();
+                int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
+                String cri = " Where t.LoungePlace=" + StationID;
+                List<ModelTransaction> lists = dao.SelectOffine(cri + " order by t.update_date desc", StationID);
+                if (lists != null)
                 {
-                    StringBuilder sb = new StringBuilder();
-                    foreach (ModelTransaction model in lists)
+                    total = lists.Count;
+                    logger.Debug("# Start Transfer data to server.");
+                    logger.Debug("Local transaction have " + lists.Count + " records.");
+                    if (lists.Count > 0)
                     {
-                        bool result = dao.Insert(model, StationID);
-                        if (result)
+                        StringBuilder sb = new StringBuilder();
+                        foreach (ModelTransaction model in lists)
                         {
-                            logger.Debug("Local transaction have " + lists.Count + " records.");
-                            //Delete local data when transfer to ser success.
-                            if (dao.DeleteOffline(model, StationID))
+                            bool result = dao.Insert(model, StationID);
+                            if (result)
                             {
-                                success++;
+                                logger.Debug("Local transaction have " + lists.Count + " records.");
+                                //Delete local data when transfer to ser success.
+                                if (dao.DeleteOffline(model, StationID))
+                                {
+                                    success++;
+                                }
                             }
                         }
                     }
                 }
-                logger.Debug("# Summary=> Total transfer total: " + total + " success: " + success + " fail: " + (total - success));
-                logger.Debug("# End Transfer data to server.");
             }
+            catch (Exception ex)
+            {
+                logger.Error("# " + ex.ToString());
+
+            }
+            logger.Debug("# Summary=> Total transfer total: " + total + " success: " + success + " fail: " + (total - success));
+            logger.Debug("# End Transfer data to server.");
+
         }
         public static void downloadAuthenCode()
         {
             int success = 0;
+            try
+            {
 
             AuthenCodeDao dao = new AuthenCodeDao();
             int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
@@ -67,6 +79,11 @@ namespace BAW.Utils
                 }
             }
 
+            }
+            catch (Exception ex) {
+                logger.Error("Exception:"+ex.ToString());
+
+            }
             //logger.Debug("# Summary=> Total Download total: " + total + " success: " + success + " fail: " + (total - success));
             logger.Debug("# End Download data from server.");
 
@@ -75,7 +92,7 @@ namespace BAW.Utils
         public static void synCodeToOnline()
         {
             //int total = 0;
-            int success = 0;
+            //int success = 0;
 
             AuthenCodeDao dao = new AuthenCodeDao();
             int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));

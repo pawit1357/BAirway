@@ -72,7 +72,7 @@
             this.lounge_site.DisplayMember = "site_name";
             this.lounge_site.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lounge_site.FormattingEnabled = true;
-            this.lounge_site.Location = new System.Drawing.Point(121, 25);
+            this.lounge_site.Location = new System.Drawing.Point(96, 25);
             this.lounge_site.Name = "lounge_site";
             this.lounge_site.Size = new System.Drawing.Size(311, 22);
             this.lounge_site.TabIndex = 150;
@@ -84,7 +84,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(31, 28);
+            this.label3.Location = new System.Drawing.Point(37, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 14);
             this.label3.TabIndex = 151;
@@ -95,7 +95,7 @@
             this.DP_START.CustomFormat = "dd-MM-yyyy";
             this.DP_START.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.DP_START.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DP_START.Location = new System.Drawing.Point(121, 53);
+            this.DP_START.Location = new System.Drawing.Point(96, 53);
             this.DP_START.Name = "DP_START";
             this.DP_START.Size = new System.Drawing.Size(121, 22);
             this.DP_START.TabIndex = 1;
@@ -115,7 +115,7 @@
             // 
             this.B_SHOW.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.B_SHOW.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.B_SHOW.Location = new System.Drawing.Point(472, 49);
+            this.B_SHOW.Location = new System.Drawing.Point(413, 49);
             this.B_SHOW.Name = "B_SHOW";
             this.B_SHOW.Size = new System.Drawing.Size(80, 26);
             this.B_SHOW.TabIndex = 4;
@@ -127,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(282, 57);
+            this.label1.Location = new System.Drawing.Point(223, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 14);
             this.label1.TabIndex = 130;
@@ -138,7 +138,7 @@
             this.DP_END.CustomFormat = "dd-MM-yyyy";
             this.DP_END.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.DP_END.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DP_END.Location = new System.Drawing.Point(345, 53);
+            this.DP_END.Location = new System.Drawing.Point(286, 53);
             this.DP_END.Name = "DP_END";
             this.DP_END.Size = new System.Drawing.Size(121, 22);
             this.DP_END.TabIndex = 2;
@@ -185,6 +185,10 @@
             // 
             this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // ModelTransactionBindingSource
+            // 
+            //this.ModelTransactionBindingSource.DataSource = typeof(BAW.Model.ModelTransaction);
             // 
             // FrmReport
             // 

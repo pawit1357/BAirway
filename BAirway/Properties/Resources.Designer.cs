@@ -63,29 +63,9 @@ namespace BAirway.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1 {
-            get {
-                object obj = ResourceManager.GetObject("1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1305339_713315898683137_1384619598_n {
-            get {
-                object obj = ResourceManager.GetObject("1305339_713315898683137_1384619598_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _1384009579_140 {
             get {
-                object obj = ResourceManager.GetObject("1384009579_140", resourceCulture);
+                object obj = ResourceManager.GetObject("_1384009579_140", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +75,7 @@ namespace BAirway.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1384009644_104 {
             get {
-                object obj = ResourceManager.GetObject("1384009644_104", resourceCulture);
+                object obj = ResourceManager.GetObject("_1384009644_104", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +85,7 @@ namespace BAirway.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1384009653_160 {
             get {
-                object obj = ResourceManager.GetObject("1384009653_160", resourceCulture);
+                object obj = ResourceManager.GetObject("_1384009653_160", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +95,7 @@ namespace BAirway.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1384009681_104 {
             get {
-                object obj = ResourceManager.GetObject("1384009681_104", resourceCulture);
+                object obj = ResourceManager.GetObject("_1384009681_104", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,37 +105,7 @@ namespace BAirway.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1384013181_103 {
             get {
-                object obj = ResourceManager.GetObject("1384013181_103", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _2 {
-            get {
-                object obj = ResourceManager.GetObject("2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _5 {
-            get {
-                object obj = ResourceManager.GetObject("5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap airbus_a319_siam_reap_airways_bangkok_airways_mb_2 {
-            get {
-                object obj = ResourceManager.GetObject("airbus-a319-siam-reap-airways-bangkok-airways-mb-2", resourceCulture);
+                object obj = ResourceManager.GetObject("_1384013181_103", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,16 +193,6 @@ namespace BAirway.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap baw_background {
-            get {
-                object obj = ResourceManager.GetObject("baw_background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap BoardingPass {
             get {
                 object obj = ResourceManager.GetObject("BoardingPass", resourceCulture);
@@ -266,36 +206,6 @@ namespace BAirway.Properties {
         internal static System.Drawing.Bitmap CF {
             get {
                 object obj = ResourceManager.GetObject("CF", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CheckIn {
-            get {
-                object obj = ResourceManager.GetObject("CheckIn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CheckOut {
-            get {
-                object obj = ResourceManager.GetObject("CheckOut", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap clipboard {
-            get {
-                object obj = ResourceManager.GetObject("clipboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,19 +273,9 @@ namespace BAirway.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap flash {
-            get {
-                object obj = ResourceManager.GetObject("flash", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap fleet_a319 {
             get {
-                object obj = ResourceManager.GetObject("fleet-a319", resourceCulture);
+                object obj = ResourceManager.GetObject("fleet_a319", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -385,17 +285,7 @@ namespace BAirway.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap fleet_a320 {
             get {
-                object obj = ResourceManager.GetObject("fleet-a320", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fleet_atr_72 {
-            get {
-                object obj = ResourceManager.GetObject("fleet-atr_72", resourceCulture);
+                object obj = ResourceManager.GetObject("fleet_a320", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

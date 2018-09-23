@@ -144,7 +144,7 @@ namespace BAW.Dao
                         }
                     }
                 }
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 return false;
             }

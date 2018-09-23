@@ -37,7 +37,7 @@ namespace BAirway
         private void CMD_CREATEDB_Click(object sender, EventArgs e)
         {
 
-            DialogResult dr1 = MessageBox.Show("เริ่มสร้างฐานข้อมูล", "เริ่มสร้างฐานข้อมูล", MessageBoxButtons.OKCancel);
+            DialogResult dr1 = MessageBox.Show("เริ่มสร้างฐานข้อมูล(LOCAL)", "เริ่มสร้างฐานข้อมูล", MessageBoxButtons.OKCancel);
             if (dr1 == DialogResult.OK)
             {
                 Cursor = Cursors.WaitCursor;
@@ -62,6 +62,17 @@ namespace BAirway
                     ManageLOG.writeRegistry(Configurations.AppRegName, "SupportCATInternet", "09-9213-7016");
                     ManageLOG.writeRegistry(Configurations.AppRegName, "SupportCATApplication", "");
                     ManageLOG.writeRegistry(Configurations.AppRegName, "UserInfo", "-1,-1,-1," + lounge_site.Text + ",-1,,-1,,,");
+                    //
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "SelfAccessFontSize", "20.25");
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "txtPAcCode", "8");
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT1Size", "8");
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT2Size", "8");
+                    ManageLOG.writeRegistry(Configurations.AppRegName, "txtPT3Size", "6");
+
+
+
+
+
                     // if 'Yes' do something here 
                     String sourcePath = String.Format(@"C:\{0}\{1}\", Configurations.AppFolder, Configurations.LocalDbFolder);
                     String fileName = Configurations.DbFile;
@@ -199,7 +210,7 @@ namespace BAirway
         void client_DownloadFileCompleted1(object sender, AsyncCompletedEventArgs e)
         {
 
-            MessageBox.Show("สร้างฐานข้อมูลเรียบร้อยแล้ว\nการตั้งค่าระบบจะมีผลกับการเปิดใช้งานโปรแกรมในครั้งต่อไป");
+            MessageBox.Show("สร้างฐานข้อมูล(LOCAL)เรียบร้อยแล้ว\nการตั้งค่าระบบจะมีผลกับการเปิดใช้งานโปรแกรมในครั้งต่อไป");
             Application.Exit();
         }
     }
