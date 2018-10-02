@@ -93,8 +93,9 @@ namespace BAW.Utils
         {
             //int total = 0;
             //int success = 0;
-
-            AuthenCodeDao dao = new AuthenCodeDao();
+            try
+            {
+                AuthenCodeDao dao = new AuthenCodeDao();
             int StationID = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "StationID"));
 
             //STEP 1: Update used code to online authencode
@@ -111,7 +112,12 @@ namespace BAW.Utils
                 dao.UpdateByListId(useIds, StationID);
 
             }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("# " + ex.ToString());
 
+            }
             //STEP 3: Download authencode to store on offine
             //List<ModelAuthenCode> listOfUnUsedList = dao.SelectAllUnUse(StationID);
             //if (listOfUnUsedList != null && listOfUnUsedList.Count > 0)
