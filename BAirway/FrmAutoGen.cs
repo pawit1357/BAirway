@@ -7,6 +7,7 @@ using BAW.Dao;
 using BAW.Utils;
 using BAW.Biz;
 using System.Collections;
+using System.Linq;
 
 namespace BAirway
 {
@@ -31,6 +32,8 @@ namespace BAirway
         private String stationName = "";
         private String loungeName = "";
         private String areaName = "";
+
+        private Hashtable dtRemark = new Hashtable();
 
         #endregion
 
@@ -66,7 +69,28 @@ namespace BAirway
             L_SITE_DESC.Text = loungeName + "-" + areaName;
 
             date_of_flight.DataSource = MyFunction.getYearDDL(1);
-            group_id.DataSource = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
+            //group_id.DataSource = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
+
+
+
+            List<ModelGroup> listMG = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
+            string[] stringArray = (from s in listMG.AsEnumerable()
+                                    select s.group_description).ToArray();
+
+            group_id.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            group_id.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            group_id.AutoCompleteCustomSource.AddRange(stringArray);
+            group_id.DataSource = listMG;
+            group_id.DisplayMember = "group_description";
+            group_id.ValueMember = "id";
+
+            List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+            foreach (ModelGroupRemark m in lounges)
+            {
+                dtRemark[m.value.Split(':')[1]] = m.value;
+            }
+
+
 
 
             this.listMenuLangLabel = menuLangDao.Select();
@@ -154,7 +178,9 @@ namespace BAirway
                         tran.flight_no = strCode.Substring(39, 4);
                         tran.date_of_flight = new DateTime(Convert.ToInt32(date_of_flight.SelectedValue), DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                         tran.seat_no = strCode.Substring(48, 4);
-                        tran.remark = cboRemark1.Visible? cboRemark1.Text : remark.Text;
+                        //tran.remark = cboRemark1.Visible? cboRemark1.Text : remark.Text;
+                        tran.remark = cboRemark1.Visible ? ((dtRemark[cboRemark1.Text] != null) ? dtRemark[cboRemark1.Text].ToString() : cboRemark1.Text) : remark.Text;
+
                         tran.remakr2 = remark2.Text;
 
                         tran.LoungePlace = StationID;

@@ -7,6 +7,7 @@ using BAW.Dao;
 using BAW.Biz;
 using BAW.Utils;
 using System.Collections;
+using System.Linq;
 
 namespace BAirway
 {
@@ -32,6 +33,8 @@ namespace BAirway
         private String loungeName = "";
         private String areaName = "";
         #endregion
+
+        private Hashtable dtRemark = new Hashtable();
 
         public FrmManualGen()
         {
@@ -65,7 +68,30 @@ namespace BAirway
             lounge_site.Text = stationName;
             L_SITE_DESC.Text = loungeName + "-" + areaName;
 
-            group_id.DataSource = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
+
+            List<ModelGroup> listMG = (onlineStatus) ? groupDao.Select("") : groupDao.SelectOffine("");
+            string[] stringArray = (from s in listMG.AsEnumerable()
+                                    select s.group_description).ToArray();
+
+            group_id.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            group_id.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            group_id.AutoCompleteCustomSource.AddRange(stringArray);
+            group_id.DataSource = listMG;
+            group_id.DisplayMember = "group_description";
+            group_id.ValueMember = "id";
+
+
+            List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+            foreach(ModelGroupRemark m in lounges)
+            {
+                dtRemark[m.value.Split(':')[1]] = m.value;
+            }
+
+
+
+            //group_id.DataSource = listMG;
+
+
             this.listMenuLangLabel = menuLangDao.Select();
             //foreach (Control control in groupBox2.Controls)
             //{
@@ -189,8 +215,10 @@ namespace BAirway
                 tran.flight_no = flight_no.Text;
                 tran.date_of_flight = date_of_flight.Value;
                 tran.seat_no = ((seat_no.Text.Length > 4) ? seat_no.Text.Substring(0, 4) : seat_no.Text);
-                tran.remark = cboRemark1.Visible ? cboRemark1.Text : remark.Text;
+                tran.remark = cboRemark1.Visible ? ((dtRemark[cboRemark1.Text] !=null)? dtRemark[cboRemark1.Text].ToString() : cboRemark1.Text) : remark.Text;
                 tran.remakr2 = remark2.Text;
+
+
 
                 tran.LoungePlace = StationID;
                 tran.LoungeType = lounge;
@@ -417,7 +445,21 @@ namespace BAirway
                 {
                     //10=FAVPAX
                     List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+                    string[] stringArray = (from s in lounges.AsEnumerable()
+                                            select s.value.Split(':')[1]).ToArray();
+
+
+                    cboRemark1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    cboRemark1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    cboRemark1.AutoCompleteCustomSource.AddRange(stringArray);
                     cboRemark1.DataSource = lounges;
+                    cboRemark1.DisplayMember = "value";
+                    cboRemark1.ValueMember = "id";
+                    
+
+
+                    //List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+                    //cboRemark1.DataSource = lounges;
                     remark.Visible = false;
                     cboRemark1.Visible = true;
                 }
@@ -429,6 +471,13 @@ namespace BAirway
             }
         }
 
-
+        private void cboRemark1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine();
+            //if (dtRemark[cboRemark1.SelectedText] != null)
+            //{
+            //    cboRemark1.SelectedText = dtRemark[cboRemark1.SelectedText].ToString();
+            //}
+        }
     }
 }

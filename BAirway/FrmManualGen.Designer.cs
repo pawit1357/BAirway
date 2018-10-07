@@ -265,6 +265,7 @@
             this.cboRemark1.Size = new System.Drawing.Size(431, 31);
             this.cboRemark1.TabIndex = 198;
             this.cboRemark1.ValueMember = "id";
+            this.cboRemark1.SelectedIndexChanged += new System.EventHandler(this.cboRemark1_SelectedIndexChanged);
             // 
             // label17
             // 
