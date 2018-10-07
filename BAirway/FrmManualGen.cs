@@ -34,7 +34,6 @@ namespace BAirway
         private String areaName = "";
         #endregion
 
-        private Hashtable dtRemark = new Hashtable();
 
         public FrmManualGen()
         {
@@ -81,11 +80,6 @@ namespace BAirway
             group_id.ValueMember = "id";
 
 
-            List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
-            foreach(ModelGroupRemark m in lounges)
-            {
-                dtRemark[m.value.Split(':')[1]] = m.value;
-            }
 
 
 
@@ -215,7 +209,7 @@ namespace BAirway
                 tran.flight_no = flight_no.Text;
                 tran.date_of_flight = date_of_flight.Value;
                 tran.seat_no = ((seat_no.Text.Length > 4) ? seat_no.Text.Substring(0, 4) : seat_no.Text);
-                tran.remark = cboRemark1.Visible ? ((dtRemark[cboRemark1.Text] !=null)? dtRemark[cboRemark1.Text].ToString() : cboRemark1.Text) : remark.Text;
+                tran.remark = cboRemark1.Visible ?  cboRemark1.Text.Split(':')[1]+":"+ cboRemark1.Text.Split(':')[0] : remark.Text;
                 tran.remakr2 = remark2.Text;
 
 
@@ -446,7 +440,7 @@ namespace BAirway
                     //10=FAVPAX
                     List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
                     string[] stringArray = (from s in lounges.AsEnumerable()
-                                            select s.value.Split(':')[1]).ToArray();
+                                            select s.value.Split(':')[1]+":"+ s.value.Split(':')[0]).ToArray();
 
 
                     cboRemark1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -478,6 +472,12 @@ namespace BAirway
             //{
             //    cboRemark1.SelectedText = dtRemark[cboRemark1.SelectedText].ToString();
             //}
+        }
+
+        private void cboRemark1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cboRemark1.DroppedDown = false;
+
         }
     }
 }

@@ -266,6 +266,7 @@
             this.cboRemark1.TabIndex = 198;
             this.cboRemark1.ValueMember = "id";
             this.cboRemark1.SelectedIndexChanged += new System.EventHandler(this.cboRemark1_SelectedIndexChanged);
+            this.cboRemark1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboRemark1_KeyPress);
             // 
             // label17
             // 

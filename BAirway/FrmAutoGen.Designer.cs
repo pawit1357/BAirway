@@ -38,6 +38,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboRemark1 = new System.Windows.Forms.ComboBox();
             this.cbDisableVaridate = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.lbMessage = new System.Windows.Forms.Label();
             this.lbAccessCode = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.cboRemark1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -226,6 +226,18 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto Generate";
+            // 
+            // cboRemark1
+            // 
+            this.cboRemark1.DisplayMember = "value";
+            this.cboRemark1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRemark1.FormattingEnabled = true;
+            this.cboRemark1.Location = new System.Drawing.Point(155, 61);
+            this.cboRemark1.Name = "cboRemark1";
+            this.cboRemark1.Size = new System.Drawing.Size(431, 31);
+            this.cboRemark1.TabIndex = 195;
+            this.cboRemark1.ValueMember = "id";
+            this.cboRemark1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboRemark1_KeyPress);
             // 
             // cbDisableVaridate
             // 
@@ -456,17 +468,6 @@
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // cboRemark1
-            // 
-            this.cboRemark1.DisplayMember = "value";
-            this.cboRemark1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboRemark1.FormattingEnabled = true;
-            this.cboRemark1.Location = new System.Drawing.Point(155, 61);
-            this.cboRemark1.Name = "cboRemark1";
-            this.cboRemark1.Size = new System.Drawing.Size(431, 31);
-            this.cboRemark1.TabIndex = 195;
-            this.cboRemark1.ValueMember = "id";
             // 
             // FrmAutoGen
             // 

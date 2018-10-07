@@ -33,7 +33,6 @@ namespace BAirway
         private String loungeName = "";
         private String areaName = "";
 
-        private Hashtable dtRemark = new Hashtable();
 
         #endregion
 
@@ -84,11 +83,6 @@ namespace BAirway
             group_id.DisplayMember = "group_description";
             group_id.ValueMember = "id";
 
-            List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
-            foreach (ModelGroupRemark m in lounges)
-            {
-                dtRemark[m.value.Split(':')[1]] = m.value;
-            }
 
 
 
@@ -179,7 +173,7 @@ namespace BAirway
                         tran.date_of_flight = new DateTime(Convert.ToInt32(date_of_flight.SelectedValue), DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                         tran.seat_no = strCode.Substring(48, 4);
                         //tran.remark = cboRemark1.Visible? cboRemark1.Text : remark.Text;
-                        tran.remark = cboRemark1.Visible ? ((dtRemark[cboRemark1.Text] != null) ? dtRemark[cboRemark1.Text].ToString() : cboRemark1.Text) : remark.Text;
+                        tran.remark = cboRemark1.Visible ? cboRemark1.Text.Split(':')[1] + ":" + cboRemark1.Text.Split(':')[0] : remark.Text;
 
                         tran.remakr2 = remark2.Text;
 
@@ -483,6 +477,12 @@ namespace BAirway
         private void group_id_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void cboRemark1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cboRemark1.DroppedDown = false;
+
         }
     }
 }
