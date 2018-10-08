@@ -8,6 +8,7 @@ using BAW.Biz;
 using BAW.Utils;
 using System.Collections;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace BAirway
 {
@@ -209,7 +210,9 @@ namespace BAirway
                 tran.flight_no = flight_no.Text;
                 tran.date_of_flight = date_of_flight.Value;
                 tran.seat_no = ((seat_no.Text.Length > 4) ? seat_no.Text.Substring(0, 4) : seat_no.Text);
-                tran.remark = cboRemark1.Visible ?  cboRemark1.Text.Split(':')[1]+":"+ cboRemark1.Text.Split(':')[0] : remark.Text;
+                Regex regex = new Regex(@"[\d]");
+
+                tran.remark = cboRemark1.Visible ? (regex.IsMatch(cboRemark1.Text.Split(':')[1]) ? (cboRemark1.Text.Split(':')[1] + ":" + cboRemark1.Text.Split(':')[0]) : cboRemark1.Text) : remark.Text;
                 tran.remakr2 = remark2.Text;
 
 

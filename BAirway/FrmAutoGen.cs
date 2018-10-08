@@ -8,6 +8,7 @@ using BAW.Utils;
 using BAW.Biz;
 using System.Collections;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace BAirway
 {
@@ -173,7 +174,12 @@ namespace BAirway
                         tran.date_of_flight = new DateTime(Convert.ToInt32(date_of_flight.SelectedValue), DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                         tran.seat_no = strCode.Substring(48, 4);
                         //tran.remark = cboRemark1.Visible? cboRemark1.Text : remark.Text;
-                        tran.remark = cboRemark1.Visible ? cboRemark1.Text.Split(':')[1] + ":" + cboRemark1.Text.Split(':')[0] : remark.Text;
+
+
+                        Regex regex = new Regex(@"[\d]");
+
+
+                        tran.remark = cboRemark1.Visible ? (regex.IsMatch(cboRemark1.Text.Split(':')[1]) ? (cboRemark1.Text.Split(':')[1] + ":" + cboRemark1.Text.Split(':')[0]) : cboRemark1.Text) : remark.Text;
 
                         tran.remakr2 = remark2.Text;
 
@@ -354,8 +360,22 @@ namespace BAirway
                 if (group_id.SelectedValue.ToString().Equals("10") || group_id.SelectedValue.ToString().Equals("14"))
                 {
                     //10=FAVPAX
+                    //List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+                    //cboRemark1.DataSource = lounges;
+                    //10=FAVPAX
                     List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
+                    string[] stringArray = (from s in lounges.AsEnumerable()
+                                            select s.value.Split(':')[1] + ":" + s.value.Split(':')[0]).ToArray();
+
+
+                    cboRemark1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    cboRemark1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    cboRemark1.AutoCompleteCustomSource.AddRange(stringArray);
                     cboRemark1.DataSource = lounges;
+                    cboRemark1.DisplayMember = "value";
+                    cboRemark1.ValueMember = "id";
+
+
                     remark.Visible = false;
                     cboRemark1.Visible = true;
                 }
