@@ -435,7 +435,7 @@ namespace BAirway
         {
             if (!String.IsNullOrEmpty(group_id.SelectedValue.ToString()))
             {
-                if (group_id.SelectedValue.ToString().Equals("10"))
+                if (group_id.SelectedValue.ToString().Equals("10")|| group_id.SelectedValue.ToString().Equals("14") )
                 {
                     //10=FAVPAX
                     List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
