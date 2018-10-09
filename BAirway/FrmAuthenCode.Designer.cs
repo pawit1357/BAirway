@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuthenCode));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbRecords = new System.Windows.Forms.Label();
             this.B_SEARCH = new System.Windows.Forms.Button();
@@ -353,6 +354,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.B_CANCEL);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAuthenCode";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "จัดการข้อมูล Access Code";

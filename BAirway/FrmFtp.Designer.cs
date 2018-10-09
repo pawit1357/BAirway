@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFtp));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ftpPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -92,7 +93,7 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.Location = new System.Drawing.Point(31, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 14);
+            this.label1.Size = new System.Drawing.Size(69, 14);
             this.label1.TabIndex = 153;
             this.label1.Text = "Username :";
             // 
@@ -113,7 +114,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.Location = new System.Drawing.Point(59, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 14);
+            this.label3.Size = new System.Drawing.Size(40, 14);
             this.label3.TabIndex = 151;
             this.label3.Text = "Host :";
             // 
@@ -140,6 +141,7 @@
             this.Controls.Add(this.B_UPLOAD);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFtp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FTP Setting";

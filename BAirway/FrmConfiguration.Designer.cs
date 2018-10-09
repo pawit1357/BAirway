@@ -73,6 +73,7 @@
             this.txtSelftAccessFontSize = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtPAcCode = new System.Windows.Forms.TextBox();
             this.txtPT3Size = new System.Windows.Forms.TextBox();
             this.txtPT2Size = new System.Windows.Forms.TextBox();
             this.txtPT1Size = new System.Windows.Forms.TextBox();
@@ -85,9 +86,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtPAcCode = new System.Windows.Forms.TextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -613,6 +613,17 @@
             this.tabPage4.Text = "Print Label";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // txtPAcCode
+            // 
+            this.txtPAcCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPAcCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.txtPAcCode.Location = new System.Drawing.Point(318, 257);
+            this.txtPAcCode.MaxLength = 100;
+            this.txtPAcCode.Name = "txtPAcCode";
+            this.txtPAcCode.Size = new System.Drawing.Size(50, 22);
+            this.txtPAcCode.TabIndex = 32;
+            this.txtPAcCode.Text = "8";
+            // 
             // txtPT3Size
             // 
             this.txtPT3Size.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -740,10 +751,6 @@
             this.textBox1.Text = "\\t\\tBangkok Airways\\n\r\n\\t\\tInternet Service\\n\r\n\\n--------------------------------" +
     "----------------\r\n\\nAccess Code: \r\n";
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -755,16 +762,9 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "Access Code (Size):";
             // 
-            // txtPAcCode
+            // printDocument1
             // 
-            this.txtPAcCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPAcCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtPAcCode.Location = new System.Drawing.Point(318, 257);
-            this.txtPAcCode.MaxLength = 100;
-            this.txtPAcCode.Name = "txtPAcCode";
-            this.txtPAcCode.Size = new System.Drawing.Size(50, 22);
-            this.txtPAcCode.TabIndex = 32;
-            this.txtPAcCode.Text = "8";
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // FrmConfiguration
             // 
@@ -777,6 +777,7 @@
             this.Controls.Add(this.CMD_OK);
             this.Controls.Add(this.CMD_CLOSE);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConfiguration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuration";

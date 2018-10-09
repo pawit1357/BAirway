@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRole));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.role_code = new System.Windows.Forms.TextBox();
             this.B_DELETE = new System.Windows.Forms.Button();
@@ -251,6 +252,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRole";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "จัดการข้อมูลสิทธิ์การใช้งาน";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditProfile));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.oldpassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -234,6 +235,7 @@
             this.Controls.Add(this.B_ADD);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "แก้ไขข้อมูลผู้ใช้";

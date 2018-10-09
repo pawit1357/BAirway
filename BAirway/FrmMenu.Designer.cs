@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.TSM_01 = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_01_01 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,10 @@
             this.TSM_03 = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_04 = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_04_01 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_04_02 = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_04_04 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_04_03 = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_05 = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_05_01 = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,9 +67,6 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsOnlineStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.TSM_04_04 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -225,12 +226,29 @@
             this.TSM_04_01.Text = "Configuration";
             this.TSM_04_01.Click += new System.EventHandler(this.TSM_01_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(194, 6);
+            // 
             // TSM_04_02
             // 
             this.TSM_04_02.Name = "TSM_04_02";
             this.TSM_04_02.Size = new System.Drawing.Size(197, 22);
             this.TSM_04_02.Text = "นำเข้า Access Code";
             this.TSM_04_02.Click += new System.EventHandler(this.TSM_01_Click);
+            // 
+            // TSM_04_04
+            // 
+            this.TSM_04_04.Name = "TSM_04_04";
+            this.TSM_04_04.Size = new System.Drawing.Size(197, 22);
+            this.TSM_04_04.Text = "จัดการข้อมูล AccessCode";
+            this.TSM_04_04.Click += new System.EventHandler(this.TSM_01_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(194, 6);
             // 
             // TSM_04_03
             // 
@@ -357,23 +375,6 @@
             this.tsOnlineStatus.Size = new System.Drawing.Size(43, 17);
             this.tsOnlineStatus.Text = "Online";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(194, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(194, 6);
-            // 
-            // TSM_04_04
-            // 
-            this.TSM_04_04.Name = "TSM_04_04";
-            this.TSM_04_04.Size = new System.Drawing.Size(197, 22);
-            this.TSM_04_04.Text = "จัดการข้อมูล AccessCode";
-            this.TSM_04_04.Click += new System.EventHandler(this.TSM_01_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,6 +383,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

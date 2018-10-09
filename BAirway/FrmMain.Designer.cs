@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +84,7 @@
             this.date_of_flight_start = new System.Windows.Forms.DateTimePicker();
             this.seat_no = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.flight_no = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.airline_code = new System.Windows.Forms.TextBox();
@@ -94,7 +96,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.passenger_name = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelTransactionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -715,6 +716,17 @@
             this.label9.Text = "Seat No:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label8.Location = new System.Drawing.Point(50, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 14);
+            this.label8.TabIndex = 161;
+            this.label8.Text = "Flight Date Start :";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // flight_no
             // 
             this.flight_no.BackColor = System.Drawing.Color.White;
@@ -841,23 +853,13 @@
             this.label13.Text = "Passenger Name:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(50, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 14);
-            this.label8.TabIndex = 161;
-            this.label8.Text = "Flight Date Start :";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 578);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.Text = "Report";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
