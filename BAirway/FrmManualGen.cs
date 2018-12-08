@@ -454,9 +454,6 @@ namespace BAirway
                     cboRemark1.ValueMember = "id";
                     
 
-
-                    //List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkByGroupCode("FAVPAX");
-                    //cboRemark1.DataSource = lounges;
                     remark.Visible = false;
                     cboRemark1.Visible = true;
                 }
@@ -464,6 +461,20 @@ namespace BAirway
                 {
                     remark.Visible = true;
                     cboRemark1.Visible = false;
+                }
+                switch (group_id.SelectedValue.ToString())
+                {
+                    case "79":
+                        //249 FAVPAX  1890001:Flyer Bonus Program
+                        //10=FAVPAX
+                        List<ModelGroupRemark> lounges = groupDao.SelectGroupRemarkById(249);
+                        cboRemark1.DataSource = lounges;
+                        cboRemark1.DisplayMember = "value";
+                        cboRemark1.ValueMember = "id";
+                        remark.Visible = false;
+                        cboRemark1.Visible = true;
+                        break;
+
                 }
             }
         }
