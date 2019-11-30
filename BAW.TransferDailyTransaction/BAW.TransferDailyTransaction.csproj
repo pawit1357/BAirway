@@ -14,6 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,12 +27,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -51,30 +51,37 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AllPlatform|x86'">
-    <OutputPath>bin\x86\AllPlatform\</OutputPath>
+  <PropertyGroup>
+    <StartupObject>BAW.TransferDailyTransaction.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Binaries\log4net.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\BAirway_2\BAirway\Binaries\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Binaries\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Binaries\Tamir.SharpSSH.dll</HintPath>
+    <Reference Include="Tamir.SharpSSH">
+      <HintPath>..\..\BAirway_2\BAirway\Binaries\Tamir.SharpSSH.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +97,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Service References\ServiceReference1\service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -105,24 +113,6 @@
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\service1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BAW.Biz\BAW.Biz.csproj">
-      <Project>{6D8FC140-2A1B-4A6C-8360-B60DC8DD71EC}</Project>
-      <Name>BAW.Biz</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAW.Dao\BAW.Dao.csproj">
-      <Project>{669A86FA-E2A7-4EFB-AA1E-453B1E5E6ACA}</Project>
-      <Name>BAW.Dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAW.Model\BAW.Model.csproj">
-      <Project>{018E828C-20DF-4C37-98D4-C63ACECCFE67}</Project>
-      <Name>BAW.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAW.Utils\BAW.Utils.csproj">
-      <Project>{99F44E62-155C-4772-918D-243C844D4C21}</Project>
-      <Name>BAW.Utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -151,6 +141,24 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAW.Biz\BAW.Biz.csproj">
+      <Project>{6d8fc140-2a1b-4a6c-8360-b60dc8dd71ec}</Project>
+      <Name>BAW.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Dao\BAW.Dao.csproj">
+      <Project>{669a86fa-e2a7-4efb-aa1e-453b1e5e6aca}</Project>
+      <Name>BAW.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Model\BAW.Model.csproj">
+      <Project>{018e828c-20df-4c37-98d4-c63aceccfe67}</Project>
+      <Name>BAW.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Utils\BAW.Utils.csproj">
+      <Project>{99f44e62-155c-4772-918d-243c844d4c21}</Project>
+      <Name>BAW.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

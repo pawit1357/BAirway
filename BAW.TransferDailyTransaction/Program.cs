@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Tamir.SharpSsh;
+using System.Linq;
 
 namespace BAW.TransferDailyTransaction
 {
@@ -27,6 +28,15 @@ namespace BAW.TransferDailyTransaction
                 Sftp sftp = new Sftp("sftp.bangkokair.net", "cat2gos", "C@t2g0s");
                 Console.WriteLine("sftp.bangkokair.net Connected. " + DateTime.Now);
                 sftp.Connect(22);
+                String[] _SkipSelfStation = Configurations.SkipSelfStation.Split(',');
+
+                if (_SkipSelfStation.Contains("1".ToString()))
+                {
+                }
+                else
+                {
+                }
+
 
                 DateTime runDate = args.Length > 0 ? (String.IsNullOrEmpty(args[1]) ? DateTime.Now.AddDays(-1) : new DateTime(Convert.ToInt16(args[1].Substring(0, 4)), Convert.ToInt16(args[1].Substring(4, 2)), Convert.ToInt16(args[1].Substring(6, 2)), 0, 0, 0)) : DateTime.Now.AddDays(-1);//Run pevios day
                 TransactionDao tranDao = new TransactionDao();
@@ -62,7 +72,17 @@ namespace BAW.TransferDailyTransaction
                                             //Create path on server
                                             sftp.Mkdir(PATH_FTP);
 
-                                            String cri = "where date(create_date) = date('" + runDate.ToString("yyyy-MM-dd") + "') and LoungePlace=" + station.id + " and LoungeType=" + lounge.id + " and LoungeArea=" + area.id + " and group_id <> 32  order by LoungePlace asc,LoungeType asc,LoungeArea asc,update_date desc";
+                                            String cri = "";
+                                            //if station equal (BKK-Inter,BKK - Dom
+                                            if (_SkipSelfStation.Contains(station.id.ToString()))
+                                            {
+                                                cri = "where date(create_date) = date('" + runDate.ToString("yyyy-MM-dd") + "') and LoungePlace=" + station.id + " and LoungeType=" + lounge.id + " and LoungeArea=" + area.id + " and group_id <> 32 and type <> 'S'  order by LoungePlace asc,LoungeType asc,LoungeArea asc,update_date desc";
+                                            }
+                                            else
+                                            {
+                                                cri = "where date(create_date) = date('" + runDate.ToString("yyyy-MM-dd") + "') and LoungePlace=" + station.id + " and LoungeType=" + lounge.id + " and LoungeArea=" + area.id + " and group_id <> 32  order by LoungePlace asc,LoungeType asc,LoungeArea asc,update_date desc";
+                                            }
+
                                             List<ModelTransaction> lists = tranDao.Select(cri, station.id);
 
                                             ManageLOG mangeLog = new ManageLOG();

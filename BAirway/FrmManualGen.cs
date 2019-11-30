@@ -326,6 +326,7 @@ namespace BAirway
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+
             int wiFiExpire = 0;
             if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtWiFiExpire") != null)
             {
@@ -359,7 +360,13 @@ namespace BAirway
             "3. The system will automatically redirect to the \nLogin Page,(ระบบจะไปยังหน้าจอ Login อัตโนมัติ)\n" +
             "Please enter Access Code.\n (ป้อน Access Code ที่ได้รับ)" +
             "\n" +
-            "\n";
+            "\n---------------------------------------------------------------\n";
+            String template_p4 = "SCAN NOW !";
+            String template_p5 = "To See Hot Deal";
+            String template_p6 = "in-flight Product";
+            String template_p7 = "SCAN QR CODE";
+            String template_p8 = "เพื่อเยี่ยมชมสินค้าบนเครื่อง";
+
 
             Bitmap logo = new Bitmap(Configurations.PosLogoPath);
             Bitmap clone = new Bitmap(logo.Width, logo.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
@@ -368,6 +375,18 @@ namespace BAirway
                 gr.DrawImage(logo, new Rectangle(0, 0, 110, 60));
             }
             e.Graphics.DrawImage(clone, -5, -12);
+
+            Bitmap logoQR = new Bitmap(Configurations.PosQRPath);
+            Bitmap cloneQR = new Bitmap(logoQR.Width, logoQR.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+            using (Graphics gr = Graphics.FromImage(cloneQR))
+            {
+                gr.DrawImage(logoQR, new Rectangle(0, 0, 80, 80));
+            }
+            e.Graphics.DrawImage(cloneQR, 5, 210);
+
+
+
+
             String printerSize = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PRINTER");
             int PT1Size = 8;
             int PAcCode = 14;
@@ -395,11 +414,12 @@ namespace BAirway
             e.Graphics.DrawString(accessCode, new Font("Arial", PAcCode), Brushes.Black, 80, 55);
             e.Graphics.DrawString(template_p2, new Font("Arial", PT2Size), Brushes.Black, 0, 75);
             e.Graphics.DrawString(template_p3, new Font("Arial", PT3Size), Brushes.Black, 0, 95);
+            e.Graphics.DrawString(template_p4, new Font("Arial", 11), Brushes.Black, 88, 210);
+            e.Graphics.DrawString(template_p5, new Font("Arial", 9), Brushes.Black, 88, 230);
+            e.Graphics.DrawString(template_p6, new Font("Arial", 9), Brushes.Black, 88, 243);
+            e.Graphics.DrawString(template_p7, new Font("Arial", 7), Brushes.Black, 88, 258);
+            e.Graphics.DrawString(template_p8, new Font("Arial", 7), Brushes.Black, 88, 270);
 
-            //e.Graphics.DrawString(template_p1, new Font("Arial", 8), Brushes.Black, 0, 5);
-            //e.Graphics.DrawString(accessCode, new Font("Arial", 14), Brushes.Black, 80, 55);
-            //e.Graphics.DrawString(template_p2, new Font("Arial", 8), Brushes.Black, 0, 75);
-            //e.Graphics.DrawString(template_p3, new Font("Arial", 6), Brushes.Black, 0, 95);
             e.Graphics.DrawString("-", new Font("Arial", 6), Brushes.Black, 0, 225);
         }
 
@@ -431,7 +451,7 @@ namespace BAirway
 
         private void group_id_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = false;
         }
 
         private void group_id_SelectedIndexChanged(object sender, EventArgs e)

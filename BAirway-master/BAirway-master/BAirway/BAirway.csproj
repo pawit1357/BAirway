@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{425AB1F0-A3C9-44E7-84A8-B6C8A958D600}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BAirway</RootNamespace>
+    <AssemblyName>BAirway</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>ftp://ftp.17100532-20161115132017.webstarterz.com/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://myapps1357.com/wms/</InstallUrl>
+    <ProductName>WiFi Management</ProductName>
+    <PublisherName>Bangkok Airways</PublisherName>
+    <SuiteName>prdapp</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>159</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BAirway.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>17E3634BDF1C4FBDDE0E7329C5588D908920E448</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BAirway_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BAW.Utils\Binaries\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.93.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.93.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.93.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.93.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.93.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.93.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGroup.Designer.cs">
+      <DependentUpon>FrmGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManualGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManualGen.Designer.cs">
+      <DependentUpon>FrmManualGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutoGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutoGen.Designer.cs">
+      <DependentUpon>FrmAutoGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfiguration.Designer.cs">
+      <DependentUpon>FrmConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArea.Designer.cs">
+      <DependentUpon>FrmArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFtp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFtp.Designer.cs">
+      <DependentUpon>FrmFtp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoad.Designer.cs">
+      <DependentUpon>FrmLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditProfile.Designer.cs">
+      <DependentUpon>FrmEditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAuthenCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthenCode.Designer.cs">
+      <DependentUpon>FrmAuthenCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelfRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelfRegister.Designer.cs">
+      <DependentUpon>FrmSelfRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaff.Designer.cs">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSite.Designer.cs">
+      <DependentUpon>FrmSite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRole.Designer.cs">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLounge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLounge.Designer.cs">
+      <DependentUpon>FrmLounge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetail.Designer.cs">
+      <DependentUpon>FrmDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Binaries\DiffieHellman.dll" />
+    <Content Include="Binaries\log4net.dll" />
+    <Content Include="Binaries\MySql.Data.dll" />
+    <Content Include="Binaries\Org.Mentalis.Security.dll" />
+    <Content Include="Binaries\Tamir.SharpSSH.dll" />
+    <Content Include="Document\bair-team-pass.txt" />
+    <Content Include="Document\code.png" />
+    <Content Include="images\background_01.jpg" />
+    <None Include="Document\BangkokAirwaysWiFiManagement_Manual.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Document\bangkokairways_1600x900.psd" />
+    <None Include="Document\bangkokairways_1786x786.psd" />
+    <None Include="Document\SG20T.docx" />
+    <None Include="Document\user_wifi_management.xlsx" />
+    <None Include="images\bangkokairways_1900x900.png" />
+    <Content Include="images\baw_background.jpg" />
+    <Content Include="Document\ReadMe.txt" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGroup.resx">
+      <DependentUpon>FrmGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManualGen.resx">
+      <DependentUpon>FrmManualGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutoGen.resx">
+      <DependentUpon>FrmAutoGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfiguration.resx">
+      <DependentUpon>FrmConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArea.resx">
+      <DependentUpon>FrmArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFtp.resx">
+      <DependentUpon>FrmFtp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoad.resx">
+      <DependentUpon>FrmLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditProfile.resx">
+      <DependentUpon>FrmEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuthenCode.resx">
+      <DependentUpon>FrmAuthenCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelfRegister.resx">
+      <DependentUpon>FrmSelfRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaff.resx">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSite.resx">
+      <DependentUpon>FrmSite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRole.resx">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLounge.resx">
+      <DependentUpon>FrmLounge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetail.resx">
+      <DependentUpon>FrmDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="images\1384009579_140.png" />
+    <Content Include="images\1384009644_104.png" />
+    <Content Include="images\1384009653_160.png" />
+    <Content Include="images\1384009681_104.png" />
+    <Content Include="images\1384013181_103.png" />
+    <Content Include="Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Document\authencodedb.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\BAirway.model.MasterModel.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelArea.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelAuthenCode.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelGroup.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelLounge.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelRole.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelSite.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelStaff.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelTransaction.datasource" />
+    <None Include="Properties\DataSources\BAirway.model.ModelUser.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelArea.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelAuthenCode.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelGroup.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelLounge.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelRole.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelStation.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelTransaction.datasource" />
+    <None Include="Properties\DataSources\BAW.Model.ModelUser.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Document\WiFiManagement_install_guide.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="authencodedb.sql" />
+    <Content Include="bangkokairwayslogo.jpg" />
+    <Content Include="images\1305339_713315898683137_1384619598_n.jpg" />
+    <Content Include="images\5.gif" />
+    <Content Include="images\airbus-a319-siam-reap-airways-bangkok-airways-mb-2.jpg" />
+    <Content Include="images\bangkokairways.png" />
+    <Content Include="images\bangkokairwayslogo.jpg" />
+    <Content Include="images\banner.png" />
+    <Content Include="images\BoardingPass.jpg" />
+    <Content Include="images\fleet-a319.jpg" />
+    <Content Include="images\fleet-a320.jpg" />
+    <Content Include="images\fleet-atr_72.jpg" />
+    <Content Include="images\gtk_find_and_replace.png" />
+    <Content Include="images\icon_edit_address.gif" />
+    <Content Include="images\icon_remove_address.gif" />
+    <Content Include="images\login.png" />
+    <Content Include="images\network_wireless.png" />
+    <Content Include="images\print.png" />
+    <Content Include="images\reset.png" />
+    <Content Include="images\tag_white_barcode.png" />
+    <Content Include="images\wireless2.png" />
+    <None Include="icon.ico" />
+    <Content Include="images\1.png" />
+    <Content Include="images\2.png" />
+    <Content Include="images\arrow_right_blue.png" />
+    <Content Include="images\CF.png" />
+    <Content Include="images\CheckIn.png" />
+    <Content Include="images\CheckOut.png" />
+    <Content Include="images\clipboard.png" />
+    <Content Include="images\CT.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\disk_blue_ok.png" />
+    <Content Include="images\document_view.png" />
+    <Content Include="images\error.png" />
+    <Content Include="images\exchange.png" />
+    <Content Include="images\flash.png" />
+    <Content Include="images\folder_document.png" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\package_add.png" />
+    <Content Include="images\photo_portrait.png" />
+    <Content Include="images\printer2.png" />
+    <Content Include="images\product.png" />
+    <Content Include="images\product2.png" />
+    <Content Include="images\redo.png" />
+    <Content Include="images\selection_recycle.png" />
+    <Content Include="images\stopwatch.png" />
+    <Content Include="images\stopwatch_run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.ReportViewer.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2010 Report Viewer</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="images\bangkokairwayslogo.jpg">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAW.Biz\BAW.Biz.csproj">
+      <Project>{6D8FC140-2A1B-4A6C-8360-B60DC8DD71EC}</Project>
+      <Name>BAW.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Dao\BAW.Dao.csproj">
+      <Project>{669A86FA-E2A7-4EFB-AA1E-453B1E5E6ACA}</Project>
+      <Name>BAW.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Model\BAW.Model.csproj">
+      <Project>{018E828C-20DF-4C37-98D4-C63ACECCFE67}</Project>
+      <Name>BAW.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BAW.Utils\BAW.Utils.csproj">
+      <Project>{99F44E62-155C-4772-918D-243C844D4C21}</Project>
+      <Name>BAW.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -221,7 +221,26 @@ namespace BAirway
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            String expireDate = DateTime.Now.AddHours(3).ToString();
+
+            int wiFiExpire = 0;
+            if (ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtWiFiExpire") != null)
+            {
+                if (!ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtWiFiExpire").Equals(""))
+                {
+                    try
+                    {
+                        wiFiExpire = Convert.ToInt32(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtWiFiExpire"));
+                    }
+                    catch (Exception ex)
+                    {
+                        //logger.Error(ex.Message);
+                        wiFiExpire = 3;
+                    }
+                }
+            }
+
+
+            String expireDate = DateTime.Now.AddHours(wiFiExpire).ToString();
             String ssidName = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SSIDName");
             String accessCode = B_ACCESS_CODE.Text;
             String template_p1 =
@@ -236,7 +255,13 @@ namespace BAirway
             "3. The system will automatically redirect to the \nLogin Page,(ระบบจะไปยังหน้าจอ Login อัตโนมัติ)\n" +
             "Please enter Access Code.\n (ป้อน Access Code ที่ได้รับ)" +
             "\n" +
-            "\n";
+            "\n---------------------------------------------------------------\n";
+            String template_p4 = "SCAN NOW !";
+            String template_p5 = "To See Hot Deal";
+            String template_p6 = "in-flight Product";
+            String template_p7 = "SCAN QR CODE";
+            String template_p8 = "เพื่อเยี่ยมชมสินค้าบนเครื่อง";
+
 
             Bitmap logo = new Bitmap(Configurations.PosLogoPath);
             Bitmap clone = new Bitmap(logo.Width, logo.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
@@ -245,11 +270,102 @@ namespace BAirway
                 gr.DrawImage(logo, new Rectangle(0, 0, 110, 60));
             }
             e.Graphics.DrawImage(clone, -5, -12);
-            e.Graphics.DrawString(template_p1, new Font("Arial", 8), Brushes.Black, 0, 5);
-            e.Graphics.DrawString(accessCode, new Font("Arial", 10), Brushes.Black, 80, 55);
-            e.Graphics.DrawString(template_p2, new Font("Arial", 8), Brushes.Black, 0, 75);
-            e.Graphics.DrawString(template_p3, new Font("Arial", 6), Brushes.Black, 0, 95);
+
+            Bitmap logoQR = new Bitmap(Configurations.PosQRPath);
+            Bitmap cloneQR = new Bitmap(logoQR.Width, logoQR.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+            using (Graphics gr = Graphics.FromImage(cloneQR))
+            {
+                gr.DrawImage(logoQR, new Rectangle(0, 0, 80, 80));
+            }
+            e.Graphics.DrawImage(cloneQR, 5, 210);
+
+
+
+
+            String printerSize = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "PRINTER");
+            int PT1Size = 8;
+            int PAcCode = 14;
+            int PT2Size = 8;
+            int PT3Size = 6;
+
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size")))
+            {
+                PT1Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT1Size"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode")))
+            {
+                PAcCode = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPAcCode"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size")))
+            {
+                PT2Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT2Size"));
+            }
+            if (!String.IsNullOrEmpty(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size")))
+            {
+                PT3Size = Convert.ToInt16(ManageLOG.getValueFromRegistry(Configurations.AppRegName, "txtPT3Size"));
+            }
+
+            e.Graphics.DrawString(template_p1, new Font("Arial", PT1Size), Brushes.Black, 0, 5);
+            e.Graphics.DrawString(accessCode, new Font("Arial", PAcCode), Brushes.Black, 80, 55);
+            e.Graphics.DrawString(template_p2, new Font("Arial", PT2Size), Brushes.Black, 0, 75);
+            e.Graphics.DrawString(template_p3, new Font("Arial", PT3Size), Brushes.Black, 0, 95);
+            e.Graphics.DrawString(template_p4, new Font("Arial", 11), Brushes.Black, 88, 210);
+            e.Graphics.DrawString(template_p5, new Font("Arial", 9), Brushes.Black, 88, 230);
+            e.Graphics.DrawString(template_p6, new Font("Arial", 9), Brushes.Black, 88, 243);
+            e.Graphics.DrawString(template_p7, new Font("Arial", 7), Brushes.Black, 88, 258);
+            e.Graphics.DrawString(template_p8, new Font("Arial", 7), Brushes.Black, 88, 270);
+
             e.Graphics.DrawString("-", new Font("Arial", 6), Brushes.Black, 0, 225);
+            //String expireDate = DateTime.Now.AddHours(3).ToString();
+            //String ssidName = ManageLOG.getValueFromRegistry(Configurations.AppRegName, "SSIDName");
+            //String accessCode = B_ACCESS_CODE.Text;
+            //String template_p1 =
+            //                "\t\tBangkok Airways\n" +
+            //                "\t\tInternet Service\n\n" +
+            //                "------------------------------------------------\n" +
+            //                "Access Code: ";
+            //String template_p2 = "Expire Time: " + expireDate + "\n";
+            //String template_p3 = "---------------------------------------------------------------\nInstructions for User\n" +
+            //    "1. Select Wifi " + ((ssidName == null) ? "" : ssidName) + "\n     (เลือก Wifi) \n" +
+            //"2. Run the Internet Browser and go to any website.\n(เปิดอินเตอร์เนตบราวเซอร์แล้วไปยังเวปไซต์ที่ต้องการ) \n" +
+            //"3. The system will automatically redirect to the \nLogin Page,(ระบบจะไปยังหน้าจอ Login อัตโนมัติ)\n" +
+            //"Please enter Access Code.\n (ป้อน Access Code ที่ได้รับ)" +
+            //"\n" +
+            //"\n---------------------------------------------------------------\n";
+
+            //Bitmap logo = new Bitmap(Configurations.PosLogoPath);
+            //Bitmap clone = new Bitmap(logo.Width, logo.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+            //using (Graphics gr = Graphics.FromImage(clone))
+            //{
+            //    gr.DrawImage(logo, new Rectangle(0, 0, 110, 60));
+            //}
+            //e.Graphics.DrawImage(clone, -5, -12);
+
+            //Bitmap logoQR = new Bitmap(Configurations.PosQRPath);
+            //Bitmap cloneQR = new Bitmap(logoQR.Width, logoQR.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+            //using (Graphics gr = Graphics.FromImage(cloneQR))
+            //{
+            //    gr.DrawImage(logoQR, new Rectangle(0, 0, 60, 60));
+            //}
+            //e.Graphics.DrawImage(cloneQR, 5, 210);
+
+            //String template_p4 = "SCAN NOW !";
+            //String template_p5 = "To See Hot Deal";
+            //String template_p6 = "in-flight Product";
+            //String template_p7 = "SCAN QR CODE";
+            //String template_p8 = "เพื่อเยี่ยมชมสินค้าบนเครื่อง";
+
+
+            //e.Graphics.DrawString(template_p1, new Font("Arial", 8), Brushes.Black, 0, 5);
+            //e.Graphics.DrawString(accessCode, new Font("Arial", 10), Brushes.Black, 80, 55);
+            //e.Graphics.DrawString(template_p2, new Font("Arial", 8), Brushes.Black, 0, 75);
+            //e.Graphics.DrawString(template_p3, new Font("Arial", 6), Brushes.Black, 0, 95);
+            //e.Graphics.DrawString(template_p4, new Font("Arial", 11), Brushes.Black, 85, 210);
+            //e.Graphics.DrawString(template_p5, new Font("Arial", 8), Brushes.Black, 85, 230);
+            //e.Graphics.DrawString(template_p6, new Font("Arial", 8), Brushes.Black, 85, 240);
+            //e.Graphics.DrawString(template_p7, new Font("Arial", 6), Brushes.Black, 85, 255);
+            //e.Graphics.DrawString(template_p8, new Font("Arial", 6), Brushes.Black, 85, 265);
+            //e.Graphics.DrawString("-", new Font("Arial", 6), Brushes.Black, 0, 275);
 
         }
 

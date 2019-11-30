@@ -1,0 +1,67 @@
+﻿-------------------
+ftp
+-------------------
+http://www.prdapp.net/install/wms/publish.htm
+custom : /home/prdappne/domains/prdapp.net/public_html/install/wms/
+account: wms@prdapp.net/9rvKVgOw
+
+new ftpap
+----------------------------------
+M1GILJIMENEZ/PILA1 MS EKWGVQS BKKTDXPG 0305 212Y045A0016 300
+http://202.47.242.165/wms/publish.htm
+account : ftpwms/2014c@t
+
+       Please RDC to IP 202.47.242.165
+       Username :  Administrator
+       Password  :   Kathapoj2014
+
+CPU: 4 vCPU(2 virtual core X 2 virtual socket), Mem 4 GB, C: 1 TB
+IP Address: 122.155.186.120
+User name: administrator                 Password:   Cat??2014
+
+
+-------------------
+mysql
+-------------------
+root account : root/P@ssw0rdCAT
+user account : cat01/P@ssw0rd
+
+
+ INSERT INTO user (host, user, password,ssl_cipher,x509_issuer,x509_subject)  VALUES ('%', 'cat02', PASSWORD('P@ssw0rd'),'','','');
+
+
+-------------------
+allow firewall
+-------------------
+netsh advfirewall firewall add rule name="MySQL Server" action=allow protocol=TCP dir=in localport=3306
+
+-------------------
+Sample bording pass
+-------------------
+
+
+
+
+======================================== Create user ========================================
+mysql> CREATE USER 'c1'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c3'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c4'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c5'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c6'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c7'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c8'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c9'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c10'@'localhost' IDENTIFIED BY 'password';
+mysql> CREATE USER 'c11'@'localhost' IDENTIFIED BY 'password';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c1'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c2'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c3'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c4'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c5'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c6'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c7'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c8'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c9'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c10'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'c11'@'localhost';
+mysql> FLUSH PRIVILEGES;

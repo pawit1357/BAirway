@@ -55,6 +55,12 @@ namespace BAW.Biz
             get { return ConfigurationManager.AppSettings["posLogoPath"]; }
         }
 
+        public static String PosQRPath
+        {
+            get { return ConfigurationManager.AppSettings["posQRPath"]; }
+        }
+
+        
         public static String DownloadLocalURL
         {
             get { return ConfigurationManager.AppSettings["DownloadLocalURL"]; }
@@ -94,6 +100,12 @@ namespace BAW.Biz
         {
             get { return Convert.ToInt16(ConfigurationManager.AppSettings["BackCurDate"]); }
         }
+
+        public static String SkipSelfStation
+        {
+            get { return ConfigurationManager.AppSettings["SkipSelfStation"]; }
+        }
+
         #endregion
 
 
